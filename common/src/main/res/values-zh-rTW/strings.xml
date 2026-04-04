@@ -729,4 +729,18 @@
   <string name="channel_unblocked">已解除封鎖</string>
   <string name="header_blocked_channels">封鎖的頻道</string>
   <string name="msg_no_blocked_channels">沒有封鎖的頻道</string>
+
+  <!-- Search fallback queries for anonymous home/trending -->
+  <string name="query_home_1_title">熱門</string>
+  <string name="query_home_1">熱門影片</string>
+  <string name="query_home_2_title">人氣</string>
+  <string name="query_home_2">人氣影片</string>
+  <string name="query_home_3_title">推薦</string>
+  <string name="query_home_3">推薦影片</string>
+  <string name="query_trending_1_title">熱門趨勢</string>
+  <string name="query_trending_1">熱門影片</string>
+  <string name="query_trending_2_title">爆紅</string>
+  <string name="query_trending_2">爆紅影片</string>
+  <string name="query_trending_3_title">熱門創作者</string>
+  <string name="query_trending_3">熱門YouTuber</string>
 </resources>

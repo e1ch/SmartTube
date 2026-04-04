@@ -305,10 +305,8 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
 
         int bootSectionId = getSidebarService().getBootSectionId();
 
-        // Empty Home on first run fix. Switch to something non-empty.
-        if (!getSignInService().isSigned() && VideoStateService.instance(getContext()).isEmpty()) {
-            bootSectionId = MediaGroup.TYPE_MUSIC;
-        }
+        // Home now has search-based fallback content for anonymous users,
+        // so no need to force Music tab on first run.
 
         int index = 0;
 

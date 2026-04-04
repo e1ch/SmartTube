@@ -747,4 +747,18 @@
         <item quantity="one">%s second</item>
         <item quantity="other">%s seconds</item>
     </plurals>
+
+    <!-- Search fallback queries for anonymous home/trending -->
+    <string name="query_home_1_title">Trending</string>
+    <string name="query_home_1">trending videos</string>
+    <string name="query_home_2_title">Popular</string>
+    <string name="query_home_2">most popular videos today</string>
+    <string name="query_home_3_title">Recommended</string>
+    <string name="query_home_3">recommended videos</string>
+    <string name="query_trending_1_title">Trending Now</string>
+    <string name="query_trending_1">trending videos today</string>
+    <string name="query_trending_2_title">Viral</string>
+    <string name="query_trending_2">viral videos</string>
+    <string name="query_trending_3_title">Popular Creators</string>
+    <string name="query_trending_3">popular youtube creators</string>
 </resources>
