@@ -13,6 +13,17 @@
       "https://github.com/e1ch/SmartTube/releases/download/latest/SmartTube_beta_universal.apk"
     ]
   },
+  "31.46": {
+    "versionCode": 2336,
+    "changelog": [
+      "Trending tab: kworb only (removed all search-based fake trending)",
+      "No more '爆紅', '熱門趨勢', 'Viral', 'Hot Now' search shelves"
+    ],
+    "changelog_zh": [
+      "熱門 Tab：僅保留 kworb 真實資料（移除所有搜尋偽熱門）",
+      "不再出現「爆紅」「熱門趨勢」等搜尋結果分類"
+    ]
+  },
   "31.45": {
     "versionCode": 2335,
     "changelog": [
