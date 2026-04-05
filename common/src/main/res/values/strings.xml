@@ -779,6 +779,8 @@
     <string name="query_home_d2">travel vlog best places to visit</string>
     <string name="query_home_d3_title">Discover</string>
     <string name="query_home_d3">documentary TED talk inspiring story</string>
+    <!-- Language discovery section title -->
+    <string name="query_discovery_title">Just Uploaded</string>
     <!-- Kworb real-time trending section title -->
     <string name="query_kworb_title">Trending Now</string>
     <!-- Trending tab (no "Viral" — returns low quality clickbait) -->

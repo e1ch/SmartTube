@@ -13,6 +13,21 @@
       "https://github.com/e1ch/SmartTube/releases/download/latest/SmartTube_beta_universal.apk"
     ]
   },
+  "31.49": {
+    "versionCode": 2339,
+    "changelog": [
+      "Language discovery: stop word search for diverse fresh content",
+      "'Just Uploaded' section with 新影片 badge",
+      "15 language stop word pools for language-specific discovery",
+      "Always runs alongside Charts and search (MEDIUM+ refresh)"
+    ],
+    "changelog_zh": [
+      "語言探索：停用詞搜尋取得多元新鮮內容",
+      "「最新上傳」分類，帶「新影片」badge",
+      "15 種語言的停用詞池",
+      "每次 refresh 都執行（MEDIUM 以上）"
+    ]
+  },
   "31.48": {
     "versionCode": 2338,
     "changelog": [

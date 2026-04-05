@@ -1127,6 +1127,7 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
         ));
         com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setHomeQueryPools(pools);
         com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setKworbTitle(ctx.getString(R.string.query_kworb_title));
+        com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setDiscoveryTitle(ctx.getString(R.string.query_discovery_title));
         // Also set first pool as default homeQueries
         com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setHomeQueries(pools.get(0));
 

@@ -758,6 +758,7 @@
   <string name="query_home_d2">旅遊推薦 必去景點 vlog</string>
   <string name="query_home_d3_title">發現</string>
   <string name="query_home_d3">紀錄片 TED演講 感人故事</string>
+  <string name="query_discovery_title">最新上傳</string>
   <string name="query_kworb_title">即時熱門</string>
   <!-- Trending -->
   <string name="query_trending_1_title">現在熱門</string>
