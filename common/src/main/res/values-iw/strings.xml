@@ -775,5 +775,5 @@ So, make a copy of values-he and name it values-iw. Keep both in your structure.
     <string name="query_home_e2_title">אנימציה</string>
     <string name="query_home_e2">סרט אנימציה סדרה חדשה</string>
     <string name="query_home_e3_title">קומיקס</string>
-    <string name="query_home_e3">manga anime 2026</string>
+    <string name="query_home_e3">manga anime</string>
 </resources>

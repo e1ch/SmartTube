@@ -425,16 +425,16 @@
     <string name="query_trending_3_title">Verta pažiūrėti</string>
     <string name="query_trending_3">geriausias vaizdo įrašas rekomenduojamas būtina pamatyti</string>
     <string name="query_home_d1_title">Filmai</string>
-    <string name="query_home_d1">naujas filmas treileris 2026</string>
+    <string name="query_home_d1">naujas filmas treileris</string>
     <string name="query_home_d2_title">Kelionės</string>
     <string name="query_home_d2">kelionė vlog gražiausios vietos</string>
     <string name="query_home_d3_title">Dokumentika</string>
     <string name="query_home_d3">mokslas dokumentinis filmas</string>
     <!-- Pool E: Anime / Animation -->
     <string name="query_home_e1_title">Anime</string>
-    <string name="query_home_e1">anime 2026 trailer</string>
+    <string name="query_home_e1">anime trailer</string>
     <string name="query_home_e2_title">Animacija</string>
     <string name="query_home_e2">animacinis filmas nauja serija</string>
     <string name="query_home_e3_title">Komiksai</string>
-    <string name="query_home_e3">manga anime 2026</string>
+    <string name="query_home_e3">manga anime</string>
 </resources>

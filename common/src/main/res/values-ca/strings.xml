@@ -519,9 +519,9 @@
     <string name="query_trending_3_title">Val la pena</string>
     <string name="query_trending_3">millor vídeo recomanat imprescindible</string>
     <string name="query_home_d1_title">Pel·lícules</string>
-    <string name="query_home_d1">pel·lícula nova tràiler 2026</string>
+    <string name="query_home_d1">pel·lícula nova tràiler</string>
     <string name="query_home_d2_title">Viatges</string>
-    <string name="query_home_d2">viatge vlog 2026</string>
+    <string name="query_home_d2">viatge vlog</string>
     <string name="query_home_d3_title">Documentals</string>
     <string name="query_home_d3">documental ciència curiositats</string>
     <!-- Pool E: Anime / Animation -->
@@ -530,5 +530,5 @@
     <string name="query_home_e2_title">Animació</string>
     <string name="query_home_e2">pel·lícula animació nova</string>
     <string name="query_home_e3_title">Còmics</string>
-    <string name="query_home_e3">manga anime 2026</string>
+    <string name="query_home_e3">manga anime</string>
 </resources>

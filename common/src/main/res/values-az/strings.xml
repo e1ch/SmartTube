@@ -737,14 +737,14 @@
     <string name="query_home_d1_title">Filmlər</string>
     <string name="query_home_d1">yeni film treyler azərbaycanca</string>
     <string name="query_home_d2_title">Səyahət</string>
-    <string name="query_home_d2">səyahət vlog 2026</string>
+    <string name="query_home_d2">səyahət vlog</string>
     <string name="query_home_d3_title">Sənədli</string>
-    <string name="query_home_d3">maraqlı faktlar izah 2026</string>
+    <string name="query_home_d3">maraqlı faktlar izah</string>
     <!-- Pool E: Anime / Animation -->
     <string name="query_home_e1_title">Anime</string>
-    <string name="query_home_e1">anime yeni sezon 2026</string>
+    <string name="query_home_e1">anime yeni sezon</string>
     <string name="query_home_e2_title">Animasiya</string>
     <string name="query_home_e2">animasiya filmi yeni seriya</string>
     <string name="query_home_e3_title">Komikslar</string>
-    <string name="query_home_e3">manga anime 2026</string>
+    <string name="query_home_e3">manga anime</string>
 </resources>
