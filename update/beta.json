@@ -13,6 +13,17 @@
       "https://github.com/e1ch/SmartTube/releases/download/latest/SmartTube_beta_universal.apk"
     ]
   },
+  "31.48": {
+    "versionCode": 2338,
+    "changelog": [
+      "Search: THIS_WEEK filter — triggers '新影片' badge on results",
+      "Fallback to THIS_MONTH if too few weekly results"
+    ],
+    "changelog_zh": [
+      "搜尋：本週 filter — 搜尋結果會顯示「新影片」badge",
+      "本週結果不足時自動切換為本月"
+    ]
+  },
   "31.47": {
     "versionCode": 2337,
     "changelog": [
