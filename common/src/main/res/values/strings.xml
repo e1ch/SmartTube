@@ -772,6 +772,13 @@
     <string name="query_home_c2">gaming highlights</string>
     <string name="query_home_c3_title">Travel</string>
     <string name="query_home_c3">travel vlog</string>
+    <!-- Pool D: Exploration (break filter bubble, long-tail queries) -->
+    <string name="query_home_d1_title">Discover</string>
+    <string name="query_home_d1">documentary explained</string>
+    <string name="query_home_d2_title">Talks</string>
+    <string name="query_home_d2">TED talk inspiring</string>
+    <string name="query_home_d3_title">Stories</string>
+    <string name="query_home_d3">interview behind the scenes</string>
     <!-- Kworb real-time trending section title -->
     <string name="query_kworb_title">Trending Now</string>
     <!-- Trending tab -->

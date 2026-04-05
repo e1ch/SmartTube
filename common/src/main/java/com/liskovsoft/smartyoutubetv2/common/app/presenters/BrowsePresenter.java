@@ -707,6 +707,9 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
     private void updateVideoRows(BrowseSection section, Observable<List<MediaGroup>> groups) {
         Log.d(TAG, "updateRowsHeader: Start loading section: " + section.getTitle());
 
+        // Reset ranker for fresh diversity scoring
+        if (mRanker != null) mRanker.reset();
+
         // Populate watched video IDs so search fallback can filter them out
         populateExcludedVideoIds(section);
 
@@ -744,6 +747,7 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
 
                             filterHomeIfNeeded(mediaGroups);
                             diversifyChannels(mediaGroups);
+                            rankForDiversity(mediaGroups, section);
 
                             for (MediaGroup mediaGroup : mediaGroups) {
                                 if (mediaGroup.isEmpty()) {
@@ -1111,6 +1115,12 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
             new kotlin.Pair<>(ctx.getString(R.string.query_home_c2_title), ctx.getString(R.string.query_home_c2)),
             new kotlin.Pair<>(ctx.getString(R.string.query_home_c3_title), ctx.getString(R.string.query_home_c3))
         ));
+        // Pool D: Exploration (break filter bubble)
+        pools.add(java.util.Arrays.asList(
+            new kotlin.Pair<>(ctx.getString(R.string.query_home_d1_title), ctx.getString(R.string.query_home_d1)),
+            new kotlin.Pair<>(ctx.getString(R.string.query_home_d2_title), ctx.getString(R.string.query_home_d2)),
+            new kotlin.Pair<>(ctx.getString(R.string.query_home_d3_title), ctx.getString(R.string.query_home_d3))
+        ));
         com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setHomeQueryPools(pools);
         com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setKworbTitle(ctx.getString(R.string.query_kworb_title));
         // Also set first pool as default homeQueries
@@ -1159,6 +1169,21 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
                 group.getMediaItems().clear();
                 group.getMediaItems().addAll(keep);
             }
+        }
+    }
+
+    // Ranking engine for content diversity (scoring + topic penalty + novelty boost)
+    private com.liskovsoft.smartyoutubetv2.common.app.models.search.HomeContentRanker mRanker;
+
+    private void rankForDiversity(List<MediaGroup> mediaGroups, BrowseSection section) {
+        if (mediaGroups == null || !isHomeSection() && section.getId() != MediaGroup.TYPE_TRENDING) return;
+
+        if (mRanker == null) {
+            mRanker = new com.liskovsoft.smartyoutubetv2.common.app.models.search.HomeContentRanker();
+        }
+
+        for (MediaGroup group : mediaGroups) {
+            mRanker.rankGroup(group);
         }
     }
 
