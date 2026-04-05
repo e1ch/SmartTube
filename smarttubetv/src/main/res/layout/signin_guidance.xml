@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/guidance_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- QR Code -->
+        <ImageView
+            android:id="@+id/guidance_icon"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            android:padding="12dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:contentDescription="QR Code" />
+
+        <!-- User Code (single line, centered, same width as QR) -->
+        <TextView
+            android:id="@+id/guidance_title"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:letterSpacing="0.15"
+            android:maxLines="1"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="22sp"
+            android:autoSizeMaxTextSize="34sp"
+            android:layout_marginTop="14dp" />
+
+        <!-- Description: can be wider than QR code -->
+        <TextView
+            android:id="@+id/guidance_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:textSize="14sp"
+            android:textColor="#FFB0B0B0"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginTop="14dp"
+            android:maxWidth="360dp" />
+
+        <!-- Breadcrumb (hidden, required by GuidanceStylist) -->
+        <TextView
+            android:id="@+id/guidance_breadcrumb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</FrameLayout>

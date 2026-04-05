@@ -1,8 +1,13 @@
 package com.liskovsoft.smartyoutubetv2.tv.ui.signin;
 
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
@@ -21,11 +26,6 @@ import com.liskovsoft.smartyoutubetv2.common.utils.Utils;
 import com.liskovsoft.smartyoutubetv2.tv.R;
 import com.liskovsoft.smartyoutubetv2.tv.util.ViewUtil;
 
-import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-
 import java.util.List;
 
 public class SignInFragment extends GuidedStepSupportFragment implements SignInView {
@@ -35,10 +35,12 @@ public class SignInFragment extends GuidedStepSupportFragment implements SignInV
     private SignInPresenter mSignInPresenter;
     private String mFullSignInUrl;
 
+    // Soft warm gray for QR background (easy on eyes in dark room)
+    private static final int QR_BG_COLOR = 0xFFE8E8E8;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         mSignInPresenter = SignInPresenter.instance(getContext());
         mSignInPresenter.setView(this);
     }
@@ -46,43 +48,7 @@ public class SignInFragment extends GuidedStepSupportFragment implements SignInV
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        // Style the QR code icon view: white background with rounded corners (like PrismTube)
-        styleQrCodeView();
-
         mSignInPresenter.onViewInitialized();
-    }
-
-    private void styleQrCodeView() {
-        ImageView iconView = getGuidanceStylist().getIconView();
-        if (iconView != null) {
-            float density = getResources().getDisplayMetrics().density;
-
-            // White background with rounded corners (PrismTube style)
-            GradientDrawable bg = new GradientDrawable();
-            bg.setColor(Color.WHITE);
-            bg.setCornerRadius(12 * density);
-            iconView.setBackground(bg);
-            int pad = (int) (8 * density);
-            iconView.setPadding(pad, pad, pad, pad);
-            iconView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            iconView.setAdjustViewBounds(true);
-
-            // Fixed QR code size
-            ViewGroup.LayoutParams params = iconView.getLayoutParams();
-            if (params != null) {
-                int size = (int) (160 * density);
-                params.width = size;
-                params.height = size;
-                iconView.setLayoutParams(params);
-            }
-        }
-
-        // Also style the title to align with QR code
-        android.widget.TextView titleView = getGuidanceStylist().getTitleView();
-        if (titleView != null) {
-            titleView.setGravity(android.view.Gravity.START);
-        }
     }
 
     @Override
@@ -93,44 +59,103 @@ public class SignInFragment extends GuidedStepSupportFragment implements SignInV
 
     @Override
     public void showCode(String userCode, String signInUrl) {
-        setTitle(userCode, signInUrl);
-    }
+        if (TextUtils.isEmpty(userCode) || getContext() == null) return;
 
-    private void setTitle(String userCode, String signInUrl) {
-        if (TextUtils.isEmpty(userCode)) {
-            return;
-        }
-
-        // Large, prominent user code with letter spacing (like PrismTube)
-        android.widget.TextView titleView = getGuidanceStylist().getTitleView();
-        titleView.setText(userCode);
-        titleView.setTextSize(android.util.TypedValue.COMPLEX_UNIT_SP, 36);
-        titleView.setLetterSpacing(0.3f);
-        titleView.setTypeface(titleView.getTypeface(), android.graphics.Typeface.BOLD);
-
+        // QR code: encode full URL with user_code for auto-fill
         mFullSignInUrl = signInUrl + "?user_code=" + userCode.replace(" ", "-");
 
-        Glide.with(getContext())
-                .load(Utils.toQrCodeLink(mFullSignInUrl))
-                .placeholder(R.drawable.activate_account_qrcode)
-                .apply(ViewUtil.glideOptions())
-                .error(R.drawable.activate_account_qrcode)
-                .listener(mErrorListener)
-                .into(getGuidanceStylist().getIconView());
+        ImageView iconView = getGuidanceStylist().getIconView();
+        if (iconView != null) {
+            // Soft off-white background with rounded corners
+            float density = getResources().getDisplayMetrics().density;
+            GradientDrawable bg = new GradientDrawable();
+            bg.setColor(QR_BG_COLOR);
+            bg.setCornerRadius(16 * density);
+            iconView.setBackground(bg);
+            int pad = (int) (10 * density);
+            iconView.setPadding(pad, pad, pad, pad);
 
-        String description = getString(R.string.signin_view_description, signInUrl);
-        int start = description.indexOf(signInUrl);
-        int end = start + signInUrl.length();
-        CharSequence coloredDescription = Utils.color(description, ContextCompat.getColor(getContext(), R.color.red), start, end);
+            Glide.with(getContext())
+                    .load(Utils.toQrCodeLink(mFullSignInUrl))
+                    .placeholder(R.drawable.activate_account_qrcode)
+                    .apply(ViewUtil.glideOptions())
+                    .error(R.drawable.activate_account_qrcode)
+                    .listener(mErrorListener)
+                    .into(iconView);
+        }
 
-        getGuidanceStylist().getDescriptionView().setText(coloredDescription);
+        // User code: single line, centered under QR
+        TextView titleView = getGuidanceStylist().getTitleView();
+        if (titleView != null) {
+            titleView.setText(userCode);
+        }
+
+        // Description: sign-in URL highlighted in red
+        TextView descView = getGuidanceStylist().getDescriptionView();
+        if (descView != null) {
+            String description = getString(R.string.signin_view_description, signInUrl);
+            int start = description.indexOf(signInUrl);
+            int end = start + signInUrl.length();
+            descView.setText(Utils.color(description, ContextCompat.getColor(getContext(), R.color.red), start, end));
+        }
     }
 
     @Override
     public void close() {
-        if (getActivity() != null) {
-            getActivity().finish();
+        if (getActivity() != null) getActivity().finish();
+    }
+
+    @Override
+    @NonNull
+    public GuidanceStylist onCreateGuidanceStylist() {
+        return new SignInGuidanceStylist();
+    }
+
+    /**
+     * Custom GuidanceStylist that uses vertical layout:
+     * QR code on top → user code below → description below, all centered and 200dp-width aligned.
+     */
+    private static class SignInGuidanceStylist extends GuidanceStylist {
+        private ImageView mIconView;
+        private TextView mTitleView;
+        private TextView mDescriptionView;
+        private TextView mBreadcrumbView;
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, android.view.ViewGroup container, Guidance guidance) {
+            View view = inflater.inflate(R.layout.signin_guidance, container, false);
+
+            mIconView = view.findViewById(R.id.guidance_icon);
+            mTitleView = view.findViewById(R.id.guidance_title);
+            mDescriptionView = view.findViewById(R.id.guidance_description);
+            mBreadcrumbView = view.findViewById(R.id.guidance_breadcrumb);
+
+            if (mTitleView != null) mTitleView.setText(guidance.getTitle());
+            if (mDescriptionView != null) mDescriptionView.setText(guidance.getDescription());
+            if (mIconView != null && guidance.getIconDrawable() != null) {
+                mIconView.setImageDrawable(guidance.getIconDrawable());
+            }
+
+            // Force vertical centering: post to ensure parent is measured
+            view.post(() -> {
+                if (view.getParent() instanceof android.view.ViewGroup) {
+                    android.view.ViewGroup parent = (android.view.ViewGroup) view.getParent();
+                    // Make parent fill available height for centering to work
+                    android.view.ViewGroup.LayoutParams lp = parent.getLayoutParams();
+                    if (lp != null) {
+                        lp.height = android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+                        parent.setLayoutParams(lp);
+                    }
+                }
+            });
+
+            return view;
         }
+
+        @Override public ImageView getIconView() { return mIconView; }
+        @Override public TextView getTitleView() { return mTitleView; }
+        @Override public TextView getDescriptionView() { return mDescriptionView; }
+        @Override public TextView getBreadcrumbView() { return mBreadcrumbView; }
     }
 
     @Override
@@ -138,21 +163,20 @@ public class SignInFragment extends GuidedStepSupportFragment implements SignInV
     public GuidanceStylist.Guidance onCreateGuidance(@NonNull Bundle savedInstanceState) {
         String title = getString(R.string.signin_view_title);
         String description = getString(R.string.signin_view_description, "");
-        return new GuidanceStylist.Guidance(title, description, "", ContextCompat.getDrawable(getContext(), R.drawable.activate_account_qrcode));
+        return new GuidanceStylist.Guidance(title, description, "",
+                ContextCompat.getDrawable(getContext(), R.drawable.activate_account_qrcode));
     }
 
     @Override
     public void onCreateActions(@NonNull List<GuidedAction> actions, Bundle savedInstanceState) {
-        GuidedAction login = new GuidedAction.Builder()
+        actions.add(new GuidedAction.Builder()
                 .id(CONTINUE)
                 .title(getString(R.string.signin_view_action_text))
-                .build();
-        GuidedAction openBrowser = new GuidedAction.Builder()
+                .build());
+        actions.add(new GuidedAction.Builder()
                 .id(OPEN_BROWSER)
                 .title(getString(R.string.login_from_browser))
-                .build();
-        actions.add(login);
-        actions.add(openBrowser);
+                .build());
     }
 
     @Override
@@ -160,9 +184,7 @@ public class SignInFragment extends GuidedStepSupportFragment implements SignInV
         if (action.getId() == CONTINUE) {
             mSignInPresenter.onActionClicked();
         } else if (action.getId() == OPEN_BROWSER) {
-            if (mFullSignInUrl != null) {
-                Utils.openLinkExt(getContext(), mFullSignInUrl);
-            }
+            if (mFullSignInUrl != null) Utils.openLinkExt(getContext(), mFullSignInUrl);
         }
     }
 
@@ -172,7 +194,6 @@ public class SignInFragment extends GuidedStepSupportFragment implements SignInV
             Log.e(TAG, "Glide load failed: " + e);
             return false;
         }
-
         @Override
         public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
             return false;
