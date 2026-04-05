@@ -713,6 +713,9 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
         // Populate watched video IDs so search fallback can filter them out
         populateExcludedVideoIds(section);
 
+        // Load pool cache from disk (survives app restart)
+        loadPoolCache();
+
         disposeActions();
 
         if (getView() == null) {
@@ -769,7 +772,10 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
                         error -> {
                             Log.e(TAG, "updateRowsHeader error: %s", error.getMessage());
                             handleLoadError(error);
-                        }, () -> handleLoadError(null));
+                        }, () -> {
+                            handleLoadError(null);
+                            savePoolCache(); // persist pool to disk for next launch
+                        });
 
         mActions.add(updateAction);
     }
@@ -1197,6 +1203,38 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
 
         for (MediaGroup group : mediaGroups) {
             mRanker.rankGroup(group);
+        }
+    }
+
+    /** Load pool cache from disk into BrowseService2 memory */
+    private void loadPoolCache() {
+        try {
+            java.io.File cacheFile = new java.io.File(getContext().getCacheDir(), "home_pool.json");
+            java.io.File tsFile = new java.io.File(getContext().getCacheDir(), "home_pool_ts.txt");
+            if (cacheFile.exists() && tsFile.exists()) {
+                String json = new String(java.nio.file.Files.readAllBytes(cacheFile.toPath()), "UTF-8");
+                long ts = Long.parseLong(new String(java.nio.file.Files.readAllBytes(tsFile.toPath()), "UTF-8").trim());
+                com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setCachedPoolJson(json);
+                com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setCachedPoolTimestamp(ts);
+            }
+        } catch (Exception e) {
+            // Cache miss, will fetch from network
+        }
+    }
+
+    /** Save pool cache to disk */
+    private void savePoolCache() {
+        try {
+            String json = com.liskovsoft.youtubeapi.browse.v2.BrowseService2.getCachedPoolJson();
+            long ts = com.liskovsoft.youtubeapi.browse.v2.BrowseService2.getCachedPoolTimestamp();
+            if (json != null && !json.isEmpty()) {
+                java.io.File cacheFile = new java.io.File(getContext().getCacheDir(), "home_pool.json");
+                java.io.File tsFile = new java.io.File(getContext().getCacheDir(), "home_pool_ts.txt");
+                java.nio.file.Files.write(cacheFile.toPath(), json.getBytes("UTF-8"));
+                java.nio.file.Files.write(tsFile.toPath(), String.valueOf(ts).getBytes("UTF-8"));
+            }
+        } catch (Exception e) {
+            // Write failed, non-critical
         }
     }
 
