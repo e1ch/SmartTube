@@ -730,16 +730,22 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
             return;
         }
 
+        final boolean[] prefetchStarted = {false};
         Disposable updateAction = groups
                 .subscribe(
                         mediaGroups -> {
                             getView().showProgressBar(false);
 
+                            // Start prefetch on FIRST onNext (Phase 1), not onComplete
+                            if (!prefetchStarted[0]) {
+                                prefetchStarted[0] = true;
+                                startBackgroundPrefetchIfNeeded(section);
+                            }
+
                             filterHomeIfNeeded(mediaGroups);
 
                             for (MediaGroup mediaGroup : mediaGroups) {
                                 if (mediaGroup.isEmpty()) {
-                                    Log.e(TAG, "loadRowsHeader: MediaGroup is empty. Group Name: " + mediaGroup.getTitle());
                                     continue;
                                 }
 
@@ -758,11 +764,7 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
                         error -> {
                             Log.e(TAG, "updateRowsHeader error: %s", error.getMessage());
                             handleLoadError(error);
-                        }, () -> {
-                            handleLoadError(null);
-                            // After home loads, start background prefetch for next refresh
-                            startBackgroundPrefetchIfNeeded(section);
-                        });
+                        }, () -> handleLoadError(null));
 
         mActions.add(updateAction);
     }
