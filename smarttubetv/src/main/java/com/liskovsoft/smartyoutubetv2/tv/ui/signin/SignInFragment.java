@@ -21,6 +21,11 @@ import com.liskovsoft.smartyoutubetv2.common.utils.Utils;
 import com.liskovsoft.smartyoutubetv2.tv.R;
 import com.liskovsoft.smartyoutubetv2.tv.util.ViewUtil;
 
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+
 import java.util.List;
 
 public class SignInFragment extends GuidedStepSupportFragment implements SignInView {
@@ -42,7 +47,47 @@ public class SignInFragment extends GuidedStepSupportFragment implements SignInV
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        // Style the QR code icon view: white background with rounded corners (like PrismTube)
+        styleQrCodeView();
+
         mSignInPresenter.onViewInitialized();
+    }
+
+    private void styleQrCodeView() {
+        ImageView iconView = getGuidanceStylist().getIconView();
+        if (iconView != null) {
+            float density = getResources().getDisplayMetrics().density;
+
+            // White background with rounded corners (PrismTube style)
+            GradientDrawable bg = new GradientDrawable();
+            bg.setColor(Color.WHITE);
+            bg.setCornerRadius(12 * density);
+            iconView.setBackground(bg);
+            int pad = (int) (8 * density);
+            iconView.setPadding(pad, pad, pad, pad);
+            iconView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+
+            // Fixed QR code size
+            ViewGroup.LayoutParams params = iconView.getLayoutParams();
+            if (params != null) {
+                int size = (int) (180 * density);
+                params.width = size;
+                params.height = size;
+                iconView.setLayoutParams(params);
+            }
+
+            // Align icon with text: remove extra margins from parent
+            if (iconView.getParent() instanceof ViewGroup) {
+                ViewGroup parent = (ViewGroup) iconView.getParent();
+                parent.setPadding(0, 0, 0, 0);
+                // Center the QR code in its container
+                if (parent.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                    ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) parent.getLayoutParams();
+                    mlp.setMargins(0, 0, (int)(16 * density), 0);
+                    parent.setLayoutParams(mlp);
+                }
+            }
+        }
     }
 
     @Override
@@ -61,12 +106,25 @@ public class SignInFragment extends GuidedStepSupportFragment implements SignInV
             return;
         }
 
-        getGuidanceStylist().getTitleView().setText(userCode);
+        // Large, prominent user code with letter spacing (like PrismTube)
+        android.widget.TextView titleView = getGuidanceStylist().getTitleView();
+        titleView.setText(userCode);
+        titleView.setTextSize(android.util.TypedValue.COMPLEX_UNIT_SP, 36);
+        titleView.setLetterSpacing(0.3f);
+        titleView.setTypeface(titleView.getTypeface(), android.graphics.Typeface.BOLD);
 
         mFullSignInUrl = signInUrl + "?user_code=" + userCode.replace(" ", "-");
 
+        // URL-encode the full sign-in URL for QR code generation (like PrismTube)
+        String encodedUrl;
+        try {
+            encodedUrl = java.net.URLEncoder.encode(mFullSignInUrl, "UTF-8");
+        } catch (Exception e) {
+            encodedUrl = mFullSignInUrl;
+        }
+
         Glide.with(getContext())
-                .load(Utils.toQrCodeLink(mFullSignInUrl))
+                .load(Utils.toQrCodeLink(encodedUrl))
                 .placeholder(R.drawable.activate_account_qrcode)
                 .apply(ViewUtil.glideOptions())
                 .error(R.drawable.activate_account_qrcode)
