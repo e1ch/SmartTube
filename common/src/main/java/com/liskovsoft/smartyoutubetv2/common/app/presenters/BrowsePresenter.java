@@ -758,9 +758,37 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
                         error -> {
                             Log.e(TAG, "updateRowsHeader error: %s", error.getMessage());
                             handleLoadError(error);
-                        }, () -> handleLoadError(null));
+                        }, () -> {
+                            handleLoadError(null);
+                            // After home loads, start background prefetch for next refresh
+                            startBackgroundPrefetchIfNeeded(section);
+                        });
 
         mActions.add(updateAction);
+    }
+
+    /**
+     * After home/trending loads, prefetch fresh content in background for next refresh.
+     * Uses different search queries to get diverse results.
+     * Limits same-creator repetition via BrowseService2.prefetchedChannelIds.
+     */
+    private void startBackgroundPrefetchIfNeeded(BrowseSection section) {
+        if (section.getId() != MediaGroup.TYPE_HOME) {
+            return;
+        }
+
+        RxHelper.runAsync(() -> {
+            Log.d(TAG, "Background prefetch: starting...");
+            java.util.List<kotlin.Pair<String, String>> prefetchQueries = new java.util.ArrayList<>();
+            prefetchQueries.add(new kotlin.Pair<>("Fresh", "new videos today"));
+            prefetchQueries.add(new kotlin.Pair<>("Discover", "interesting videos to watch"));
+            prefetchQueries.add(new kotlin.Pair<>("Rising", "rising creators"));
+            com.liskovsoft.youtubeapi.browse.v2.BrowseService2 service =
+                new com.liskovsoft.youtubeapi.browse.v2.BrowseService2();
+            service.prefetchForHome(prefetchQueries);
+            Log.d(TAG, "Background prefetch: done, cached %d groups",
+                com.liskovsoft.youtubeapi.browse.v2.BrowseService2.getPrefetchedGroups().size());
+        });
     }
 
     private void updateVideoGrid(BrowseSection section, Observable<MediaGroup> group, int column) {
