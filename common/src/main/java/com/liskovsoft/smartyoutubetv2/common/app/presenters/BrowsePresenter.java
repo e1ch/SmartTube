@@ -737,6 +737,7 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
         }
 
         final boolean[] prefetchStarted = {false};
+        final java.util.Set<String> emittedTitles = new java.util.HashSet<>();
         Disposable updateAction = groups
                 .subscribe(
                         mediaGroups -> {
@@ -761,6 +762,12 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
 
                                 if (TextUtils.isEmpty(videoGroup.getTitle())) {
                                     videoGroup.setTitle(getContext().getString(R.string.suggestions));
+                                }
+
+                                // If same title was already emitted, replace instead of append
+                                String title = videoGroup.getTitle();
+                                if (title != null && !emittedTitles.add(title)) {
+                                    videoGroup.setAction(VideoGroup.ACTION_REPLACE);
                                 }
 
                                 getView().updateSection(videoGroup);
