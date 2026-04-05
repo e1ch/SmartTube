@@ -741,15 +741,15 @@
     </plurals>
     <!-- Search fallback queries -->
     <string name="query_home_1_title">В тренде</string>
-    <string name="query_home_1">новые музыкальные клипы 2025</string>
+    <string name="query_home_1">новые музыкальные клипы</string>
     <string name="query_home_2_title">Популярное</string>
     <string name="query_home_2">популярные видео сегодня</string>
     <string name="query_home_3_title">Рекомендованное</string>
     <string name="query_home_3">хорошие видео для просмотра</string>
     <string name="query_trending_1_title">Сейчас в тренде</string>
-    <string name="query_trending_1">тренды музыки 2025</string>
+    <string name="query_trending_1">тренды музыки</string>
     <string name="query_trending_2_title">Вирусное</string>
     <string name="query_trending_2">вирусные видео</string>
     <string name="query_trending_3_title">Чарты</string>
-    <string name="query_trending_3">музыкальные чарты 2025</string>
+    <string name="query_trending_3">музыкальные чарты</string>
 </resources>

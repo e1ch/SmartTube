@@ -596,15 +596,15 @@
   <string name="unlock_high_bitrate_audio_formats">Отключване на формати mp4a с висок битрейт</string>
     <!-- Search fallback queries -->
     <string name="query_home_1_title">Популярни</string>
-    <string name="query_home_1">нови музикални клипове 2025</string>
+    <string name="query_home_1">нови музикални клипове</string>
     <string name="query_home_2_title">Най-гледани</string>
     <string name="query_home_2">популярни видеа днес</string>
     <string name="query_home_3_title">Препоръчани</string>
     <string name="query_home_3">хубави видеа за гледане</string>
     <string name="query_trending_1_title">Актуални сега</string>
-    <string name="query_trending_1">тренд музика 2025</string>
+    <string name="query_trending_1">тренд музика</string>
     <string name="query_trending_2_title">Вирусни</string>
     <string name="query_trending_2">вирусни видеа</string>
     <string name="query_trending_3_title">Класации</string>
-    <string name="query_trending_3">музикални класации 2025</string>
+    <string name="query_trending_3">музикални класации</string>
 </resources>

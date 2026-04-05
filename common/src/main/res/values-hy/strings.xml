@@ -147,15 +147,15 @@
     <string name="unsubscribe_from_channel">Ապաբաժանորդագրվել ալիքից</string>
     <!-- Search fallback queries -->
     <string name="query_home_1_title">Թրենդինգ</string>
-    <string name="query_home_1">նոր երաժշտական տեսահոլովակներ 2025</string>
+    <string name="query_home_1">նոր երաժշտական տեսահոլովակներ</string>
     <string name="query_home_2_title">Պոպուլար</string>
     <string name="query_home_2">հանրահատ տեսանյութեր այսօր</string>
     <string name="query_home_3_title">Հանրահաստ</string>
     <string name="query_home_3">լավ տեսանյութեր դիտելու</string>
     <string name="query_trending_1_title">Թրենդինգ հիմա</string>
-    <string name="query_trending_1">թրենդ երաժշտություն 2025</string>
+    <string name="query_trending_1">թրենդ երաժշտություն</string>
     <string name="query_trending_2_title">Վիրալ</string>
     <string name="query_trending_2">վիրալ տեսանյութեր</string>
     <string name="query_trending_3_title">Չարտեր</string>
-    <string name="query_trending_3">երաժշտական չարտեր 2025</string>
+    <string name="query_trending_3">երաժշտական չարտեր</string>
 </resources>

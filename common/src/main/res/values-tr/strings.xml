@@ -747,15 +747,15 @@
     </plurals>
     <!-- Search fallback queries -->
     <string name="query_home_1_title">Trend</string>
-    <string name="query_home_1">yeni müzik videoları 2025</string>
+    <string name="query_home_1">yeni müzik videoları</string>
     <string name="query_home_2_title">Popüler</string>
     <string name="query_home_2">popüler videolar bugün</string>
     <string name="query_home_3_title">Önerilen</string>
     <string name="query_home_3">izlenecek güzel videolar</string>
     <string name="query_trending_1_title">Şu an trend</string>
-    <string name="query_trending_1">trending müzik 2025</string>
+    <string name="query_trending_1">trending müzik</string>
     <string name="query_trending_2_title">Viral</string>
     <string name="query_trending_2">viral videolar</string>
     <string name="query_trending_3_title">Listeler</string>
-    <string name="query_trending_3">müzik listesi 2025</string>
+    <string name="query_trending_3">müzik listesi</string>
 </resources>

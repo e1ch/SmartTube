@@ -731,15 +731,15 @@
     <string name="msg_no_blocked_channels">Žiadne zablokované kanály</string>
     <!-- Search fallback queries -->
     <string name="query_home_1_title">Trendy</string>
-    <string name="query_home_1">nové hudobné videoklipy 2025</string>
+    <string name="query_home_1">nové hudobné videoklipy</string>
     <string name="query_home_2_title">Oblúbené</string>
     <string name="query_home_2">populárne videá dnes</string>
     <string name="query_home_3_title">Odporúčané</string>
     <string name="query_home_3">dobré videá na pozeranie</string>
     <string name="query_trending_1_title">Teraz v trende</string>
-    <string name="query_trending_1">hudobné trendy 2025</string>
+    <string name="query_trending_1">hudobné trendy</string>
     <string name="query_trending_2_title">Virálne</string>
     <string name="query_trending_2">virálne videá</string>
     <string name="query_trending_3_title">Rebríčky</string>
-    <string name="query_trending_3">hudobné rebríčky 2025</string>
+    <string name="query_trending_3">hudobné rebríčky</string>
 </resources>

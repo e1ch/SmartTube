@@ -714,15 +714,15 @@
   <string name="stable_restore">Minden beállítás törlése!</string>
     <!-- Search fallback queries -->
     <string name="query_home_1_title">Felkapott</string>
-    <string name="query_home_1">új zenei videóklipek 2025</string>
+    <string name="query_home_1">új zenei videóklipek</string>
     <string name="query_home_2_title">Népszerű</string>
     <string name="query_home_2">népszerű videók ma</string>
     <string name="query_home_3_title">Ajánlott</string>
     <string name="query_home_3">jó videók megtekinstésre</string>
     <string name="query_trending_1_title">Most felkapott</string>
-    <string name="query_trending_1">trendi zene 2025</string>
+    <string name="query_trending_1">trendi zene</string>
     <string name="query_trending_2_title">Virális</string>
     <string name="query_trending_2">virális videók</string>
     <string name="query_trending_3_title">Toplisták</string>
-    <string name="query_trending_3">zenei toplista 2025</string>
+    <string name="query_trending_3">zenei toplista</string>
 </resources>

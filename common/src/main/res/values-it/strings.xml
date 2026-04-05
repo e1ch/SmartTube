@@ -733,15 +733,15 @@
     <string name="player_time_stretching_desc">Mantiene la voce naturale quando si cambia velocità. Potrebbe ridurre significativamente le prestazioni su alcuni dispositivi.</string>
     <!-- Search fallback queries -->
     <string name="query_home_1_title">Tendenze</string>
-    <string name="query_home_1">nuovi video musicali 2025</string>
+    <string name="query_home_1">nuovi video musicali</string>
     <string name="query_home_2_title">Popolare</string>
     <string name="query_home_2">video popolari oggi</string>
     <string name="query_home_3_title">Consigliato</string>
     <string name="query_home_3">bei video da guardare</string>
     <string name="query_trending_1_title">Di tendenza ora</string>
-    <string name="query_trending_1">musica trending 2025</string>
+    <string name="query_trending_1">musica trending</string>
     <string name="query_trending_2_title">Virale</string>
     <string name="query_trending_2">video virali</string>
     <string name="query_trending_3_title">Classifiche</string>
-    <string name="query_trending_3">classifiche musicali 2025</string>
+    <string name="query_trending_3">classifiche musicali</string>
 </resources>

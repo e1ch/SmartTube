@@ -507,15 +507,15 @@
   <string name="enable_history">Activeu l\'historial</string>
     <!-- Search fallback queries -->
     <string name="query_home_1_title">Tendència</string>
-    <string name="query_home_1">videoclips musicals nous 2025</string>
+    <string name="query_home_1">videoclips musicals nous</string>
     <string name="query_home_2_title">Popular</string>
     <string name="query_home_2">vídeos populars avui</string>
     <string name="query_home_3_title">Recomanat</string>
     <string name="query_home_3">bons vídeos per veure</string>
     <string name="query_trending_1_title">Tendència ara</string>
-    <string name="query_trending_1">música tendència 2025</string>
+    <string name="query_trending_1">música tendència</string>
     <string name="query_trending_2_title">Viral</string>
     <string name="query_trending_2">vídeos virals</string>
     <string name="query_trending_3_title">Llistes</string>
-    <string name="query_trending_3">llistes musicals 2025</string>
+    <string name="query_trending_3">llistes musicals</string>
 </resources>

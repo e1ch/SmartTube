@@ -298,15 +298,15 @@
   <string name="keyboard_auto_show">Samodejno prikaži tipkovnico</string>
     <!-- Search fallback queries -->
     <string name="query_home_1_title">V trendu</string>
-    <string name="query_home_1">novi glasbeni videospoti 2025</string>
+    <string name="query_home_1">novi glasbeni videospoti</string>
     <string name="query_home_2_title">Priljubljeno</string>
     <string name="query_home_2">priljubljeni videoposnetki danes</string>
     <string name="query_home_3_title">Priporočeno</string>
     <string name="query_home_3">dobri videoposnetki za ogled</string>
     <string name="query_trending_1_title">Zdaj v trendu</string>
-    <string name="query_trending_1">trending glasba 2025</string>
+    <string name="query_trending_1">trending glasba</string>
     <string name="query_trending_2_title">Viralno</string>
     <string name="query_trending_2">viralni videoposnetki</string>
     <string name="query_trending_3_title">Lestvice</string>
-    <string name="query_trending_3">glasbene lestvice 2025</string>
+    <string name="query_trending_3">glasbene lestvice</string>
 </resources>

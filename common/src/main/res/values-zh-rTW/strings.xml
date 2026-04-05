@@ -751,6 +751,7 @@
   <string name="query_home_c2">遊戲 實況 精華</string>
   <string name="query_home_c3_title">旅遊</string>
   <string name="query_home_c3">旅遊 vlog 推薦</string>
+  <string name="query_kworb_title">即時熱門</string>
   <!-- Trending -->
   <string name="query_trending_1_title">熱門趨勢</string>
   <string name="query_trending_1">熱門MV</string>

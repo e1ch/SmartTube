@@ -620,15 +620,15 @@
   <string name="nothing_found">Midagi ei leitud</string>
     <!-- Search fallback queries -->
     <string name="query_home_1_title">Populaarsed</string>
-    <string name="query_home_1">uued muusikavideod 2025</string>
+    <string name="query_home_1">uued muusikavideod</string>
     <string name="query_home_2_title">Menukad</string>
     <string name="query_home_2">populaarsed videod täna</string>
     <string name="query_home_3_title">Soovitatud</string>
     <string name="query_home_3">head videod vaatamiseks</string>
     <string name="query_trending_1_title">Praegu populaarne</string>
-    <string name="query_trending_1">trending muusika 2025</string>
+    <string name="query_trending_1">trending muusika</string>
     <string name="query_trending_2_title">Viraalne</string>
     <string name="query_trending_2">viraalsed videod</string>
     <string name="query_trending_3_title">Edetabelid</string>
-    <string name="query_trending_3">muusika edetabel 2025</string>
+    <string name="query_trending_3">muusika edetabel</string>
 </resources>

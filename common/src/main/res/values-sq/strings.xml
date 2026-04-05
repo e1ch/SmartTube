@@ -712,15 +712,15 @@
   <string name="suggestions_horizontally_scrolled">Sugjerime të lëvizura horizontalisht</string>
     <!-- Search fallback queries -->
     <string name="query_home_1_title">Në trend</string>
-    <string name="query_home_1">videoklipe muzikore të reja 2025</string>
+    <string name="query_home_1">videoklipe muzikore të reja</string>
     <string name="query_home_2_title">Popullore</string>
     <string name="query_home_2">video popullore sot</string>
     <string name="query_home_3_title">Të rekomanduara</string>
     <string name="query_home_3">video të mira për të parë</string>
     <string name="query_trending_1_title">Në trend tani</string>
-    <string name="query_trending_1">muzikë trending 2025</string>
+    <string name="query_trending_1">muzikë trending</string>
     <string name="query_trending_2_title">Virale</string>
     <string name="query_trending_2">video virale</string>
     <string name="query_trending_3_title">Renditje</string>
-    <string name="query_trending_3">renditje muzikore 2025</string>
+    <string name="query_trending_3">renditje muzikore</string>
 </resources>

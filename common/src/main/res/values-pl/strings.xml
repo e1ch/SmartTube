@@ -735,15 +735,15 @@
   <string name="ignore_short_segments">Pomiń krótkie segmenty</string>
     <!-- Search fallback queries -->
     <string name="query_home_1_title">Na czasie</string>
-    <string name="query_home_1">nowe teledyski 2025</string>
+    <string name="query_home_1">nowe teledyski</string>
     <string name="query_home_2_title">Popularne</string>
     <string name="query_home_2">popularne filmy dziś</string>
     <string name="query_home_3_title">Polecane</string>
     <string name="query_home_3">dobre filmy do obejrzenia</string>
     <string name="query_trending_1_title">Teraz na czasie</string>
-    <string name="query_trending_1">muzyka trending 2025</string>
+    <string name="query_trending_1">muzyka trending</string>
     <string name="query_trending_2_title">Viralowe</string>
     <string name="query_trending_2">viralowe filmy</string>
     <string name="query_trending_3_title">Listy przebojów</string>
-    <string name="query_trending_3">lista przebojów 2025</string>
+    <string name="query_trending_3">lista przebojów</string>
 </resources>

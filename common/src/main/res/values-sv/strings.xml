@@ -723,15 +723,15 @@
   <string name="once_a_month">En gång i månaden</string>
     <!-- Search fallback queries -->
     <string name="query_home_1_title">Trender</string>
-    <string name="query_home_1">nya musikvideor 2025</string>
+    <string name="query_home_1">nya musikvideor</string>
     <string name="query_home_2_title">Populärt</string>
     <string name="query_home_2">populära videor idag</string>
     <string name="query_home_3_title">Rekommenderat</string>
     <string name="query_home_3">bra videor att titta på</string>
     <string name="query_trending_1_title">Trender nu</string>
-    <string name="query_trending_1">trending musik 2025</string>
+    <string name="query_trending_1">trending musik</string>
     <string name="query_trending_2_title">Viralt</string>
     <string name="query_trending_2">virala videor</string>
     <string name="query_trending_3_title">Topplistor</string>
-    <string name="query_trending_3">musik topplista 2025</string>
+    <string name="query_trending_3">musik topplista</string>
 </resources>
