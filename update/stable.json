@@ -13,6 +13,15 @@
       "https://github.com/e1ch/SmartTube/releases/download/latest/SmartTube_beta_universal.apk"
     ]
   },
+  "31.70": {
+    "versionCode": 2360,
+    "changelog": [
+      "Fix: duplicate discovery shelf rows, star symbol ✦ consistency"
+    ],
+    "changelog_zh": [
+      "修正：為你推薦重複顯示問題，星號符號 ✦ 統一"
+    ]
+  },
   "31.69": {
     "versionCode": 2359,
     "changelog": [
