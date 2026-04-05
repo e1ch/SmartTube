@@ -13,8 +13,8 @@
       "https://github.com/e1ch/SmartTube/releases/download/latest/SmartTube_beta_universal.apk"
     ]
   },
-  "31.66": {
-    "versionCode": 2356,
+  "31.67": {
+    "versionCode": 2357,
     "changelog": [
       "Fix: search works when signed in (addAuthSkip on SearchService)"
     ],
