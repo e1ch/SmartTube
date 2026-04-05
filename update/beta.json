@@ -16,30 +16,149 @@
   "31.61": {
     "versionCode": 2351,
     "changelog": [
-      "Audited and fixed 54 search queries across 38 languages",
-      "searchFresh(): THIS_WEEK with THIS_MONTH fallback on all search paths",
-      "Language discovery: stop word search for diverse fresh content",
-      "Trending tab: kworb-only (removed fake search trending)",
-      "Ranking engine: topic/channel diversity scoring",
-      "YouTube Charts: official trending/top/songs per country",
-      "Duration badge on all video sources",
-      "Exploration pool: movies, travel, knowledge (45 languages)",
-      "QR code sign-in: vertical layout, soft background",
-      "SplashActivity prewarm for faster cold start",
-      "Update system: points to e1ch/SmartTube releases"
+      "Fix: search works when signed in (addAuthSkip on SearchService)"
     ],
     "changelog_zh": [
-      "審查並修正 38 種語言共 54 個搜尋查詢",
-      "searchFresh()：本週+本月 fallback 確保新鮮內容",
-      "語言探索：停用詞搜尋取得多元新影片",
-      "熱門 Tab：僅 kworb 真實資料",
-      "排名引擎：類型/頻道多樣性評分",
-      "YouTube 官方排行榜：依國家顯示熱門/排行/歌曲",
-      "影片長度 badge 顯示在所有來源",
-      "探索池：電影、旅遊、知識（45 種語言）",
-      "QR code 登入優化",
-      "SplashActivity 預熱加速冷啟動",
-      "更新系統指向 e1ch/SmartTube"
+      "修正：登入後搜尋功能恢復正常"
+    ]
+  },
+  "31.60": {
+    "versionCode": 2350,
+    "changelog": [
+      "QoS: playback-aware search throttling (3→1 concurrent during video)"
+    ],
+    "changelog_zh": [
+      "QoS：播放影片時自動降低背景搜尋併發"
+    ]
+  },
+  "31.59": {
+    "versionCode": 2349,
+    "changelog": [
+      "Background prefetch delayed 10s, search threads MIN_PRIORITY"
+    ],
+    "changelog_zh": [
+      "背景預取延遲 10 秒，搜尋執行緒降低優先級"
+    ]
+  },
+  "31.58": {
+    "versionCode": 2348,
+    "changelog": [
+      "Purged all hardcoded years from 68 search queries across 39 files"
+    ],
+    "changelog_zh": [
+      "清除 39 個檔案共 68 個搜尋查詢中的硬編碼年份"
+    ]
+  },
+  "31.57": {
+    "versionCode": 2347,
+    "changelog": [
+      "Anime Pool E: audited 117 queries, fixed 50 across 32 languages"
+    ],
+    "changelog_zh": [
+      "動漫 Pool E：審查 117 個查詢，修正 32 種語言共 50 個"
+    ]
+  },
+  "31.56": {
+    "versionCode": 2346,
+    "changelog": [
+      "Anime Pool E across 45 languages"
+    ],
+    "changelog_zh": [
+      "動漫 Pool E 45 種語言"
+    ]
+  },
+  "31.55": {
+    "versionCode": 2345,
+    "changelog": [
+      "Localized movie queries, anime Pool E, 5 content pools rotating"
+    ],
+    "changelog_zh": [
+      "電影查詢本地化，動漫 Pool E，5 組查詢池輪換"
+    ]
+  },
+  "31.54": {
+    "versionCode": 2344,
+    "changelog": [
+      "Trending tab: fallback chain kworb → Charts → language discovery"
+    ],
+    "changelog_zh": [
+      "熱門 Tab：三層 fallback"
+    ]
+  },
+  "31.53": {
+    "versionCode": 2343,
+    "changelog": [
+      "Accept-Language header for localized movie/streaming titles"
+    ],
+    "changelog_zh": [
+      "Accept-Language header：電影標題本地化"
+    ]
+  },
+  "31.52": {
+    "versionCode": 2342,
+    "changelog": [
+      "Audited 54 search queries across 38 languages",
+      "Ranking engine, YouTube Charts, duration badge, exploration pool"
+    ],
+    "changelog_zh": [
+      "審查 38 種語言 54 個搜尋查詢",
+      "排名引擎、YouTube 排行榜、影片長度 badge、探索池"
+    ]
+  },
+  "31.51": {
+    "versionCode": 2341,
+    "changelog": [
+      "searchFresh(): THIS_WEEK + THIS_MONTH fallback everywhere"
+    ]
+  },
+  "31.50": {
+    "versionCode": 2340,
+    "changelog": [
+      "All search calls now use THIS_WEEK filter"
+    ]
+  },
+  "31.49": {
+    "versionCode": 2339,
+    "changelog": [
+      "Language discovery: stop word search, 15 language pools"
+    ]
+  },
+  "31.48": {
+    "versionCode": 2338,
+    "changelog": [
+      "THIS_WEEK filter triggers 新影片 badge on search results"
+    ]
+  },
+  "31.47": {
+    "versionCode": 2337,
+    "changelog": [
+      "Search filter THIS_MONTH for fresh content"
+    ]
+  },
+  "31.46": {
+    "versionCode": 2336,
+    "changelog": [
+      "Trending tab: kworb-only, removed fake search trending"
+    ]
+  },
+  "31.45": {
+    "versionCode": 2335,
+    "changelog": [
+      "Removed 爆紅/Viral shelves, replaced with better queries"
+    ]
+  },
+  "31.44": {
+    "versionCode": 2334,
+    "changelog": [
+      "Ranking engine, exploration pool, duration badge"
+    ]
+  },
+  "31.43": {
+    "versionCode": 2333,
+    "changelog": [
+      "YouTube Charts, progressive home loading, QR sign-in",
+      "kworb /player metadata, 48 language search queries",
+      "SplashActivity prewarm, parallel search"
     ]
   },
   "31.42": {
