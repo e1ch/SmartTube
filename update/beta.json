@@ -13,6 +13,21 @@
       "https://github.com/e1ch/SmartTube/releases/download/latest/SmartTube_beta_universal.apk"
     ]
   },
+  "31.45": {
+    "versionCode": 2335,
+    "changelog": [
+      "Removed 'Viral/爆紅' and 'Trending/熱門趨勢' low-quality search shelves",
+      "Trending queries replaced: Hot Now / New Releases / Worth Watching",
+      "Prefetch uses home query pools instead of trending queries",
+      "All 45 languages updated"
+    ],
+    "changelog_zh": [
+      "移除「爆紅」「熱門趨勢」低品質搜尋分類",
+      "Trending 查詢替換：現在熱門 / 新上映 / 值得一看",
+      "首頁預取改用 home query pool",
+      "全部 45 種語言更新"
+    ]
+  },
   "31.44": {
     "versionCode": 2334,
     "changelog": [

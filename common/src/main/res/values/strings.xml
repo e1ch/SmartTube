@@ -781,11 +781,11 @@
     <string name="query_home_d3">documentary TED talk inspiring story</string>
     <!-- Kworb real-time trending section title -->
     <string name="query_kworb_title">Trending Now</string>
-    <!-- Trending tab -->
-    <string name="query_trending_1_title">Trending Now</string>
-    <string name="query_trending_1">trending music video</string>
-    <string name="query_trending_2_title">Viral</string>
-    <string name="query_trending_2">viral video this week</string>
-    <string name="query_trending_3_title">Charts</string>
-    <string name="query_trending_3">music chart</string>
+    <!-- Trending tab (no "Viral" — returns low quality clickbait) -->
+    <string name="query_trending_1_title">Hot Now</string>
+    <string name="query_trending_1">popular video today highlights</string>
+    <string name="query_trending_2_title">New Releases</string>
+    <string name="query_trending_2">new release official trailer movie</string>
+    <string name="query_trending_3_title">Worth Watching</string>
+    <string name="query_trending_3">best video recommended must watch</string>
 </resources>

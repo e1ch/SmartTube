@@ -760,10 +760,10 @@
   <string name="query_home_d3">紀錄片 TED演講 感人故事</string>
   <string name="query_kworb_title">即時熱門</string>
   <!-- Trending -->
-  <string name="query_trending_1_title">熱門趨勢</string>
-  <string name="query_trending_1">熱門MV</string>
-  <string name="query_trending_2_title">爆紅</string>
-  <string name="query_trending_2">爆紅影片</string>
-  <string name="query_trending_3_title">排行榜</string>
-  <string name="query_trending_3">音樂排行榜</string>
+  <string name="query_trending_1_title">現在熱門</string>
+  <string name="query_trending_1">今日熱門精華 影片</string>
+  <string name="query_trending_2_title">新上映</string>
+  <string name="query_trending_2">最新上映 官方預告片 電影</string>
+  <string name="query_trending_3_title">值得一看</string>
+  <string name="query_trending_3">推薦 必看 精選影片</string>
 </resources>

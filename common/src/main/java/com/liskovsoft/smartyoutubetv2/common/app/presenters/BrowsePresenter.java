@@ -786,12 +786,16 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
 
         RxHelper.runAsync(() -> {
             Log.d(TAG, "Background prefetch: starting...");
-            // Use localized queries from BrowseService2 for diverse prefetch content
-            java.util.List<kotlin.Pair<String, String>> prefetchQueries =
-                com.liskovsoft.youtubeapi.browse.v2.BrowseService2.getTrendingQueries();
-            com.liskovsoft.youtubeapi.browse.v2.BrowseService2 service =
-                new com.liskovsoft.youtubeapi.browse.v2.BrowseService2();
-            service.prefetchForHome(prefetchQueries);
+            // Use next rotation's home queries (not trending — those are low quality)
+            java.util.List<java.util.List<kotlin.Pair<String, String>>> pools =
+                com.liskovsoft.youtubeapi.browse.v2.BrowseService2.getHomeQueryPools();
+            if (pools != null && !pools.isEmpty()) {
+                int nextIdx = com.liskovsoft.youtubeapi.browse.v2.BrowseService2.getRefreshCounter().get() + 1;
+                java.util.List<kotlin.Pair<String, String>> prefetchQueries = pools.get(nextIdx % pools.size());
+                com.liskovsoft.youtubeapi.browse.v2.BrowseService2 service =
+                    new com.liskovsoft.youtubeapi.browse.v2.BrowseService2();
+                service.prefetchForHome(prefetchQueries);
+            }
             Log.d(TAG, "Background prefetch: done, cached %d groups",
                 com.liskovsoft.youtubeapi.browse.v2.BrowseService2.getPrefetchedGroups().size());
         });
