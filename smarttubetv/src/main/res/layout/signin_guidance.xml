@@ -21,20 +21,19 @@
             android:adjustViewBounds="true"
             android:contentDescription="QR Code" />
 
-        <!-- User Code (single line, centered, same width as QR) -->
+        <!-- User Code: fills QR width, auto-sizes to be as large as possible -->
         <TextView
             android:id="@+id/guidance_title"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="34sp"
             android:textStyle="bold"
             android:textColor="@android:color/white"
-            android:letterSpacing="0.15"
+            android:letterSpacing="0.1"
             android:maxLines="1"
             android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="22sp"
-            android:autoSizeMaxTextSize="34sp"
+            android:autoSizeMinTextSize="24sp"
+            android:autoSizeMaxTextSize="42sp"
             android:layout_marginTop="14dp" />
 
         <!-- Description: can be wider than QR code -->

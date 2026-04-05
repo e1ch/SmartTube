@@ -37,6 +37,7 @@ public class SignInFragment extends GuidedStepSupportFragment implements SignInV
 
     // Soft warm gray for QR background (easy on eyes in dark room)
     private static final int QR_BG_COLOR = 0xFFE8E8E8;
+    private boolean mQrLoaded = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,12 +62,12 @@ public class SignInFragment extends GuidedStepSupportFragment implements SignInV
     public void showCode(String userCode, String signInUrl) {
         if (TextUtils.isEmpty(userCode) || getContext() == null) return;
 
-        // QR code: encode full URL with user_code for auto-fill
         mFullSignInUrl = signInUrl + "?user_code=" + userCode.replace(" ", "-");
 
+        // QR code: load only once with the sign-in URL (code won't auto-fill via yt.be/activate)
         ImageView iconView = getGuidanceStylist().getIconView();
-        if (iconView != null) {
-            // Soft off-white background with rounded corners
+        if (iconView != null && !mQrLoaded) {
+            mQrLoaded = true;
             float density = getResources().getDisplayMetrics().density;
             GradientDrawable bg = new GradientDrawable();
             bg.setColor(QR_BG_COLOR);
@@ -75,8 +76,9 @@ public class SignInFragment extends GuidedStepSupportFragment implements SignInV
             int pad = (int) (10 * density);
             iconView.setPadding(pad, pad, pad, pad);
 
+            // Static QR — just the activation URL, no need to refresh per code
             Glide.with(getContext())
-                    .load(Utils.toQrCodeLink(mFullSignInUrl))
+                    .load(Utils.toQrCodeLink(signInUrl))
                     .placeholder(R.drawable.activate_account_qrcode)
                     .apply(ViewUtil.glideOptions())
                     .error(R.drawable.activate_account_qrcode)
