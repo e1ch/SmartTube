@@ -13,6 +13,17 @@
       "https://github.com/e1ch/SmartTube/releases/download/latest/SmartTube_beta_universal.apk"
     ]
   },
+  "31.47": {
+    "versionCode": 2337,
+    "changelog": [
+      "Search filter: THIS_MONTH — only shows videos from last 30 days",
+      "No more old/stale content in search fallback results"
+    ],
+    "changelog_zh": [
+      "搜尋過濾：僅顯示過去一個月內的影片",
+      "搜尋結果不再出現舊影片"
+    ]
+  },
   "31.46": {
     "versionCode": 2336,
     "changelog": [
