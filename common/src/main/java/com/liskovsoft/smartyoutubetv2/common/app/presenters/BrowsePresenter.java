@@ -1125,6 +1125,12 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
             new kotlin.Pair<>(ctx.getString(R.string.query_home_d2_title), ctx.getString(R.string.query_home_d2)),
             new kotlin.Pair<>(ctx.getString(R.string.query_home_d3_title), ctx.getString(R.string.query_home_d3))
         ));
+        // Pool E: Anime / Animation
+        pools.add(java.util.Arrays.asList(
+            new kotlin.Pair<>(ctx.getString(R.string.query_home_e1_title), ctx.getString(R.string.query_home_e1)),
+            new kotlin.Pair<>(ctx.getString(R.string.query_home_e2_title), ctx.getString(R.string.query_home_e2)),
+            new kotlin.Pair<>(ctx.getString(R.string.query_home_e3_title), ctx.getString(R.string.query_home_e3))
+        ));
         com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setHomeQueryPools(pools);
         com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setKworbTitle(ctx.getString(R.string.query_kworb_title));
         com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setDiscoveryTitle(ctx.getString(R.string.query_discovery_title));

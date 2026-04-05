@@ -764,7 +764,7 @@ So, make a copy of values-he and name it values-iw. Keep both in your structure.
     <string name="query_trending_3_title">שווה צפייה</string>
     <string name="query_trending_3">סרטון הכי טוב מומלץ חובה לצפות</string>
     <string name="query_home_d1_title">סרטים</string>
-    <string name="query_home_d1">סרטים חדשים טריילר נטפליקס דיסני</string>
+    <string name="query_home_d1">סרט חדש טריילר עברית</string>
     <string name="query_home_d2_title">טיולים</string>
     <string name="query_home_d2">טיול ולוג יעדים מומלצים</string>
     <string name="query_home_d3_title">תיעודי</string>

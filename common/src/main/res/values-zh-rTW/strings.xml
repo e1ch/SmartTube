@@ -753,11 +753,18 @@
   <string name="query_home_c3">旅遊 vlog 推薦</string>
   <!-- Pool D: 探索（電影、旅遊、紀錄片） -->
   <string name="query_home_d1_title">電影</string>
-  <string name="query_home_d1">電影預告片 Netflix 迪士尼 漫威</string>
+  <string name="query_home_d1">最新電影 預告 中文</string>
   <string name="query_home_d2_title">旅遊</string>
   <string name="query_home_d2">旅遊推薦 必去景點 vlog</string>
   <string name="query_home_d3_title">知識</string>
   <string name="query_home_d3">知識 科普 解說</string>
+  <!-- Pool E: 動漫 -->
+  <string name="query_home_e1_title">動漫</string>
+  <string name="query_home_e1">動漫 新番 預告</string>
+  <string name="query_home_e2_title">動畫</string>
+  <string name="query_home_e2">動畫電影 新作 中文</string>
+  <string name="query_home_e3_title">漫畫</string>
+  <string name="query_home_e3">漫畫改編 動漫 推薦</string>
   <string name="query_discovery_title">最新上傳</string>
   <string name="query_kworb_title">即時熱門</string>
   <!-- Trending -->
