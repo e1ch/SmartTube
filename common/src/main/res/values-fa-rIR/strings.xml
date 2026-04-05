@@ -715,9 +715,9 @@
     <string name="query_home_d3">مستند علمی آموزشی</string>
     <!-- Pool E: Anime / Animation -->
     <string name="query_home_e1_title">انیمه</string>
-    <string name="query_home_e1">انیمه فصل جدید تریلر پیش‌نمایش</string>
+    <string name="query_home_e1">anime انیمه جدید</string>
     <string name="query_home_e2_title">انیمیشن</string>
-    <string name="query_home_e2">فیلم انیمیشن سریال جدید</string>
+    <string name="query_home_e2">انیمیشن فیلم جدید</string>
     <string name="query_home_e3_title">کمیک</string>
-    <string name="query_home_e3">مانگا وب‌تون اقتباس انیمه</string>
+    <string name="query_home_e3">anime manga انیمه</string>
 </resources>
