@@ -13,8 +13,8 @@
       "https://github.com/e1ch/SmartTube/releases/download/latest/SmartTube_beta_universal.apk"
     ]
   },
-  "31.59": {
-    "versionCode": 2349,
+  "31.60": {
+    "versionCode": 2350,
     "changelog": [
       "Audited and fixed 54 search queries across 38 languages",
       "searchFresh(): THIS_WEEK with THIS_MONTH fallback on all search paths",

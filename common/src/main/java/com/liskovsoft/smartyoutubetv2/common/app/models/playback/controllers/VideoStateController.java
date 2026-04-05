@@ -192,6 +192,8 @@ public class VideoStateController extends BasePlayerController {
     public void onPlay() {
         setPlayEnabled(true);
         showHideScreensaver(false);
+        // QoS: signal background searches to reduce concurrency
+        com.liskovsoft.youtubeapi.service.data.YouTubeMediaGroup.setPlaybackActive(true);
         // throttle seeking calls
         Utils.removeCallbacks(mUpdateHistory);
     }
@@ -200,6 +202,8 @@ public class VideoStateController extends BasePlayerController {
     public void onPause() {
         setPlayEnabled(false);
         showHideScreensaver(true);
+        // QoS: allow background searches to resume full speed
+        com.liskovsoft.youtubeapi.service.data.YouTubeMediaGroup.setPlaybackActive(false);
         // throttle seeking calls
         Utils.postDelayed(mUpdateHistory, 10_000);
     }
@@ -228,6 +232,7 @@ public class VideoStateController extends BasePlayerController {
 
     @Override
     public void onPlayEnd() {
+        com.liskovsoft.youtubeapi.service.data.YouTubeMediaGroup.setPlaybackActive(false);
         saveState();
 
         // Don't enable screensaver here or you'll broke 'screen off' logic.
