@@ -787,7 +787,7 @@
     <string name="query_home_e3_title">Comics</string>
     <string name="query_home_e3">manga webtoon comic adaptation</string>
     <!-- Language discovery section title -->
-    <string name="query_discovery_title">Just Uploaded</string>
+    <string name="query_discovery_title">For You ✨</string>
     <!-- Kworb real-time trending section title -->
     <string name="query_kworb_title">Trending Now</string>
     <!-- Trending tab (no "Viral" — returns low quality clickbait) -->

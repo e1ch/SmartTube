@@ -765,7 +765,7 @@
   <string name="query_home_e2">動畫電影 新作 中文</string>
   <string name="query_home_e3_title">漫畫</string>
   <string name="query_home_e3">漫畫改編 動漫 推薦</string>
-  <string name="query_discovery_title">最新上傳</string>
+  <string name="query_discovery_title">為你推薦 ✨</string>
   <string name="query_kworb_title">即時熱門</string>
   <!-- Trending -->
   <string name="query_trending_1_title">現在熱門</string>

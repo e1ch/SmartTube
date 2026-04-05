@@ -13,8 +13,8 @@
       "https://github.com/e1ch/SmartTube/releases/download/latest/SmartTube_beta_universal.apk"
     ]
   },
-  "31.67": {
-    "versionCode": 2357,
+  "31.68": {
+    "versionCode": 2358,
     "changelog": [
       "YouTube Charts, ranking engine, 47 language search optimization",
       "Progressive home loading, kworb trending, QR sign-in"
