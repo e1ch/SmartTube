@@ -13,29 +13,45 @@
       "https://github.com/e1ch/SmartTube/releases/download/latest/SmartTube_beta_universal.apk"
     ]
   },
-  "31.42": {
-    "versionCode": 2332,
+  "31.43": {
+    "versionCode": 2333,
     "changelog": [
-      "YouTube Charts: official trending/top charts per country",
-      "Home: progressive loading (Phase 1 instant, Phase 2 streaming)",
-      "kworb trending with /player metadata (artist, views, upload time)",
-      "Search: WEB client with visitorData, auth skip for signed-in users",
-      "QR code sign-in: custom vertical layout, soft background",
+      "YouTube Charts: official trending/top/songs charts per country",
+      "Home: progressive loading with streaming results",
+      "Trending tab: Charts + kworb + search for full variety",
+      "Duration badge on chart video thumbnails",
+      "kworb trending with /player metadata (100% match rate)",
+      "Search: WEB client, auth skip for signed-in users",
+      "QR code sign-in: vertical layout, soft background",
       "Locale: language/country independent setting",
-      "48 languages: localized search queries from string resources",
+      "48 languages: localized search queries",
       "Performance: SplashActivity prewarm, parallel search with jitter",
-      "Channel diversity: max 2 per shelf, refresh throttle (soft/medium/hard)"
+      "Channel diversity: max 2 per shelf",
+      "Refresh throttle: soft/medium/hard",
+      "OkHttp log: BODY to BASIC (fixes logcat overflow)",
+      "Update system: points to e1ch/SmartTube releases"
     ],
     "changelog_zh": [
       "YouTube 官方排行榜：依國家顯示熱門/排行/歌曲",
       "首頁：分段載入（Phase 1 即時顯示，Phase 2 串流追加）",
-      "kworb 即時熱門：完整資訊（藝人、觀看數、上傳時間）",
-      "搜尋：WEB client + visitorData，登入後也正常運作",
+      "熱門 Tab：Charts + kworb + 搜尋，完整多元內容",
+      "排行榜影片縮圖顯示時間長度",
+      "kworb 即時熱門：/player 取得完整資訊（100% 匹配）",
+      "搜尋：WEB client，登入後也正常運作",
       "QR code 登入：垂直佈局，柔和背景",
       "語言/國家：獨立設定不互相干擾",
       "48 種語言：本地化搜尋關鍵字",
       "效能：SplashActivity 預熱、並行搜尋+抖動",
-      "內容多樣性：同頻道≤2、refresh 節流"
+      "內容多樣性：同頻道≤2",
+      "Refresh 節流：soft/medium/hard",
+      "OkHttp 日誌：BODY 改 BASIC（修正 logcat 溢出）",
+      "更新系統：指向 e1ch/SmartTube releases"
+    ]
+  },
+  "31.42": {
+    "versionCode": 2332,
+    "changelog": [
+      "Initial fork from yuliskov/SmartTube"
     ]
   }
 }
