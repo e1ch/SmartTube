@@ -67,7 +67,7 @@ APK output: `smarttubetv/build/outputs/apk/ststable/debug/`
 
 Install to TV:
 ```bash
-adb install -r SmartTube_stable_31.70_armeabi-v7a.apk
+adb install -r SmartTube_stable_31.71_armeabi-v7a.apk
 ```
 
 ## Target Device

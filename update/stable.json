@@ -1,25 +1,25 @@
 {
   "package": {
     "downloadUrlList_armeabi-v7a": [
-      "https://github.com/e1ch/SmartTube/releases/download/latest/SmartTube_beta_armeabi-v7a.apk"
+      "https://github.com/e1ch/SmartTube/releases/download/latest/SmartTube_stable_armeabi-v7a.apk"
     ],
     "downloadUrlList_arm64-v8a": [
-      "https://github.com/e1ch/SmartTube/releases/download/latest/SmartTube_beta_arm64-v8a.apk"
+      "https://github.com/e1ch/SmartTube/releases/download/latest/SmartTube_stable_arm64-v8a.apk"
     ],
     "downloadUrlList_x86": [
-      "https://github.com/e1ch/SmartTube/releases/download/latest/SmartTube_beta_x86.apk"
+      "https://github.com/e1ch/SmartTube/releases/download/latest/SmartTube_stable_x86.apk"
     ],
     "downloadUrlList": [
-      "https://github.com/e1ch/SmartTube/releases/download/latest/SmartTube_beta_universal.apk"
+      "https://github.com/e1ch/SmartTube/releases/download/latest/SmartTube_stable_universal.apk"
     ]
   },
-  "31.70": {
-    "versionCode": 2360,
+  "31.71": {
+    "versionCode": 2361,
     "changelog": [
-      "Fix: duplicate discovery shelf rows, star symbol ✦ consistency"
+      "Fix: update loop, untitled shelves, code cleanup with constants"
     ],
     "changelog_zh": [
-      "修正：為你推薦重複顯示問題，星號符號 ✦ 統一"
+      "修正：版本更新循環、無標題 shelf、程式碼常數提取與清理"
     ]
   },
   "31.69": {
