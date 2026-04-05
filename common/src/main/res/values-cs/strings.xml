@@ -746,6 +746,19 @@
         <item quantity="one">%s sekunda</item>
         <item quantity="other">%s sekund</item>
     </plurals>
+    <!-- Search fallback queries -->
+    <string name="query_home_1_title">Trendy</string>
+    <string name="query_home_1">nové hudební videoklipy 2025</string>
+    <string name="query_home_2_title">Populární</string>
+    <string name="query_home_2">populární videa dnes</string>
+    <string name="query_home_3_title">Doporučené</string>
+    <string name="query_home_3">dobrá videa ke zhlédnutí</string>
+    <string name="query_trending_1_title">Právě v trendu</string>
+    <string name="query_trending_1">hudební trendy 2025</string>
+    <string name="query_trending_2_title">Virální</string>
+    <string name="query_trending_2">virální videa</string>
+    <string name="query_trending_3_title">Žebříčky</string>
+    <string name="query_trending_3">hudební žebříčky 2025</string>
 </resources>
 
 

@@ -737,4 +737,17 @@
         <item quantity="many">%s секунд</item>
         <item quantity="other">%s секунди</item>
     </plurals>
+    <!-- Search fallback queries -->
+    <string name="query_home_1_title">У тренді</string>
+    <string name="query_home_1">нові музичні кліпи 2025</string>
+    <string name="query_home_2_title">Популярне</string>
+    <string name="query_home_2">популярні відео сьогодні</string>
+    <string name="query_home_3_title">Рекомендоване</string>
+    <string name="query_home_3">гарні відео для перегляду</string>
+    <string name="query_trending_1_title">Зараз у тренді</string>
+    <string name="query_trending_1">тренди музики 2025</string>
+    <string name="query_trending_2_title">Вірусне</string>
+    <string name="query_trending_2">вірусні відео</string>
+    <string name="query_trending_3_title">Чарти</string>
+    <string name="query_trending_3">музичні чарти 2025</string>
 </resources>

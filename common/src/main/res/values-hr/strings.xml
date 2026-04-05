@@ -495,4 +495,17 @@
     <string name="auto_frame_rate_modes">Podržani načini</string>
     <string name="loading">Učitavanje…</string>
     <string name="hide_streams">Sakrij strujanja iz Pretplata</string>
+    <!-- Search fallback queries -->
+    <string name="query_home_1_title">U trendu</string>
+    <string name="query_home_1">novi glazbeni spotovi 2025</string>
+    <string name="query_home_2_title">Popularno</string>
+    <string name="query_home_2">popularni videi danas</string>
+    <string name="query_home_3_title">Preporučeno</string>
+    <string name="query_home_3">dobri videi za gledanje</string>
+    <string name="query_trending_1_title">Sada u trendu</string>
+    <string name="query_trending_1">trending glazba 2025</string>
+    <string name="query_trending_2_title">Viralno</string>
+    <string name="query_trending_2">viralni videi</string>
+    <string name="query_trending_3_title">Ljestvice</string>
+    <string name="query_trending_3">glazbene ljestvice 2025</string>
 </resources>

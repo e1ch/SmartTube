@@ -323,4 +323,17 @@
     <string name="update_error">อัปเดตข้อผิดพลาด</string>
     <string name="hide_shorts_from_history">ซ่อน shorts จากประวัติการเข้าชม</string>
     <string name="disable_screensaver">Disable screensaver</string>
+    <!-- Search fallback queries -->
+    <string name="query_home_1_title">กำลังฮิต</string>
+    <string name="query_home_1">มิวสิควิดีโอใหม่ 2025</string>
+    <string name="query_home_2_title">ยอดนิยม</string>
+    <string name="query_home_2">วิดีโอยอดนิยมวันนี้</string>
+    <string name="query_home_3_title">แนะนำ</string>
+    <string name="query_home_3">วิดีโอดีๆ น่าดู</string>
+    <string name="query_trending_1_title">กำลังฮิตตอนนี้</string>
+    <string name="query_trending_1">เพลงฮิต 2025</string>
+    <string name="query_trending_2_title">ไวรัล</string>
+    <string name="query_trending_2">วิดีโอไวรัล</string>
+    <string name="query_trending_3_title">ชาร์ต</string>
+    <string name="query_trending_3">ชาร์ตเพลง 2025</string>
 </resources>

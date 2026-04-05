@@ -729,4 +729,17 @@
     <string name="channel_unblocked">Blockierung aufgehoben</string>
     <string name="header_blocked_channels">Blockierte Kanäle</string>
     <string name="msg_no_blocked_channels">Keine blockierten Kanäle</string>
+    <!-- Search fallback queries -->
+    <string name="query_home_1_title">Im Trend</string>
+    <string name="query_home_1">neue Musikvideos 2025</string>
+    <string name="query_home_2_title">Beliebt</string>
+    <string name="query_home_2">beliebte Videos heute</string>
+    <string name="query_home_3_title">Empfohlen</string>
+    <string name="query_home_3">gute Videos zum Anschauen</string>
+    <string name="query_trending_1_title">Jetzt im Trend</string>
+    <string name="query_trending_1">Trending Musik 2025</string>
+    <string name="query_trending_2_title">Viral</string>
+    <string name="query_trending_2">virale Videos</string>
+    <string name="query_trending_3_title">Charts</string>
+    <string name="query_trending_3">Musik Charts 2025</string>
 </resources>

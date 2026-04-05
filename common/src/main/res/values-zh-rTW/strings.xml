@@ -732,15 +732,15 @@
 
   <!-- Search fallback queries for anonymous home/trending -->
   <string name="query_home_1_title">熱門</string>
-  <string name="query_home_1">熱門影片</string>
+  <string name="query_home_1">新歌 MV</string>
   <string name="query_home_2_title">人氣</string>
-  <string name="query_home_2">人氣影片</string>
+  <string name="query_home_2">熱門影片</string>
   <string name="query_home_3_title">推薦</string>
-  <string name="query_home_3">推薦影片</string>
+  <string name="query_home_3">好看的影片</string>
   <string name="query_trending_1_title">熱門趨勢</string>
-  <string name="query_trending_1">熱門影片</string>
+  <string name="query_trending_1">熱門MV</string>
   <string name="query_trending_2_title">爆紅</string>
   <string name="query_trending_2">爆紅影片</string>
-  <string name="query_trending_3_title">熱門創作者</string>
-  <string name="query_trending_3">熱門YouTuber</string>
+  <string name="query_trending_3_title">排行榜</string>
+  <string name="query_trending_3">音樂排行榜</string>
 </resources>

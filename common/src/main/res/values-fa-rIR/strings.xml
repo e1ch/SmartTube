@@ -694,4 +694,17 @@
   <string name="context_menu_sorting">مرتب‌سازی منوی زمینه</string>
   <string name="player_audio_focus">تمرکز صوتی (مکث در صورت شناسایی سایر پخش‌کننده‌ها)</string>
   <string name="paid_content_notification">اعلان محتوای پولی</string>
+    <!-- Search fallback queries -->
+    <string name="query_home_1_title">داغ‌ترین‌ها</string>
+    <string name="query_home_1">موزیک ویدیو جدید 2025</string>
+    <string name="query_home_2_title">محبوب</string>
+    <string name="query_home_2">ویدیوهای پرطرفدار امروز</string>
+    <string name="query_home_3_title">پیشنهادی</string>
+    <string name="query_home_3">ویدیوهای خوب برای تماشا</string>
+    <string name="query_trending_1_title">ترند الان</string>
+    <string name="query_trending_1">آهنگ جدید 2025</string>
+    <string name="query_trending_2_title">وایرال</string>
+    <string name="query_trending_2">ویدیوهای وایرال</string>
+    <string name="query_trending_3_title">چارت‌ها</string>
+    <string name="query_trending_3">چارت موسیقی 2025</string>
 </resources>

@@ -714,4 +714,18 @@
   <string name="channel_unblocked">차단 해제됨</string>
   <string name="header_blocked_channels">차단된 채널</string>
   <string name="msg_no_blocked_channels">차단된 채널 없음</string>
+
+  <!-- Search fallback queries -->
+  <string name="query_home_1_title">인기</string>
+  <string name="query_home_1">인기 뮤직비디오</string>
+  <string name="query_home_2_title">핫한</string>
+  <string name="query_home_2">인기 동영상</string>
+  <string name="query_home_3_title">추천</string>
+  <string name="query_home_3">추천 영상</string>
+  <string name="query_trending_1_title">트렌딩</string>
+  <string name="query_trending_1">인기 MV</string>
+  <string name="query_trending_2_title">화제</string>
+  <string name="query_trending_2">화제 영상</string>
+  <string name="query_trending_3_title">차트</string>
+  <string name="query_trending_3">음악 차트</string>
 </resources>

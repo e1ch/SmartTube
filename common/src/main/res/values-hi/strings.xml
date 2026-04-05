@@ -570,4 +570,17 @@
   <string name="header_shorts">शॉर्ट्स</string>
   <string name="unlock_high_bitrate_formats">उच्च बिटरेट 1080p VP9 प्रारूप अनलॉक करें</string>
   <string name="unlock_high_bitrate_audio_formats">उच्च बिटरेट mp4a प्रारूप अनलॉक करें</string>
+    <!-- Search fallback queries -->
+    <string name="query_home_1_title">ट्रेंडिंग</string>
+    <string name="query_home_1">नए म्यूजिक वीडियो 2025</string>
+    <string name="query_home_2_title">लोकप्रिय</string>
+    <string name="query_home_2">लोकप्रिय वीडियो आज</string>
+    <string name="query_home_3_title">अनुशंसित</string>
+    <string name="query_home_3">अच्छे वीडियो देखने के लिए</string>
+    <string name="query_trending_1_title">अभी ट्रेंडिंग</string>
+    <string name="query_trending_1">ट्रेंडिंग गाने 2025</string>
+    <string name="query_trending_2_title">वायरल</string>
+    <string name="query_trending_2">वायरल वीडियो</string>
+    <string name="query_trending_3_title">चार्ट्स</string>
+    <string name="query_trending_3">म्यूजिक चार्ट 2025</string>
 </resources>

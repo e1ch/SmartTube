@@ -746,4 +746,17 @@
         <item quantity="one">%s ثانية</item>
         <item quantity="other">%s ثانية</item>
     </plurals>
+    <!-- Search fallback queries -->
+    <string name="query_home_1_title">الأكثر رواجاً</string>
+    <string name="query_home_1">كليبات اغاني جديدة 2025</string>
+    <string name="query_home_2_title">الأكثر شعبية</string>
+    <string name="query_home_2">فيديوهات شائعة اليوم</string>
+    <string name="query_home_3_title">موصى به</string>
+    <string name="query_home_3">فيديوهات جميلة تستحق المشاهدة</string>
+    <string name="query_trending_1_title">رائج الآن</string>
+    <string name="query_trending_1">اغاني 2025 الجديدة</string>
+    <string name="query_trending_2_title">فيروسي</string>
+    <string name="query_trending_2">فيديوهات فيروسية منتشرة</string>
+    <string name="query_trending_3_title">قوائم الأغاني</string>
+    <string name="query_trending_3">تصنيف الاغاني العربية 2025</string>
 </resources>

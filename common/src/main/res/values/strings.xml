@@ -748,17 +748,19 @@
         <item quantity="other">%s seconds</item>
     </plurals>
 
-    <!-- Search fallback queries for anonymous home/trending -->
+    <!-- Search fallback queries for anonymous home/trending.
+         To add a new language: add translations to values-XX/strings.xml.
+         The query strings are YouTube search terms that return popular regional content. -->
     <string name="query_home_1_title">Trending</string>
-    <string name="query_home_1">trending videos</string>
+    <string name="query_home_1">popular music video</string>
     <string name="query_home_2_title">Popular</string>
-    <string name="query_home_2">most popular videos today</string>
-    <string name="query_home_3_title">Recommended</string>
-    <string name="query_home_3">recommended videos</string>
+    <string name="query_home_2">most viewed video</string>
+    <string name="query_home_3_title">For You</string>
+    <string name="query_home_3">best videos this week</string>
     <string name="query_trending_1_title">Trending Now</string>
-    <string name="query_trending_1">trending videos today</string>
+    <string name="query_trending_1">trending music video</string>
     <string name="query_trending_2_title">Viral</string>
-    <string name="query_trending_2">viral videos</string>
-    <string name="query_trending_3_title">Popular Creators</string>
-    <string name="query_trending_3">popular youtube creators</string>
+    <string name="query_trending_2">viral video this week</string>
+    <string name="query_trending_3_title">Charts</string>
+    <string name="query_trending_3">music chart</string>
 </resources>

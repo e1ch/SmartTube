@@ -127,4 +127,17 @@
     <string name="player_show_clock">Show clock</string>
     <string name="player_show_remaining_time">Show remaining time</string>
     <string name="open_channel_uploads">Open channel videos</string>
+    <!-- Search fallback queries -->
+    <string name="query_home_1_title">Tendințe</string>
+    <string name="query_home_1">videoclipuri muzicale noi 2025</string>
+    <string name="query_home_2_title">Popular</string>
+    <string name="query_home_2">videouri populare astăzi</string>
+    <string name="query_home_3_title">Recomandat</string>
+    <string name="query_home_3">videouri bune de văzut</string>
+    <string name="query_trending_1_title">Tendință acum</string>
+    <string name="query_trending_1">muzică trending 2025</string>
+    <string name="query_trending_2_title">Viral</string>
+    <string name="query_trending_2">videouri virale</string>
+    <string name="query_trending_3_title">Clasamente</string>
+    <string name="query_trending_3">clasament muzical 2025</string>
 </resources>

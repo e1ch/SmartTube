@@ -738,4 +738,18 @@
   <string name="local_backup_not_supported">由于系统限制，Android TV 11及以上版本不支持自动备份。请改用Google云端硬盘。</string>
   <string name="sidebar_notification">在侧边栏显示通知</string>
   <string name="rounded_card_corners">圆角卡片</string>
+
+  <!-- Search fallback queries -->
+  <string name="query_home_1_title">热门</string>
+  <string name="query_home_1">新歌 MV</string>
+  <string name="query_home_2_title">人气</string>
+  <string name="query_home_2">热门视频</string>
+  <string name="query_home_3_title">推荐</string>
+  <string name="query_home_3">好看的视频</string>
+  <string name="query_trending_1_title">热门趋势</string>
+  <string name="query_trending_1">热门MV</string>
+  <string name="query_trending_2_title">爆红</string>
+  <string name="query_trending_2">爆红视频</string>
+  <string name="query_trending_3_title">排行榜</string>
+  <string name="query_trending_3">音乐排行榜</string>
 </resources>

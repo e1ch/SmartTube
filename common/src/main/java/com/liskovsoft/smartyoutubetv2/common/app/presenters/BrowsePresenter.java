@@ -779,10 +779,9 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
 
         RxHelper.runAsync(() -> {
             Log.d(TAG, "Background prefetch: starting...");
-            java.util.List<kotlin.Pair<String, String>> prefetchQueries = new java.util.ArrayList<>();
-            prefetchQueries.add(new kotlin.Pair<>("Fresh", "new videos today"));
-            prefetchQueries.add(new kotlin.Pair<>("Discover", "interesting videos to watch"));
-            prefetchQueries.add(new kotlin.Pair<>("Rising", "rising creators"));
+            // Use localized queries from BrowseService2 for diverse prefetch content
+            java.util.List<kotlin.Pair<String, String>> prefetchQueries =
+                com.liskovsoft.youtubeapi.browse.v2.BrowseService2.getTrendingQueries();
             com.liskovsoft.youtubeapi.browse.v2.BrowseService2 service =
                 new com.liskovsoft.youtubeapi.browse.v2.BrowseService2();
             service.prefetchForHome(prefetchQueries);
@@ -1070,14 +1069,15 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
     }
 
     /**
-     * Populate BrowseService2.excludedVideoIds with watched video IDs
-     * so search fallback results avoid showing already-watched content.
+     * Populate BrowseService2 with watched video IDs and localized search queries
+     * from Android string resources (with dynamic year substitution).
      */
     private void populateExcludedVideoIds(BrowseSection section) {
         if (section.getId() != MediaGroup.TYPE_HOME && section.getId() != MediaGroup.TYPE_TRENDING) {
             return;
         }
 
+        // 1. Watched video IDs
         VideoStateService stateService = VideoStateService.instance(getContext());
         java.util.Set<String> watchedIds = new java.util.HashSet<>();
         for (State state : stateService.getStates()) {
@@ -1086,6 +1086,20 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
             }
         }
         com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setExcludedVideoIds(watchedIds);
+
+        // 2. Localized search queries from string resources (with dynamic year)
+        String year = String.valueOf(java.util.Calendar.getInstance().get(java.util.Calendar.YEAR));
+        Context ctx = getContext();
+        com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setHomeQueries(java.util.Arrays.asList(
+            new kotlin.Pair<>(ctx.getString(R.string.query_home_1_title), ctx.getString(R.string.query_home_1).replace("2025", year)),
+            new kotlin.Pair<>(ctx.getString(R.string.query_home_2_title), ctx.getString(R.string.query_home_2).replace("2025", year)),
+            new kotlin.Pair<>(ctx.getString(R.string.query_home_3_title), ctx.getString(R.string.query_home_3).replace("2025", year))
+        ));
+        com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setTrendingQueries(java.util.Arrays.asList(
+            new kotlin.Pair<>(ctx.getString(R.string.query_trending_1_title), ctx.getString(R.string.query_trending_1).replace("2025", year)),
+            new kotlin.Pair<>(ctx.getString(R.string.query_trending_2_title), ctx.getString(R.string.query_trending_2).replace("2025", year)),
+            new kotlin.Pair<>(ctx.getString(R.string.query_trending_3_title), ctx.getString(R.string.query_trending_3).replace("2025", year))
+        ));
     }
 
     private int moveToTopIfNeeded(MediaGroup mediaGroup) {

@@ -683,4 +683,17 @@
     <string name="card_preview_muted">Vidio tanpa suara</string>
     <string name="card_preview_full">Vidio dengan suara</string>
     <string name="card_preview">Pratinjau kartu</string>
+    <!-- Search fallback queries -->
+    <string name="query_home_1_title">Trending</string>
+    <string name="query_home_1">video musik baru 2025</string>
+    <string name="query_home_2_title">Populer</string>
+    <string name="query_home_2">video populer hari ini</string>
+    <string name="query_home_3_title">Direkomendasikan</string>
+    <string name="query_home_3">video bagus untuk ditonton</string>
+    <string name="query_trending_1_title">Trending sekarang</string>
+    <string name="query_trending_1">musik trending 2025</string>
+    <string name="query_trending_2_title">Viral</string>
+    <string name="query_trending_2">video viral</string>
+    <string name="query_trending_3_title">Tangga lagu</string>
+    <string name="query_trending_3">tangga lagu musik 2025</string>
 </resources>

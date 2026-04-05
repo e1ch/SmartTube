@@ -721,4 +721,17 @@
     <string name="msg_no_blocked_channels">Bloklanmış kanal yoxdur</string>
     <string name="player_time_stretching">Audio vaxtını uzatmaq</string>
     <string name="player_time_stretching_desc">Sürəti dəyişdirərkən səsi təbii saxlayır. Bəzi cihazlarda məhsuldarlığı əhəmiyyətli dərəcədə azalda bilər.</string>
+    <!-- Search fallback queries -->
+    <string name="query_home_1_title">Trenddə</string>
+    <string name="query_home_1">yeni mahnılar klip 2025</string>
+    <string name="query_home_2_title">Populyar</string>
+    <string name="query_home_2">populyar videolar bu gün</string>
+    <string name="query_home_3_title">Tövsiyə olunan</string>
+    <string name="query_home_3">baxmağa dəyər videolar</string>
+    <string name="query_trending_1_title">İndi trenddə</string>
+    <string name="query_trending_1">trend musiqi 2025</string>
+    <string name="query_trending_2_title">Viral</string>
+    <string name="query_trending_2">viral videolar</string>
+    <string name="query_trending_3_title">Hitlər</string>
+    <string name="query_trending_3">musiqi hit siyahısı 2025</string>
 </resources>

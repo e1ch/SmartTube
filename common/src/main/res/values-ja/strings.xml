@@ -719,4 +719,18 @@
     <string name="channel_unblocked">ブロックを解除しました</string>
     <string name="header_blocked_channels">ブロックしたチャンネル</string>
     <string name="msg_no_blocked_channels">ブロックしたチャンネルはありません</string>
+
+    <!-- Search fallback queries -->
+    <string name="query_home_1_title">人気</string>
+    <string name="query_home_1">人気 MV</string>
+    <string name="query_home_2_title">注目</string>
+    <string name="query_home_2">人気動画</string>
+    <string name="query_home_3_title">おすすめ</string>
+    <string name="query_home_3">おすすめ動画</string>
+    <string name="query_trending_1_title">トレンド</string>
+    <string name="query_trending_1">人気MV</string>
+    <string name="query_trending_2_title">話題</string>
+    <string name="query_trending_2">話題の動画</string>
+    <string name="query_trending_3_title">ランキング</string>
+    <string name="query_trending_3">音楽ランキング</string>
 </resources>

@@ -119,4 +119,17 @@
     <string name="sorting_by_new_content">Jauns saturs</string>
     <string name="sorting_alphabetically">Alfabētiski</string>
     <string name="sorting_last_viewed">Pēdējais skatītais</string>
+    <!-- Search fallback queries -->
+    <string name="query_home_1_title">Trendē</string>
+    <string name="query_home_1">jauni mūzikas videoklipi 2025</string>
+    <string name="query_home_2_title">Populāri</string>
+    <string name="query_home_2">populāri video šodien</string>
+    <string name="query_home_3_title">Ieteicamie</string>
+    <string name="query_home_3">labi video skatīšanai</string>
+    <string name="query_trending_1_title">Trendē tagad</string>
+    <string name="query_trending_1">trending mūzika 2025</string>
+    <string name="query_trending_2_title">Virāli</string>
+    <string name="query_trending_2">virāli video</string>
+    <string name="query_trending_3_title">Tops</string>
+    <string name="query_trending_3">mūzikas tops 2025</string>
 </resources>

@@ -750,4 +750,17 @@ So, make a copy of values-he and name it values-iw. Keep both in your structure.
         <item quantity="one">שנייה אחת</item>
         <item quantity="other">%s שניות</item>
     </plurals>
+    <!-- Search fallback queries -->
+    <string name="query_home_1_title">מגמות</string>
+    <string name="query_home_1">קליפים חדשים 2025</string>
+    <string name="query_home_2_title">פופולרי</string>
+    <string name="query_home_2">סרטונים פופולריים היום</string>
+    <string name="query_home_3_title">מומלץ</string>
+    <string name="query_home_3">סרטונים טובים לצפייה</string>
+    <string name="query_trending_1_title">טרנדי עכשיו</string>
+    <string name="query_trending_1">שירים חדשים 2025</string>
+    <string name="query_trending_2_title">ויראלי</string>
+    <string name="query_trending_2">סרטונים ויראליים</string>
+    <string name="query_trending_3_title">מצעדים</string>
+    <string name="query_trending_3">מצעד הלהיטים 2025</string>
 </resources>

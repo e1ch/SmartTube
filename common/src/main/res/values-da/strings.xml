@@ -709,4 +709,17 @@
   <string name="card_unlocalized_titles">Ikke-lokaliserede videotitler</string>
   <string name="dont_resize_video_to_fit_dialog">Skaler ikke video til at passe dialog</string>
   <string name="typing_corrections">Deaktiver autokorrektion under indtastning</string>
+    <!-- Search fallback queries -->
+    <string name="query_home_1_title">Trending</string>
+    <string name="query_home_1">nye musikvideoer 2025</string>
+    <string name="query_home_2_title">Populært</string>
+    <string name="query_home_2">populære videoer i dag</string>
+    <string name="query_home_3_title">Anbefalet</string>
+    <string name="query_home_3">gode videoer at se</string>
+    <string name="query_trending_1_title">Trending nu</string>
+    <string name="query_trending_1">trending musik 2025</string>
+    <string name="query_trending_2_title">Viralt</string>
+    <string name="query_trending_2">virale videoer</string>
+    <string name="query_trending_3_title">Hitlister</string>
+    <string name="query_trending_3">musik hitliste 2025</string>
 </resources>

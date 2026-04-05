@@ -721,4 +721,17 @@
   <string name="header_blocked_channels">Kênh đã chặn</string>
   <string name="msg_no_blocked_channels">Không có kênh nào bị chặn</string>
   <string name="action_debug_info">Thông tin gỡ lỗi</string>
+    <!-- Search fallback queries -->
+    <string name="query_home_1_title">Thịnh hành</string>
+    <string name="query_home_1">MV nhạc mới 2025</string>
+    <string name="query_home_2_title">Phổ biến</string>
+    <string name="query_home_2">video phổ biến hôm nay</string>
+    <string name="query_home_3_title">Đề xuất</string>
+    <string name="query_home_3">video hay nên xem</string>
+    <string name="query_trending_1_title">Xu hướng hiện tại</string>
+    <string name="query_trending_1">nhạc trending 2025</string>
+    <string name="query_trending_2_title">Viral</string>
+    <string name="query_trending_2">video viral</string>
+    <string name="query_trending_3_title">BXH</string>
+    <string name="query_trending_3">bảng xếp hạng nhạc 2025</string>
 </resources>

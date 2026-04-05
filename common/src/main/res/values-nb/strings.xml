@@ -707,4 +707,17 @@
     <string name="card_preview">Forhåndsvisning av kort</string>
     <string name="card_unlocalized_titles">Ikke-lokaliserte videotitler</string>
     <string name="dont_resize_video_to_fit_dialog">Ikke endre størrelsen på videoen for å passe i dialogboksen</string>
+    <!-- Search fallback queries -->
+    <string name="query_home_1_title">Trender</string>
+    <string name="query_home_1">nye musikkvideoer 2025</string>
+    <string name="query_home_2_title">Populært</string>
+    <string name="query_home_2">populære videoer i dag</string>
+    <string name="query_home_3_title">Anbefalt</string>
+    <string name="query_home_3">gode videoer å se</string>
+    <string name="query_trending_1_title">Trender nå</string>
+    <string name="query_trending_1">trending musikk 2025</string>
+    <string name="query_trending_2_title">Viralt</string>
+    <string name="query_trending_2">virale videoer</string>
+    <string name="query_trending_3_title">Hitlister</string>
+    <string name="query_trending_3">musikk hitliste 2025</string>
 </resources>

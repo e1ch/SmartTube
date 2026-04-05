@@ -411,4 +411,17 @@
     <string name="skip_codec_profile_check_desc">Pradedant leisti vaizdo įrašą netikrinti, ar kodekas yra palaikomas. Gali padėti, jei programinėje įrangoje yra klaidų.</string>
     <string name="force_sw_codec">Naudoti programinį vaizdo dekoderį</string>
     <string name="force_sw_codec_desc">Gali atkurti beveik bet kurį vaizdo įrašą, bet atkūrimo sparta yra labai maža.</string>
+    <!-- Search fallback queries -->
+    <string name="query_home_1_title">Tendencijos</string>
+    <string name="query_home_1">nauji muzikos vaizdo klipai 2025</string>
+    <string name="query_home_2_title">Populiarūs</string>
+    <string name="query_home_2">populiarūs vaizdo įrašai šiandien</string>
+    <string name="query_home_3_title">Rekomenduojami</string>
+    <string name="query_home_3">geri vaizdo įrašai žiūrėti</string>
+    <string name="query_trending_1_title">Dabar populiaru</string>
+    <string name="query_trending_1">trending muzika 2025</string>
+    <string name="query_trending_2_title">Viralūs</string>
+    <string name="query_trending_2">viralūs vaizdo įrašai</string>
+    <string name="query_trending_3_title">Topai</string>
+    <string name="query_trending_3">muzikos topų sąrašas 2025</string>
 </resources>
