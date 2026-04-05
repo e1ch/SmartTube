@@ -13,6 +13,23 @@
       "https://github.com/e1ch/SmartTube/releases/download/latest/SmartTube_beta_universal.apk"
     ]
   },
+  "31.44": {
+    "versionCode": 2334,
+    "changelog": [
+      "Ranking engine: topic/channel diversity scoring (break filter bubble)",
+      "Exploration pool: movies, travel, documentaries (45 languages)",
+      "Duration badge on all video sources (kworb, Charts, search)",
+      "Trending tab: kworb-first mixed content (not music-only)",
+      "Charts music content exclusive to Music tab"
+    ],
+    "changelog_zh": [
+      "排名引擎：類型/頻道多樣性評分（打破訊息繭房）",
+      "探索池：電影、旅遊、紀錄片（45 種語言）",
+      "影片長度 badge 顯示在所有來源",
+      "熱門 Tab：kworb 為主（綜合內容，非僅音樂）",
+      "Charts 音樂排行專屬 Music Tab"
+    ]
+  },
   "31.43": {
     "versionCode": 2333,
     "changelog": [
