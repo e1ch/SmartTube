@@ -744,4 +744,10 @@
     <string name="query_trending_2">video virali</string>
     <string name="query_trending_3_title">Classifiche</string>
     <string name="query_trending_3">classifiche musicali</string>
+    <string name="query_home_d1_title">Film</string>
+    <string name="query_home_d1">nuovi film trailer Netflix Disney</string>
+    <string name="query_home_d2_title">Viaggi</string>
+    <string name="query_home_d2">viaggio vlog destinazioni imperdibili</string>
+    <string name="query_home_d3_title">Documentari</string>
+    <string name="query_home_d3">documentario TED storie ispiratrici</string>
 </resources>

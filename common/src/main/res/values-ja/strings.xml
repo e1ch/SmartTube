@@ -733,4 +733,10 @@
     <string name="query_trending_2">話題の動画</string>
     <string name="query_trending_3_title">ランキング</string>
     <string name="query_trending_3">音楽ランキング</string>
+    <string name="query_home_d1_title">映画</string>
+    <string name="query_home_d1">新作映画 予告編 Netflix Disney</string>
+    <string name="query_home_d2_title">旅行</string>
+    <string name="query_home_d2">旅行 vlog 絶景 おすすめスポット</string>
+    <string name="query_home_d3_title">ドキュメンタリー</string>
+    <string name="query_home_d3">ドキュメンタリー TED 感動する話</string>
 </resources>

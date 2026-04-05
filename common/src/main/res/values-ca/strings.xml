@@ -518,4 +518,10 @@
     <string name="query_trending_2">vídeos virals</string>
     <string name="query_trending_3_title">Llistes</string>
     <string name="query_trending_3">llistes musicals</string>
+    <string name="query_home_d1_title">Pel·lícules</string>
+    <string name="query_home_d1">pel·lícules noves tràiler Netflix Disney</string>
+    <string name="query_home_d2_title">Viatges</string>
+    <string name="query_home_d2">viatges vlog destinacions imprescindibles</string>
+    <string name="query_home_d3_title">Documentals</string>
+    <string name="query_home_d3">documental TED històries inspiradores</string>
 </resources>

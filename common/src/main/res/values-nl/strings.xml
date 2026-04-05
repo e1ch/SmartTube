@@ -735,4 +735,10 @@
     <string name="query_trending_2">virale video\'s</string>
     <string name="query_trending_3_title">Hitlijsten</string>
     <string name="query_trending_3">muziek hitlijst</string>
+    <string name="query_home_d1_title">Films</string>
+    <string name="query_home_d1">nieuwe films trailer Netflix Disney</string>
+    <string name="query_home_d2_title">Reizen</string>
+    <string name="query_home_d2">reizen vlog mooiste bestemmingen</string>
+    <string name="query_home_d3_title">Documentaires</string>
+    <string name="query_home_d3">documentaire TED inspirerende verhalen</string>
 </resources>

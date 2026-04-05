@@ -763,4 +763,10 @@ So, make a copy of values-he and name it values-iw. Keep both in your structure.
     <string name="query_trending_2">סרטונים ויראליים</string>
     <string name="query_trending_3_title">מצעדים</string>
     <string name="query_trending_3">מצעד הלהיטים</string>
+    <string name="query_home_d1_title">סרטים</string>
+    <string name="query_home_d1">סרטים חדשים טריילר נטפליקס דיסני</string>
+    <string name="query_home_d2_title">טיולים</string>
+    <string name="query_home_d2">טיול ולוג יעדים מומלצים</string>
+    <string name="query_home_d3_title">תיעודי</string>
+    <string name="query_home_d3">סרט תיעודי TED סיפורים מעוררי השראה</string>
 </resources>

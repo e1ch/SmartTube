@@ -678,4 +678,10 @@
     <string name="query_trending_2">videouri virale</string>
     <string name="query_trending_3_title">Clasamente</string>
     <string name="query_trending_3">clasament muzical</string>
+    <string name="query_home_d1_title">Filme</string>
+    <string name="query_home_d1">filme noi trailer Netflix Disney</string>
+    <string name="query_home_d2_title">Călătorii</string>
+    <string name="query_home_d2">călătorie vlog destinații de vizitat</string>
+    <string name="query_home_d3_title">Documentare</string>
+    <string name="query_home_d3">documentar TED povești inspiraționale</string>
 </resources>

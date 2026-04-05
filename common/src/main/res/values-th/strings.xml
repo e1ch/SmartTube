@@ -336,4 +336,10 @@
     <string name="query_trending_2">วิดีโอไวรัล</string>
     <string name="query_trending_3_title">ชาร์ต</string>
     <string name="query_trending_3">ชาร์ตเพลง</string>
+    <string name="query_home_d1_title">ภาพยนตร์</string>
+    <string name="query_home_d1">หนังใหม่ ตัวอย่างหนัง Netflix Disney</string>
+    <string name="query_home_d2_title">ท่องเที่ยว</string>
+    <string name="query_home_d2">เที่ยว vlog ที่เที่ยวสวยที่สุด</string>
+    <string name="query_home_d3_title">สารคดี</string>
+    <string name="query_home_d3">สารคดี TED เรื่องราวสร้างแรงบันดาลใจ</string>
 </resources>

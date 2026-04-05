@@ -723,4 +723,10 @@
     <string name="query_trending_2">video virale</string>
     <string name="query_trending_3_title">Renditje</string>
     <string name="query_trending_3">renditje muzikore</string>
+    <string name="query_home_d1_title">Filma</string>
+    <string name="query_home_d1">filma të reja trailer Netflix Disney</string>
+    <string name="query_home_d2_title">Udhëtimi</string>
+    <string name="query_home_d2">udhëtim vlog destinacione më të bukura</string>
+    <string name="query_home_d3_title">Dokumentarë</string>
+    <string name="query_home_d3">dokumentar TED histori frymëzuese</string>
 </resources>

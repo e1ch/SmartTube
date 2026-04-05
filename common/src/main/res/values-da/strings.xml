@@ -722,4 +722,10 @@
     <string name="query_trending_2">virale videoer</string>
     <string name="query_trending_3_title">Hitlister</string>
     <string name="query_trending_3">musik hitliste</string>
+    <string name="query_home_d1_title">Film</string>
+    <string name="query_home_d1">nye film trailer Netflix Disney</string>
+    <string name="query_home_d2_title">Rejser</string>
+    <string name="query_home_d2">rejse vlog smukke destinationer</string>
+    <string name="query_home_d3_title">Dokumentar</string>
+    <string name="query_home_d3">dokumentar TED inspirerende historier</string>
 </resources>

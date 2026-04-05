@@ -607,4 +607,10 @@
     <string name="query_trending_2">вирусни видеа</string>
     <string name="query_trending_3_title">Класации</string>
     <string name="query_trending_3">музикални класации</string>
+    <string name="query_home_d1_title">Филми</string>
+    <string name="query_home_d1">нови филми трейлър Netflix Disney</string>
+    <string name="query_home_d2_title">Пътуване</string>
+    <string name="query_home_d2">пътуване влог красиви дестинации</string>
+    <string name="query_home_d3_title">Документални</string>
+    <string name="query_home_d3">документален филм TED вдъхновяващи истории</string>
 </resources>

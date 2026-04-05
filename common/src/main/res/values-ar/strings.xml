@@ -759,4 +759,10 @@
     <string name="query_trending_2">فيديوهات فيروسية منتشرة</string>
     <string name="query_trending_3_title">قوائم الأغاني</string>
     <string name="query_trending_3">تصنيف الاغاني العربية</string>
+    <string name="query_home_d1_title">أفلام</string>
+    <string name="query_home_d1">أفلام جديدة تريلر نتفلكس ديزني</string>
+    <string name="query_home_d2_title">سفر</string>
+    <string name="query_home_d2">سفر وجهات سياحية أجمل الأماكن</string>
+    <string name="query_home_d3_title">وثائقي</string>
+    <string name="query_home_d3">فيلم وثائقي TED قصص ملهمة</string>
 </resources>

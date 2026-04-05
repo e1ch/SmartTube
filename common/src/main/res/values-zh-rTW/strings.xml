@@ -751,13 +751,13 @@
   <string name="query_home_c2">遊戲 實況 精華</string>
   <string name="query_home_c3_title">旅遊</string>
   <string name="query_home_c3">旅遊 vlog 推薦</string>
-  <!-- Pool D: 探索 -->
-  <string name="query_home_d1_title">發現</string>
-  <string name="query_home_d1">紀錄片 解說</string>
-  <string name="query_home_d2_title">演講</string>
-  <string name="query_home_d2">TED 演講 啟發</string>
-  <string name="query_home_d3_title">故事</string>
-  <string name="query_home_d3">專訪 幕後花絮</string>
+  <!-- Pool D: 探索（電影、旅遊、紀錄片） -->
+  <string name="query_home_d1_title">電影</string>
+  <string name="query_home_d1">電影預告片 Netflix 迪士尼 漫威</string>
+  <string name="query_home_d2_title">旅遊</string>
+  <string name="query_home_d2">旅遊推薦 必去景點 vlog</string>
+  <string name="query_home_d3_title">發現</string>
+  <string name="query_home_d3">紀錄片 TED演講 感人故事</string>
   <string name="query_kworb_title">即時熱門</string>
   <!-- Trending -->
   <string name="query_trending_1_title">熱門趨勢</string>

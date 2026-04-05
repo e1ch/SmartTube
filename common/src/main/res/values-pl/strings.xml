@@ -746,4 +746,10 @@
     <string name="query_trending_2">viralowe filmy</string>
     <string name="query_trending_3_title">Listy przebojów</string>
     <string name="query_trending_3">lista przebojów</string>
+    <string name="query_home_d1_title">Filmy</string>
+    <string name="query_home_d1">nowe filmy zwiastun Netflix Disney</string>
+    <string name="query_home_d2_title">Podróże</string>
+    <string name="query_home_d2">podróże vlog najpiękniejsze miejsca</string>
+    <string name="query_home_d3_title">Dokumenty</string>
+    <string name="query_home_d3">dokument TED inspirujące historie</string>
 </resources>

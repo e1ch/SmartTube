@@ -752,4 +752,10 @@
     <string name="query_trending_2">вирусные видео</string>
     <string name="query_trending_3_title">Чарты</string>
     <string name="query_trending_3">музыкальные чарты</string>
+    <string name="query_home_d1_title">Фильмы</string>
+    <string name="query_home_d1">новые фильмы трейлер Netflix Disney</string>
+    <string name="query_home_d2_title">Путешествия</string>
+    <string name="query_home_d2">путешествие влог красивые места</string>
+    <string name="query_home_d3_title">Документальные</string>
+    <string name="query_home_d3">документальный фильм TED вдохновляющие истории</string>
 </resources>

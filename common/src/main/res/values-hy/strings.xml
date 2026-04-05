@@ -158,4 +158,10 @@
     <string name="query_trending_2">վիրալ տեսանյութեր</string>
     <string name="query_trending_3_title">Չարտեր</string>
     <string name="query_trending_3">երաժշտական չարտեր</string>
+    <string name="query_home_d1_title">Ֆիլմեր</string>
+    <string name="query_home_d1">նոր ֆիլմեր թրեյլեր Netflix Disney</string>
+    <string name="query_home_d2_title">Ճամփորդություն</string>
+    <string name="query_home_d2">ճամփորդ vlog գեղեցիկ վայրեր</string>
+    <string name="query_home_d3_title">Վավերագրական</string>
+    <string name="query_home_d3">վավերագրական ֆիլմ TED ողջակող պատմություններ</string>
 </resources>

@@ -743,4 +743,10 @@
     <string name="query_trending_2">viraalit videot</string>
     <string name="query_trending_3_title">Listat</string>
     <string name="query_trending_3">musiikkilistat</string>
+    <string name="query_home_d1_title">Elokuvat</string>
+    <string name="query_home_d1">uudet elokuvat traileri Netflix Disney</string>
+    <string name="query_home_d2_title">Matkailu</string>
+    <string name="query_home_d2">matka vlog kauneimmat kohteet</string>
+    <string name="query_home_d3_title">Dokumentit</string>
+    <string name="query_home_d3">dokumentti TED inspiroivat tarinat</string>
 </resources>

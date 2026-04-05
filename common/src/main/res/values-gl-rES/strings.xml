@@ -723,4 +723,10 @@
     <string name="query_trending_2">vídeos virais</string>
     <string name="query_trending_3_title">Listas</string>
     <string name="query_trending_3">listas de música</string>
+    <string name="query_home_d1_title">Películas</string>
+    <string name="query_home_d1">películas novas tráiler Netflix Disney</string>
+    <string name="query_home_d2_title">Viaxes</string>
+    <string name="query_home_d2">viaxe vlog destinos imprescindibles</string>
+    <string name="query_home_d3_title">Documentais</string>
+    <string name="query_home_d3">documental TED historias inspiradoras</string>
 </resources>

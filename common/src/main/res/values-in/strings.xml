@@ -696,4 +696,10 @@
     <string name="query_trending_2">video viral</string>
     <string name="query_trending_3_title">Tangga lagu</string>
     <string name="query_trending_3">tangga lagu musik</string>
+    <string name="query_home_d1_title">Film</string>
+    <string name="query_home_d1">film baru trailer Netflix Disney</string>
+    <string name="query_home_d2_title">Wisata</string>
+    <string name="query_home_d2">wisata vlog destinasi terindah</string>
+    <string name="query_home_d3_title">Dokumenter</string>
+    <string name="query_home_d3">dokumenter TED kisah inspiratif</string>
 </resources>

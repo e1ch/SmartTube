@@ -508,4 +508,10 @@
     <string name="query_trending_2">viralni videi</string>
     <string name="query_trending_3_title">Ljestvice</string>
     <string name="query_trending_3">glazbene ljestvice</string>
+    <string name="query_home_d1_title">Filmovi</string>
+    <string name="query_home_d1">novi filmovi trailer Netflix Disney</string>
+    <string name="query_home_d2_title">Putovanja</string>
+    <string name="query_home_d2">putovanje vlog najljepše destinacije</string>
+    <string name="query_home_d3_title">Dokumentarci</string>
+    <string name="query_home_d3">dokumentarni film TED inspirativne priče</string>
 </resources>

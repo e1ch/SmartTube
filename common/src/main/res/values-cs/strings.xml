@@ -759,6 +759,12 @@
     <string name="query_trending_2">virální videa</string>
     <string name="query_trending_3_title">Žebříčky</string>
     <string name="query_trending_3">hudební žebříčky</string>
+    <string name="query_home_d1_title">Filmy</string>
+    <string name="query_home_d1">nové filmy trailer Netflix Disney</string>
+    <string name="query_home_d2_title">Cestování</string>
+    <string name="query_home_d2">cestování vlog nejkrásnější místa</string>
+    <string name="query_home_d3_title">Dokumenty</string>
+    <string name="query_home_d3">dokumentární film TED inspirativní příběhy</string>
 </resources>
 
 

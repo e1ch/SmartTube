@@ -750,4 +750,10 @@
     <string name="query_trending_2">вірусні відео</string>
     <string name="query_trending_3_title">Чарти</string>
     <string name="query_trending_3">музичні чарти</string>
+    <string name="query_home_d1_title">Фільми</string>
+    <string name="query_home_d1">нові фільми трейлер Netflix Disney</string>
+    <string name="query_home_d2_title">Подорожі</string>
+    <string name="query_home_d2">подорож влог найкрасивіші місця</string>
+    <string name="query_home_d3_title">Документальні</string>
+    <string name="query_home_d3">документальний фільм TED надихаючі історії</string>
 </resources>

@@ -707,4 +707,10 @@
     <string name="query_trending_2">ویدیوهای وایرال</string>
     <string name="query_trending_3_title">چارت‌ها</string>
     <string name="query_trending_3">چارت موسیقی</string>
+    <string name="query_home_d1_title">فیلم‌ها</string>
+    <string name="query_home_d1">فیلم جدید تریلر نتفلیکس دیزنی</string>
+    <string name="query_home_d2_title">سفر</string>
+    <string name="query_home_d2">سفر ولاگ مقاصد گردشگری زیبا</string>
+    <string name="query_home_d3_title">مستند</string>
+    <string name="query_home_d3">مستند TED داستان‌های الهام‌بخش</string>
 </resources>

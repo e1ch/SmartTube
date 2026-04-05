@@ -734,4 +734,10 @@
     <string name="query_trending_2">video viral</string>
     <string name="query_trending_3_title">BXH</string>
     <string name="query_trending_3">bảng xếp hạng nhạc</string>
+    <string name="query_home_d1_title">Phim</string>
+    <string name="query_home_d1">phim mới trailer Netflix Disney</string>
+    <string name="query_home_d2_title">Du lịch</string>
+    <string name="query_home_d2">du lịch vlog địa điểm đẹp nhất</string>
+    <string name="query_home_d3_title">Phim tài liệu</string>
+    <string name="query_home_d3">phim tài liệu TED câu chuyện truyền cảm hứng</string>
 </resources>

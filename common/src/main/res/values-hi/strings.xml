@@ -583,4 +583,10 @@
     <string name="query_trending_2">वायरल वीडियो</string>
     <string name="query_trending_3_title">चार्ट्स</string>
     <string name="query_trending_3">म्यूजिक चार्ट</string>
+    <string name="query_home_d1_title">फ़िल्में</string>
+    <string name="query_home_d1">नई फ़िल्में ट्रेलर नेटफ्लिक्स डिज़नी</string>
+    <string name="query_home_d2_title">यात्रा</string>
+    <string name="query_home_d2">यात्रा व्लॉग सबसे खूबसूरत जगहें</string>
+    <string name="query_home_d3_title">डॉक्यूमेंट्री</string>
+    <string name="query_home_d3">डॉक्यूमेंट्री TED प्रेरणादायक कहानियां</string>
 </resources>

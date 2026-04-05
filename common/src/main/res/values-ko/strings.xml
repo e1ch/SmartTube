@@ -728,4 +728,10 @@
   <string name="query_trending_2">화제 영상</string>
   <string name="query_trending_3_title">차트</string>
   <string name="query_trending_3">음악 차트</string>
+    <string name="query_home_d1_title">영화</string>
+    <string name="query_home_d1">새 영화 예고편 넷플릭스 디즈니</string>
+    <string name="query_home_d2_title">여행</string>
+    <string name="query_home_d2">여행 브이로그 가볼만한곳 추천</string>
+    <string name="query_home_d3_title">다큐멘터리</string>
+    <string name="query_home_d3">다큐멘터리 TED 감동 이야기</string>
 </resources>

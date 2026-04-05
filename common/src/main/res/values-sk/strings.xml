@@ -742,4 +742,10 @@
     <string name="query_trending_2">virálne videá</string>
     <string name="query_trending_3_title">Rebríčky</string>
     <string name="query_trending_3">hudobné rebríčky</string>
+    <string name="query_home_d1_title">Filmy</string>
+    <string name="query_home_d1">nové filmy trailer Netflix Disney</string>
+    <string name="query_home_d2_title">Cestovanie</string>
+    <string name="query_home_d2">cestovanie vlog najkrajšie miesta</string>
+    <string name="query_home_d3_title">Dokumenty</string>
+    <string name="query_home_d3">dokumentárny film TED inšpirujúce príbehy</string>
 </resources>

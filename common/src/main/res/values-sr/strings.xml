@@ -724,4 +724,10 @@
     <string name="query_trending_2">вирални видеи</string>
     <string name="query_trending_3_title">Листе</string>
     <string name="query_trending_3">музичке листе</string>
+    <string name="query_home_d1_title">Филмови</string>
+    <string name="query_home_d1">нови филмови трејлер Netflix Disney</string>
+    <string name="query_home_d2_title">Путовања</string>
+    <string name="query_home_d2">путовање влог најлепше дестинације</string>
+    <string name="query_home_d3_title">Документарци</string>
+    <string name="query_home_d3">документарни филм TED инспиративне приче</string>
 </resources>

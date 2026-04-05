@@ -734,4 +734,10 @@
     <string name="query_trending_2">viral βίντεο</string>
     <string name="query_trending_3_title">Τσαρτ</string>
     <string name="query_trending_3">μουσικά charts</string>
+    <string name="query_home_d1_title">Ταινίες</string>
+    <string name="query_home_d1">νέες ταινίες τρέιλερ Netflix Disney</string>
+    <string name="query_home_d2_title">Ταξίδια</string>
+    <string name="query_home_d2">ταξίδι vlog όμορφοι προορισμοί</string>
+    <string name="query_home_d3_title">Ντοκιμαντέρ</string>
+    <string name="query_home_d3">ντοκιμαντέρ TED εμπνευστικές ιστορίες</string>
 </resources>

@@ -758,4 +758,10 @@
     <string name="query_trending_2">viral videolar</string>
     <string name="query_trending_3_title">Listeler</string>
     <string name="query_trending_3">müzik listesi</string>
+    <string name="query_home_d1_title">Filmler</string>
+    <string name="query_home_d1">yeni filmler fragman Netflix Disney</string>
+    <string name="query_home_d2_title">Seyahat</string>
+    <string name="query_home_d2">seyahat vlog en güzel yerler</string>
+    <string name="query_home_d3_title">Belgesel</string>
+    <string name="query_home_d3">belgesel TED ilham verici hikayeler</string>
 </resources>

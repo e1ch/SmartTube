@@ -734,4 +734,10 @@
     <string name="query_trending_2">viral videolar</string>
     <string name="query_trending_3_title">Hitlər</string>
     <string name="query_trending_3">musiqi hit siyahısı</string>
+    <string name="query_home_d1_title">Filmlər</string>
+    <string name="query_home_d1">yeni film treyler Netflix Disney</string>
+    <string name="query_home_d2_title">Səyahət</string>
+    <string name="query_home_d2">səyahət vlog gəziləcək yerlər</string>
+    <string name="query_home_d3_title">Sənədli</string>
+    <string name="query_home_d3">sənədli film TED ilhamverici</string>
 </resources>

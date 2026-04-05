@@ -752,4 +752,10 @@
   <string name="query_trending_2">爆红视频</string>
   <string name="query_trending_3_title">排行榜</string>
   <string name="query_trending_3">音乐排行榜</string>
+    <string name="query_home_d1_title">电影</string>
+    <string name="query_home_d1">新电影 预告片 Netflix Disney</string>
+    <string name="query_home_d2_title">旅行</string>
+    <string name="query_home_d2">旅行 vlog 最美目的地 必去景点</string>
+    <string name="query_home_d3_title">纪录片</string>
+    <string name="query_home_d3">纪录片 TED 励志故事 幕后</string>
 </resources>

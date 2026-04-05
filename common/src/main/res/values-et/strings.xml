@@ -631,4 +631,10 @@
     <string name="query_trending_2">viraalsed videod</string>
     <string name="query_trending_3_title">Edetabelid</string>
     <string name="query_trending_3">muusika edetabel</string>
+    <string name="query_home_d1_title">Filmid</string>
+    <string name="query_home_d1">uued filmid treiler Netflix Disney</string>
+    <string name="query_home_d2_title">Reisimine</string>
+    <string name="query_home_d2">reisi vlog ilusaimad sihtkohad</string>
+    <string name="query_home_d3_title">Dokumentaalid</string>
+    <string name="query_home_d3">dokumentaalfilm TED inspireerivad lood</string>
 </resources>
