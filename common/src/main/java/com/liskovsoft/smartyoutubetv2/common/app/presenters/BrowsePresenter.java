@@ -743,6 +743,7 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
                             }
 
                             filterHomeIfNeeded(mediaGroups);
+                            diversifyChannels(mediaGroups);
 
                             for (MediaGroup mediaGroup : mediaGroups) {
                                 if (mediaGroup.isEmpty()) {
@@ -1120,6 +1121,45 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
             new kotlin.Pair<>(ctx.getString(R.string.query_trending_2_title), ctx.getString(R.string.query_trending_2)),
             new kotlin.Pair<>(ctx.getString(R.string.query_trending_3_title), ctx.getString(R.string.query_trending_3))
         ));
+    }
+
+    /**
+     * Diversify content within each MediaGroup:
+     * - Limit same channel to max 2 videos per group (push extras to end)
+     * - This prevents a single creator from dominating a shelf row
+     */
+    private void diversifyChannels(List<MediaGroup> mediaGroups) {
+        if (mediaGroups == null || !isHomeSection()) return;
+
+        for (MediaGroup group : mediaGroups) {
+            if (group == null || group.getMediaItems() == null || group.getMediaItems().size() <= 3) continue;
+
+            java.util.Map<String, Integer> channelCount = new java.util.HashMap<>();
+            java.util.List<com.liskovsoft.mediaserviceinterfaces.data.MediaItem> keep = new java.util.ArrayList<>();
+            java.util.List<com.liskovsoft.mediaserviceinterfaces.data.MediaItem> overflow = new java.util.ArrayList<>();
+
+            for (com.liskovsoft.mediaserviceinterfaces.data.MediaItem item : group.getMediaItems()) {
+                if (item == null) continue;
+                String chId = item.getChannelId();
+                if (chId == null || chId.isEmpty()) {
+                    keep.add(item);
+                    continue;
+                }
+                int count = channelCount.getOrDefault(chId, 0);
+                if (count < 2) {
+                    keep.add(item);
+                    channelCount.put(chId, count + 1);
+                } else {
+                    overflow.add(item); // same channel > 2, push to end
+                }
+            }
+
+            if (!overflow.isEmpty()) {
+                keep.addAll(overflow);
+                group.getMediaItems().clear();
+                group.getMediaItems().addAll(keep);
+            }
+        }
     }
 
     private int moveToTopIfNeeded(MediaGroup mediaGroup) {
