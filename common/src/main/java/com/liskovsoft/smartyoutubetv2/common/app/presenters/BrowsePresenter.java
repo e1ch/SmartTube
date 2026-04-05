@@ -1087,18 +1087,35 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
         }
         com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setExcludedVideoIds(watchedIds);
 
-        // 2. Localized search queries from string resources (with dynamic year)
-        String year = String.valueOf(java.util.Calendar.getInstance().get(java.util.Calendar.YEAR));
+        // 2. Localized search queries from string resources (3 rotating pools + trending)
         Context ctx = getContext();
-        com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setHomeQueries(java.util.Arrays.asList(
-            new kotlin.Pair<>(ctx.getString(R.string.query_home_1_title), ctx.getString(R.string.query_home_1).replace("2025", year)),
-            new kotlin.Pair<>(ctx.getString(R.string.query_home_2_title), ctx.getString(R.string.query_home_2).replace("2025", year)),
-            new kotlin.Pair<>(ctx.getString(R.string.query_home_3_title), ctx.getString(R.string.query_home_3).replace("2025", year))
+        java.util.List<java.util.List<kotlin.Pair<String, String>>> pools = new java.util.ArrayList<>();
+        // Pool A
+        pools.add(java.util.Arrays.asList(
+            new kotlin.Pair<>(ctx.getString(R.string.query_home_a1_title), ctx.getString(R.string.query_home_a1)),
+            new kotlin.Pair<>(ctx.getString(R.string.query_home_a2_title), ctx.getString(R.string.query_home_a2)),
+            new kotlin.Pair<>(ctx.getString(R.string.query_home_a3_title), ctx.getString(R.string.query_home_a3))
         ));
+        // Pool B
+        pools.add(java.util.Arrays.asList(
+            new kotlin.Pair<>(ctx.getString(R.string.query_home_b1_title), ctx.getString(R.string.query_home_b1)),
+            new kotlin.Pair<>(ctx.getString(R.string.query_home_b2_title), ctx.getString(R.string.query_home_b2)),
+            new kotlin.Pair<>(ctx.getString(R.string.query_home_b3_title), ctx.getString(R.string.query_home_b3))
+        ));
+        // Pool C
+        pools.add(java.util.Arrays.asList(
+            new kotlin.Pair<>(ctx.getString(R.string.query_home_c1_title), ctx.getString(R.string.query_home_c1)),
+            new kotlin.Pair<>(ctx.getString(R.string.query_home_c2_title), ctx.getString(R.string.query_home_c2)),
+            new kotlin.Pair<>(ctx.getString(R.string.query_home_c3_title), ctx.getString(R.string.query_home_c3))
+        ));
+        com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setHomeQueryPools(pools);
+        // Also set first pool as default homeQueries
+        com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setHomeQueries(pools.get(0));
+
         com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setTrendingQueries(java.util.Arrays.asList(
-            new kotlin.Pair<>(ctx.getString(R.string.query_trending_1_title), ctx.getString(R.string.query_trending_1).replace("2025", year)),
-            new kotlin.Pair<>(ctx.getString(R.string.query_trending_2_title), ctx.getString(R.string.query_trending_2).replace("2025", year)),
-            new kotlin.Pair<>(ctx.getString(R.string.query_trending_3_title), ctx.getString(R.string.query_trending_3).replace("2025", year))
+            new kotlin.Pair<>(ctx.getString(R.string.query_trending_1_title), ctx.getString(R.string.query_trending_1)),
+            new kotlin.Pair<>(ctx.getString(R.string.query_trending_2_title), ctx.getString(R.string.query_trending_2)),
+            new kotlin.Pair<>(ctx.getString(R.string.query_trending_3_title), ctx.getString(R.string.query_trending_3))
         ));
     }
 

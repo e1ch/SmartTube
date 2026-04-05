@@ -749,14 +749,30 @@
     </plurals>
 
     <!-- Search fallback queries for anonymous home/trending.
-         To add a new language: add translations to values-XX/strings.xml.
-         The query strings are YouTube search terms that return popular regional content. -->
-    <string name="query_home_1_title">Trending</string>
-    <string name="query_home_1">popular music video</string>
-    <string name="query_home_2_title">Popular</string>
-    <string name="query_home_2">most viewed video</string>
-    <string name="query_home_3_title">For You</string>
-    <string name="query_home_3">best videos this week</string>
+         Pool A/B/C rotate on each refresh for content variety.
+         No hardcoded years - use time-relative words like "new", "latest", "today". -->
+    <!-- Pool A: Music focus -->
+    <string name="query_home_a1_title">New Music</string>
+    <string name="query_home_a1">official music video new release</string>
+    <string name="query_home_a2_title">Today</string>
+    <string name="query_home_a2">trending today</string>
+    <string name="query_home_a3_title">Entertainment</string>
+    <string name="query_home_a3">variety show best moments</string>
+    <!-- Pool B: Lifestyle -->
+    <string name="query_home_b1_title">Latest</string>
+    <string name="query_home_b1">new release official MV</string>
+    <string name="query_home_b2_title">Tech</string>
+    <string name="query_home_b2">tech review unboxing</string>
+    <string name="query_home_b3_title">Food</string>
+    <string name="query_home_b3">food vlog recommended</string>
+    <!-- Pool C: Mixed -->
+    <string name="query_home_c1_title">Music</string>
+    <string name="query_home_c1">popular official music video</string>
+    <string name="query_home_c2_title">Gaming</string>
+    <string name="query_home_c2">gaming highlights</string>
+    <string name="query_home_c3_title">Travel</string>
+    <string name="query_home_c3">travel vlog</string>
+    <!-- Trending tab -->
     <string name="query_trending_1_title">Trending Now</string>
     <string name="query_trending_1">trending music video</string>
     <string name="query_trending_2_title">Viral</string>

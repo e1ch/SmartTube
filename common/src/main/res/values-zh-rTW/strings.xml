@@ -730,13 +730,28 @@
   <string name="header_blocked_channels">封鎖的頻道</string>
   <string name="msg_no_blocked_channels">沒有封鎖的頻道</string>
 
-  <!-- Search fallback queries for anonymous home/trending -->
-  <string name="query_home_1_title">熱門</string>
-  <string name="query_home_1">新歌 MV</string>
-  <string name="query_home_2_title">人氣</string>
-  <string name="query_home_2">熱門影片</string>
-  <string name="query_home_3_title">推薦</string>
-  <string name="query_home_3">好看的影片</string>
+  <!-- Pool A: 音樂 -->
+  <string name="query_home_a1_title">最新MV</string>
+  <string name="query_home_a1">新MV official music video</string>
+  <string name="query_home_a2_title">今日話題</string>
+  <string name="query_home_a2">今天 熱門 話題</string>
+  <string name="query_home_a3_title">綜藝</string>
+  <string name="query_home_a3">綜藝節目 精彩片段</string>
+  <!-- Pool B: 生活 -->
+  <string name="query_home_b1_title">新歌</string>
+  <string name="query_home_b1">新歌 MV 官方</string>
+  <string name="query_home_b2_title">科技</string>
+  <string name="query_home_b2">科技 新聞 開箱</string>
+  <string name="query_home_b3_title">美食</string>
+  <string name="query_home_b3">美食 推薦 vlog</string>
+  <!-- Pool C: 混合 -->
+  <string name="query_home_c1_title">音樂</string>
+  <string name="query_home_c1">official music video 華語</string>
+  <string name="query_home_c2_title">遊戲</string>
+  <string name="query_home_c2">遊戲 實況 精華</string>
+  <string name="query_home_c3_title">旅遊</string>
+  <string name="query_home_c3">旅遊 vlog 推薦</string>
+  <!-- Trending -->
   <string name="query_trending_1_title">熱門趨勢</string>
   <string name="query_trending_1">熱門MV</string>
   <string name="query_trending_2_title">爆紅</string>
