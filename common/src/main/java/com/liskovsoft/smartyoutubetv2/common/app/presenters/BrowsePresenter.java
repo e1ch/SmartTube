@@ -707,6 +707,9 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
     private void updateVideoRows(BrowseSection section, Observable<List<MediaGroup>> groups) {
         Log.d(TAG, "updateRowsHeader: Start loading section: " + section.getTitle());
 
+        // Populate watched video IDs so search fallback can filter them out
+        populateExcludedVideoIds(section);
+
         disposeActions();
 
         if (getView() == null) {
@@ -1036,6 +1039,25 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
                 getContext().getString(R.string.breaking_news_row_name),
                 getContext().getString(R.string.covid_news_row_name)
         ));
+    }
+
+    /**
+     * Populate BrowseService2.excludedVideoIds with watched video IDs
+     * so search fallback results avoid showing already-watched content.
+     */
+    private void populateExcludedVideoIds(BrowseSection section) {
+        if (section.getId() != MediaGroup.TYPE_HOME && section.getId() != MediaGroup.TYPE_TRENDING) {
+            return;
+        }
+
+        VideoStateService stateService = VideoStateService.instance(getContext());
+        java.util.Set<String> watchedIds = new java.util.HashSet<>();
+        for (State state : stateService.getStates()) {
+            if (state.video != null && state.video.videoId != null && state.video.percentWatched > 80) {
+                watchedIds.add(state.video.videoId);
+            }
+        }
+        com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setExcludedVideoIds(watchedIds);
     }
 
     private int moveToTopIfNeeded(MediaGroup mediaGroup) {
