@@ -739,4 +739,11 @@
     <string name="query_home_d2">旅行 vlog 絶景 おすすめスポット</string>
     <string name="query_home_d3_title">ドキュメンタリー</string>
     <string name="query_home_d3">科学 解説 雑学 まとめ</string>
+    <!-- Pool E: Anime / Animation -->
+    <string name="query_home_e1_title">アニメ</string>
+    <string name="query_home_e1">アニメ 新作 予告 PV 新番組</string>
+    <string name="query_home_e2_title">アニメ映画</string>
+    <string name="query_home_e2">アニメ映画 新作 劇場版</string>
+    <string name="query_home_e3_title">漫画</string>
+    <string name="query_home_e3">漫画 アニメ化 ウェブトゥーン 原作</string>
 </resources>

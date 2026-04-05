@@ -749,4 +749,11 @@
     <string name="query_home_d2">matka vlog kauneimmat kohteet</string>
     <string name="query_home_d3_title">Dokumentit</string>
     <string name="query_home_d3">tiede dokumentti 2026</string>
+    <!-- Pool E: Anime / Animation -->
+    <string name="query_home_e1_title">Anime</string>
+    <string name="query_home_e1">anime uusi kausi traileri</string>
+    <string name="query_home_e2_title">Animaatio</string>
+    <string name="query_home_e2">animaatioelokuva uusi sarja</string>
+    <string name="query_home_e3_title">Sarjakuvat</string>
+    <string name="query_home_e3">manga webtoon anime-sovitus</string>
 </resources>

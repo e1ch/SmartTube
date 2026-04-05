@@ -684,4 +684,11 @@
     <string name="query_home_d2">călătorie vlog destinații de vizitat</string>
     <string name="query_home_d3_title">Documentare</string>
     <string name="query_home_d3">documentar știință explicații</string>
+    <!-- Pool E: Anime / Animation -->
+    <string name="query_home_e1_title">Anime</string>
+    <string name="query_home_e1">anime sezon nou trailer</string>
+    <string name="query_home_e2_title">Animație</string>
+    <string name="query_home_e2">film animație serie nouă</string>
+    <string name="query_home_e3_title">Benzi desenate</string>
+    <string name="query_home_e3">manga webtoon adaptare anime</string>
 </resources>

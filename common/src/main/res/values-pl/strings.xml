@@ -752,4 +752,11 @@
     <string name="query_home_d2">podróże vlog najpiękniejsze miejsca</string>
     <string name="query_home_d3_title">Dokumenty</string>
     <string name="query_home_d3">dokument TED inspirujące historie</string>
+    <!-- Pool E: Anime / Animation -->
+    <string name="query_home_e1_title">Anime</string>
+    <string name="query_home_e1">anime nowy sezon zwiastun zapowiedź</string>
+    <string name="query_home_e2_title">Animacja</string>
+    <string name="query_home_e2">film animowany nowy serial</string>
+    <string name="query_home_e3_title">Komiksy</string>
+    <string name="query_home_e3">manga webtoon adaptacja anime</string>
 </resources>

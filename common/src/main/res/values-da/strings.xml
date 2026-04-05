@@ -728,4 +728,11 @@
     <string name="query_home_d2">rejse vlog smukke destinationer</string>
     <string name="query_home_d3_title">Dokumentar</string>
     <string name="query_home_d3">videnskab forklaret dokumentar</string>
+    <!-- Pool E: Anime / Animation -->
+    <string name="query_home_e1_title">Anime</string>
+    <string name="query_home_e1">anime ny sæson trailer</string>
+    <string name="query_home_e2_title">Animation</string>
+    <string name="query_home_e2">animationsfilm ny serie</string>
+    <string name="query_home_e3_title">Tegneserier</string>
+    <string name="query_home_e3">manga webtoon anime-tilpasning</string>
 </resources>

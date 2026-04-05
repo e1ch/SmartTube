@@ -731,4 +731,11 @@
     <string name="query_home_d2">utazás vlog legszebb úti célok</string>
     <string name="query_home_d3_title">Dokumentumfilmek</string>
     <string name="query_home_d3">dokumentumfilm tudomány magyarázat</string>
+    <!-- Pool E: Anime / Animation -->
+    <string name="query_home_e1_title">Anime</string>
+    <string name="query_home_e1">anime új évad előzetes</string>
+    <string name="query_home_e2_title">Animáció</string>
+    <string name="query_home_e2">animációs film új sorozat</string>
+    <string name="query_home_e3_title">Képregények</string>
+    <string name="query_home_e3">manga webtoon anime adaptáció</string>
 </resources>

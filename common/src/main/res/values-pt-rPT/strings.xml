@@ -747,4 +747,11 @@
     <string name="query_home_d2">viagem vlog destinos imperdíveis</string>
     <string name="query_home_d3_title">Documentários</string>
     <string name="query_home_d3">documentário ciência curiosidades</string>
+    <!-- Pool E: Anime / Animation -->
+    <string name="query_home_e1_title">Anime</string>
+    <string name="query_home_e1">anime nova temporada trailer</string>
+    <string name="query_home_e2_title">Animação</string>
+    <string name="query_home_e2">filme animação nova série</string>
+    <string name="query_home_e3_title">Banda desenhada</string>
+    <string name="query_home_e3">manga webtoon adaptação anime</string>
 </resources>

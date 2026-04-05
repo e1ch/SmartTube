@@ -758,4 +758,11 @@
     <string name="query_home_d2">旅行 vlog 2026 推荐</string>
     <string name="query_home_d3_title">纪录片</string>
     <string name="query_home_d3">纪录片 科学 科普 解说</string>
+    <!-- Pool E: Anime / Animation -->
+    <string name="query_home_e1_title">动漫</string>
+    <string name="query_home_e1">动漫 新番 预告 新作</string>
+    <string name="query_home_e2_title">动画电影</string>
+    <string name="query_home_e2">动画电影 新作 国漫</string>
+    <string name="query_home_e3_title">漫画</string>
+    <string name="query_home_e3">漫画改编 动漫 推荐 漫改</string>
 </resources>
