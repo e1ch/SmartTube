@@ -13,6 +13,21 @@
       "https://github.com/e1ch/SmartTube/releases/download/release/SmartTube_stable_universal.apk"
     ]
   },
+  "31.72": {
+    "versionCode": 2362,
+    "changelog": [
+      "Search: streaming JsonReader parser (12s -> 7s)",
+      "Home: discovery pool 110+ items, cache-first top positioning",
+      "Home: skip reload on quick re-entry (5min), no content flash",
+      "Code: constants extracted, dead code removed, no Chinese in comments"
+    ],
+    "changelog_zh": [
+      "Search: JsonReader streaming parser (12s -> 7s)",
+      "Home: discovery pool 110+ items, cache priority display",
+      "Home: 5 min skip reload, no content disappear on return",
+      "Code: constants, dead code cleanup"
+    ]
+  },
   "31.71": {
     "versionCode": 2361,
     "changelog": [

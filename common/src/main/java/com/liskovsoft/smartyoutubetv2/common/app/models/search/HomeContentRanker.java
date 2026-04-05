@@ -13,18 +13,21 @@ import java.util.*;
  */
 public class HomeContentRanker {
 
-    // Track globally seen channels and topics across all groups
+    private static final int MIN_GROUP_SIZE = 3;
+    private static final int HIGH_CHANNEL_THRESHOLD = 4;
+    private static final float HIGH_CHANNEL_PENALTY = -0.6f;
+    private static final float MEDIUM_CHANNEL_PENALTY = -0.3f;
+    private static final float TOPIC_SATURATION_RATIO = 0.25f;
+    private static final float TOPIC_PENALTY = -0.4f;
+    private static final float NOVELTY_BOOST = 0.5f;
+
     private final Map<String, Integer> channelCounts = new HashMap<>();
     private final Map<String, Integer> topicCounts = new HashMap<>();
     private final Set<String> knownChannels = new HashSet<>();
     private int totalItems = 0;
 
-    /**
-     * Re-rank items within a MediaGroup for diversity.
-     * Modifies the group's item list in-place.
-     */
     public void rankGroup(MediaGroup group) {
-        if (group == null || group.getMediaItems() == null || group.getMediaItems().size() <= 3) {
+        if (group == null || group.getMediaItems() == null || group.getMediaItems().size() <= MIN_GROUP_SIZE) {
             return;
         }
 
@@ -64,21 +67,18 @@ public class HomeContentRanker {
         String channelId = item.getChannelId() != null ? item.getChannelId() : "";
         String topic = inferTopic(item);
 
-        // Channel penalty: same channel appearing too often
         int chCount = channelCounts.getOrDefault(channelId, 0);
-        if (chCount >= 4) score -= 0.6f;
-        else if (chCount >= 2) score -= 0.3f;
+        if (chCount >= HIGH_CHANNEL_THRESHOLD) score += HIGH_CHANNEL_PENALTY;
+        else if (chCount >= 2) score += MEDIUM_CHANNEL_PENALTY;
 
-        // Topic penalty: same topic dominating
         int topCount = topicCounts.getOrDefault(topic, 0);
         if (totalItems > 0 && topCount > 0) {
             float ratio = (float) topCount / totalItems;
-            if (ratio > 0.25f) score -= 0.4f;
+            if (ratio > TOPIC_SATURATION_RATIO) score += TOPIC_PENALTY;
         }
 
-        // Novelty boost: new channel never seen before
         if (!channelId.isEmpty() && !knownChannels.contains(channelId)) {
-            score += 0.5f;
+            score += NOVELTY_BOOST;
         }
 
         return score;

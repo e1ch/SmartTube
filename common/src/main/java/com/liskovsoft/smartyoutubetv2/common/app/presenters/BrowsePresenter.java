@@ -491,9 +491,26 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
     @Override
     public void onSectionFocused(int sectionId) {
         saveSelectedItems(); // save previous state
-        mCurrentSection = findSectionById(sectionId);
+
+        BrowseSection newSection = findSectionById(sectionId);
+        boolean isSameSection = mCurrentSection != null && mCurrentSection.getId() == sectionId;
+        boolean isFresh = mLastUpdateTimeMs > 0
+                && (System.currentTimeMillis() - mLastUpdateTimeMs) < 5 * 60 * 1_000; // 5 min
+
+        mCurrentSection = newSection;
         mCurrentVideo = null; // fast scroll through the sections (fix empty selected item)
-        updateCurrentSection();
+
+        // Skip full reload if returning to same section within 5 min
+        // (e.g. back from search/player). Keeps existing content visible.
+        Log.d(TAG, "onSectionFocused: id=%d same=%b fresh=%b lastUpdate=%dms ago",
+                sectionId, isSameSection, isFresh,
+                mLastUpdateTimeMs > 0 ? System.currentTimeMillis() - mLastUpdateTimeMs : -1);
+        if (isSameSection && isFresh) {
+            Log.d(TAG, "onSectionFocused: SKIP reload (same section, still fresh)");
+        } else {
+            updateCurrentSection();
+        }
+
         restoreSelectedItems(); // Don't place anywhere else
     }
 
@@ -723,7 +740,7 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
             getViewManager().startView(BrowseView.class);
             return;
         }
-        
+
         getView().showProgressBar(true);
 
         VideoGroup firstGroup = VideoGroup.from(section);
@@ -737,7 +754,6 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
         }
 
         final boolean[] prefetchStarted = {false};
-        final java.util.Set<String> emittedTitles = new java.util.HashSet<>();
         Disposable updateAction = groups
                 .subscribe(
                         mediaGroups -> {
@@ -762,12 +778,6 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
 
                                 if (TextUtils.isEmpty(videoGroup.getTitle())) {
                                     videoGroup.setTitle(getContext().getString(R.string.suggestions));
-                                }
-
-                                // If same title was already emitted, replace instead of append
-                                String title = videoGroup.getTitle();
-                                if (title != null && !emittedTitles.add(title)) {
-                                    videoGroup.setAction(VideoGroup.ACTION_REPLACE);
                                 }
 
                                 getView().updateSection(videoGroup);
