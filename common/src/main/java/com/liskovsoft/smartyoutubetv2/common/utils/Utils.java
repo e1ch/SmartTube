@@ -496,7 +496,11 @@ public class Utils {
     }
 
     public static String toQrCodeLink(String data) {
-        return String.format(QR_CODE_URL_TEMPLATE, data);
+        try {
+            return String.format(QR_CODE_URL_TEMPLATE, java.net.URLEncoder.encode(data, "UTF-8"));
+        } catch (Exception e) {
+            return String.format(QR_CODE_URL_TEMPLATE, data);
+        }
     }
 
     public static void openLink(Context context, String url) {

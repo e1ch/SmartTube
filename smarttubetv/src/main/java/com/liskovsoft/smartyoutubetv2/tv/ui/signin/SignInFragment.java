@@ -66,27 +66,22 @@ public class SignInFragment extends GuidedStepSupportFragment implements SignInV
             int pad = (int) (8 * density);
             iconView.setPadding(pad, pad, pad, pad);
             iconView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            iconView.setAdjustViewBounds(true);
 
             // Fixed QR code size
             ViewGroup.LayoutParams params = iconView.getLayoutParams();
             if (params != null) {
-                int size = (int) (180 * density);
+                int size = (int) (160 * density);
                 params.width = size;
                 params.height = size;
                 iconView.setLayoutParams(params);
             }
+        }
 
-            // Align icon with text: remove extra margins from parent
-            if (iconView.getParent() instanceof ViewGroup) {
-                ViewGroup parent = (ViewGroup) iconView.getParent();
-                parent.setPadding(0, 0, 0, 0);
-                // Center the QR code in its container
-                if (parent.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                    ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) parent.getLayoutParams();
-                    mlp.setMargins(0, 0, (int)(16 * density), 0);
-                    parent.setLayoutParams(mlp);
-                }
-            }
+        // Also style the title to align with QR code
+        android.widget.TextView titleView = getGuidanceStylist().getTitleView();
+        if (titleView != null) {
+            titleView.setGravity(android.view.Gravity.START);
         }
     }
 
@@ -115,16 +110,8 @@ public class SignInFragment extends GuidedStepSupportFragment implements SignInV
 
         mFullSignInUrl = signInUrl + "?user_code=" + userCode.replace(" ", "-");
 
-        // URL-encode the full sign-in URL for QR code generation (like PrismTube)
-        String encodedUrl;
-        try {
-            encodedUrl = java.net.URLEncoder.encode(mFullSignInUrl, "UTF-8");
-        } catch (Exception e) {
-            encodedUrl = mFullSignInUrl;
-        }
-
         Glide.with(getContext())
-                .load(Utils.toQrCodeLink(encodedUrl))
+                .load(Utils.toQrCodeLink(mFullSignInUrl))
                 .placeholder(R.drawable.activate_account_qrcode)
                 .apply(ViewUtil.glideOptions())
                 .error(R.drawable.activate_account_qrcode)
