@@ -425,9 +425,9 @@
     <string name="query_trending_3_title">Verta pažiūrėti</string>
     <string name="query_trending_3">geriausias vaizdo įrašas rekomenduojamas būtina pamatyti</string>
     <string name="query_home_d1_title">Filmai</string>
-    <string name="query_home_d1">nauji filmai anonsas Netflix Disney</string>
+    <string name="query_home_d1">naujas filmas treileris 2026</string>
     <string name="query_home_d2_title">Kelionės</string>
     <string name="query_home_d2">kelionė vlog gražiausios vietos</string>
     <string name="query_home_d3_title">Dokumentika</string>
-    <string name="query_home_d3">dokumentinis filmas TED įkvepiančios istorijos</string>
+    <string name="query_home_d3">mokslas dokumentinis filmas</string>
 </resources>

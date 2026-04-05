@@ -724,9 +724,9 @@
     <string name="query_trending_3_title">Ia vlen të shikohet</string>
     <string name="query_trending_3">video më e mirë e rekomanduar duhet parë</string>
     <string name="query_home_d1_title">Filma</string>
-    <string name="query_home_d1">filma të reja trailer Netflix Disney</string>
+    <string name="query_home_d1">film i ri trailer 2026</string>
     <string name="query_home_d2_title">Udhëtimi</string>
-    <string name="query_home_d2">udhëtim vlog destinacione më të bukura</string>
+    <string name="query_home_d2">udhëtim vlog 2026</string>
     <string name="query_home_d3_title">Dokumentarë</string>
-    <string name="query_home_d3">dokumentar TED histori frymëzuese</string>
+    <string name="query_home_d3">shkencë dokumentar</string>
 </resources>

@@ -753,9 +753,9 @@
   <string name="query_trending_3_title">值得一看</string>
   <string name="query_trending_3">推荐 必看 精选视频</string>
     <string name="query_home_d1_title">电影</string>
-    <string name="query_home_d1">新电影 预告片 Netflix Disney</string>
+    <string name="query_home_d1">新电影 预告片 2026</string>
     <string name="query_home_d2_title">旅行</string>
-    <string name="query_home_d2">旅行 vlog 最美目的地 必去景点</string>
+    <string name="query_home_d2">旅行 vlog 2026 推荐</string>
     <string name="query_home_d3_title">纪录片</string>
-    <string name="query_home_d3">纪录片 TED 励志故事 幕后</string>
+    <string name="query_home_d3">纪录片 科学 科普 解说</string>
 </resources>

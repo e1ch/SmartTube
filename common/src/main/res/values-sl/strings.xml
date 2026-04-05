@@ -310,9 +310,9 @@
     <string name="query_trending_3_title">Vredno ogleda</string>
     <string name="query_trending_3">najboljši video priporočeno obvezno si oglejte</string>
     <string name="query_home_d1_title">Filmi</string>
-    <string name="query_home_d1">novi filmi napovednik Netflix Disney</string>
+    <string name="query_home_d1">nov film napovednik 2026</string>
     <string name="query_home_d2_title">Potovanja</string>
     <string name="query_home_d2">potovanje vlog najlepše destinacije</string>
     <string name="query_home_d3_title">Dokumentarci</string>
-    <string name="query_home_d3">dokumentarni film TED navdihujoče zgodbe</string>
+    <string name="query_home_d3">science documentary explained</string>
 </resources>
