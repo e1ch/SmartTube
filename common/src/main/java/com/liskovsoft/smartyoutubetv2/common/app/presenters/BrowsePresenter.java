@@ -784,9 +784,11 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
             return;
         }
 
+        // Delay prefetch by 10s to avoid competing with video playback
+        // If user clicks a video quickly, prefetch won't steal bandwidth
         RxHelper.runAsync(() -> {
+            try { Thread.sleep(10_000); } catch (InterruptedException e) { return; }
             Log.d(TAG, "Background prefetch: starting...");
-            // Use next rotation's home queries (not trending — those are low quality)
             java.util.List<java.util.List<kotlin.Pair<String, String>>> pools =
                 com.liskovsoft.youtubeapi.browse.v2.BrowseService2.getHomeQueryPools();
             if (pools != null && !pools.isEmpty()) {
