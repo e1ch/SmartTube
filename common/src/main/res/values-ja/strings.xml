@@ -746,4 +746,15 @@
     <string name="query_home_e2">アニメ映画 新作 劇場版</string>
     <string name="query_home_e3_title">漫画</string>
     <string name="query_home_e3">漫画 アニメ化</string>
+    <string name="discovery_settings">コンテンツ探索</string>
+    <string name="discovery_mode_unified">統合 — すべて「For You ✦」に表示</string>
+    <string name="discovery_mode_rotating">ローテーション — 更新ごとに2プール</string>
+    <string name="discovery_mode_all_expanded">全展開 — すべてのプールを表示</string>
+    <string name="discovery_enabled_pools">有効なコンテンツプール</string>
+    <string name="discovery_pool_a">プール A — 音楽</string>
+    <string name="discovery_pool_b">プール B — ライフスタイル</string>
+    <string name="discovery_pool_c">プール C — 総合/トレンド</string>
+    <string name="discovery_pool_d">プール D — 映画/旅行/知識</string>
+    <string name="discovery_pool_e">プール E — アニメ/アニメーション</string>
+    <string name="discovery_pool_lang">言語探索</string>
 </resources>

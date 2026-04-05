@@ -289,6 +289,14 @@
             android:screenOrientation="unspecified"/>
 
         <!-- END Launchers -->
+
+        <!-- Debug broadcast receiver for adb testing -->
+        <receiver android:name="com.liskovsoft.smartyoutubetv2.common.debug.DebugCommands"
+                  android:exported="true">
+            <intent-filter>
+                <action android:name="com.smarttube.DEBUG" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

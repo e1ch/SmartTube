@@ -766,6 +766,17 @@
   <string name="query_home_e3_title">漫畫</string>
   <string name="query_home_e3">漫畫改編 動漫 推薦</string>
   <string name="query_discovery_title">為你推薦 ✦</string>
+  <string name="discovery_settings">內容探索</string>
+  <string name="discovery_mode_unified">統一 — 全部混合在「為你推薦 ✦」</string>
+  <string name="discovery_mode_rotating">輪換 — 每次顯示 2 個分類</string>
+  <string name="discovery_mode_all_expanded">全部展開 — 顯示所有分類</string>
+  <string name="discovery_enabled_pools">啟用的內容池</string>
+  <string name="discovery_pool_a">Pool A — 音樂</string>
+  <string name="discovery_pool_b">Pool B — 生活</string>
+  <string name="discovery_pool_c">Pool C — 綜合/熱門</string>
+  <string name="discovery_pool_d">Pool D — 電影/旅遊/知識</string>
+  <string name="discovery_pool_e">Pool E — 動漫/動畫</string>
+  <string name="discovery_pool_lang">語言探索（通用搜尋字）</string>
   <string name="query_kworb_title">即時熱門</string>
   <!-- Trending -->
   <string name="query_trending_1_title">現在熱門</string>

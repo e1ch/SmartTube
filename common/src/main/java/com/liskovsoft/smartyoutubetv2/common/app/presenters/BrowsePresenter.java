@@ -75,6 +75,7 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
     private BrowseSection mCurrentSection;
     private Video mCurrentVideo;
     private long mLastUpdateTimeMs = -1;
+    private boolean mJustResumed = false;
     private int mBootSectionIndex;
     private int mBootstrapSectionId = -1;
 
@@ -138,7 +139,7 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
     @Override
     public void onViewResumed() {
         super.onViewResumed();
-
+        mJustResumed = true;
         refreshIfNeeded();
     }
 
@@ -494,24 +495,25 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
 
         BrowseSection newSection = findSectionById(sectionId);
         boolean isSameSection = mCurrentSection != null && mCurrentSection.getId() == sectionId;
-        boolean isFresh = mLastUpdateTimeMs > 0
-                && (System.currentTimeMillis() - mLastUpdateTimeMs) < 5 * 60 * 1_000; // 5 min
+
+        // Distinguish "return from search/player" (justResumed=true) vs "user clicks tab" (false)
+        // Return from search: keep content, no reload
+        // User clicks Home tab: always force refresh
+        boolean isReturnFromOtherScreen = mJustResumed;
+        mJustResumed = false;
 
         mCurrentSection = newSection;
-        mCurrentVideo = null; // fast scroll through the sections (fix empty selected item)
+        mCurrentVideo = null;
 
-        // Skip full reload if returning to same section within 5 min
-        // (e.g. back from search/player). Keeps existing content visible.
-        Log.d(TAG, "onSectionFocused: id=%d same=%b fresh=%b lastUpdate=%dms ago",
-                sectionId, isSameSection, isFresh,
-                mLastUpdateTimeMs > 0 ? System.currentTimeMillis() - mLastUpdateTimeMs : -1);
-        if (isSameSection && isFresh) {
-            Log.d(TAG, "onSectionFocused: SKIP reload (same section, still fresh)");
+        if (isSameSection && isReturnFromOtherScreen) {
+            Log.d(TAG, "onSectionFocused: SKIP reload (returning from other screen)");
         } else {
+            // Force REFRESH_HARD so streamHomeExtra runs full discovery
+            com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setLastFullRefreshMs(0);
             updateCurrentSection();
         }
 
-        restoreSelectedItems(); // Don't place anywhere else
+        restoreSelectedItems();
     }
 
     @Override
@@ -775,6 +777,10 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
                                 }
 
                                 VideoGroup videoGroup = VideoGroup.from(mediaGroup, section);
+
+                                Log.d(TAG, "Shelf: mediaGroup.title='%s' videoGroup.title='%s' items=%d",
+                                        mediaGroup.getTitle(), videoGroup.getTitle(),
+                                        mediaGroup.getMediaItems() != null ? mediaGroup.getMediaItems().size() : 0);
 
                                 if (TextUtils.isEmpty(videoGroup.getTitle())) {
                                     videoGroup.setTitle(getContext().getString(R.string.suggestions));
@@ -1159,8 +1165,29 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
         com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setHomeQueryPools(pools);
         com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setKworbTitle(ctx.getString(R.string.query_kworb_title));
         com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setDiscoveryTitle(ctx.getString(R.string.query_discovery_title));
-        // Also set first pool as default homeQueries
+        com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setLanguageDiscoveryTitle(ctx.getString(R.string.discovery_pool_lang) + " ✦");
         com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setHomeQueries(pools.get(0));
+
+        // Discovery mode from preferences
+        com.liskovsoft.smartyoutubetv2.common.prefs.GeneralData gd = com.liskovsoft.smartyoutubetv2.common.prefs.GeneralData.instance(ctx);
+        int mode = gd.getDiscoveryMode();
+        com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setUnifiedShelf(mode == com.liskovsoft.smartyoutubetv2.common.prefs.GeneralData.DISCOVERY_UNIFIED);
+        com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setAllPoolsAtOnce(mode == com.liskovsoft.smartyoutubetv2.common.prefs.GeneralData.DISCOVERY_ALL_EXPANDED);
+        com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setRotatingPoolCount(
+                mode == com.liskovsoft.smartyoutubetv2.common.prefs.GeneralData.DISCOVERY_ROTATING ? 2 : 0);
+
+        // Filter pools by user preference (bitmask)
+        java.util.List<java.util.List<kotlin.Pair<String, String>>> filteredPools = new java.util.ArrayList<>();
+        for (int i = 0; i < pools.size(); i++) {
+            if (gd.isPoolEnabled(i)) filteredPools.add(pools.get(i));
+        }
+        if (!filteredPools.isEmpty()) {
+            com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setHomeQueryPools(filteredPools);
+            com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setHomeQueries(filteredPools.get(0));
+        }
+
+        // Language discovery enable/disable (bit 5)
+        com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setLanguageDiscoveryEnabled(gd.isPoolEnabled(5));
 
         com.liskovsoft.youtubeapi.browse.v2.BrowseService2.setTrendingQueries(java.util.Arrays.asList(
             new kotlin.Pair<>(ctx.getString(R.string.query_trending_1_title), ctx.getString(R.string.query_trending_1)),

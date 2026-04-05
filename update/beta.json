@@ -13,6 +13,15 @@
       "https://github.com/e1ch/SmartTube/releases/download/release/SmartTube_beta_universal.apk"
     ]
   },
+  "31.73": {
+    "versionCode": 2363,
+    "changelog": [
+      "Discovery settings: 3 modes (unified/rotating/all), pool toggles",
+      "Search: streaming parser (12s -> 1.5s)",
+      "Home: discovery before default, pool rotation fix",
+      "Debug broadcast receiver for adb testing"
+    ]
+  },
   "31.72": {
     "versionCode": 2362,
     "changelog": [

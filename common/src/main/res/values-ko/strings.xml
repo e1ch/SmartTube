@@ -741,4 +741,15 @@
     <string name="query_home_e2">애니 극장판</string>
     <string name="query_home_e3_title">만화</string>
     <string name="query_home_e3">만화 웹툰 애니화 원작</string>
+    <string name="discovery_settings">콘텐츠 탐색</string>
+    <string name="discovery_mode_unified">통합 — 모두 \"For You ✦\"에 표시</string>
+    <string name="discovery_mode_rotating">순환 — 새로고침마다 2개 풀</string>
+    <string name="discovery_mode_all_expanded">전체 — 모든 풀 표시</string>
+    <string name="discovery_enabled_pools">활성화된 콘텐츠 풀</string>
+    <string name="discovery_pool_a">풀 A — 음악</string>
+    <string name="discovery_pool_b">풀 B — 라이프스타일</string>
+    <string name="discovery_pool_c">풀 C — 종합/트렌드</string>
+    <string name="discovery_pool_d">풀 D — 영화/여행/지식</string>
+    <string name="discovery_pool_e">풀 E — 애니/애니메이션</string>
+    <string name="discovery_pool_lang">언어 탐색</string>
 </resources>

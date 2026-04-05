@@ -86,6 +86,11 @@ public class GeneralData implements ProfileChangeListener {
     private int mLocalDriveBackupFreqDays;
     private List<Video> mOldPinnedItems;
     private boolean mIsRemapSToSpeedToggleEnabled;
+    public static final int DISCOVERY_UNIFIED = 0;
+    public static final int DISCOVERY_ROTATING = 1;
+    public static final int DISCOVERY_ALL_EXPANDED = 2;
+    private int mDiscoveryMode;
+    private int mEnabledPools; // bitmask: bit0=A, bit1=B, bit2=C, bit3=D, bit4=E, bit5=Language
     private final Runnable mPersistStateInt = this::persistStateInt;
 
     private GeneralData(Context context) {
@@ -660,7 +665,20 @@ public class GeneralData implements ProfileChangeListener {
         mLocalDriveBackupFreqDays = Helpers.parseInt(split, 70, 1);
         //mIsRemapFastForwardToSpeedToggleEnabled = Helpers.parseBoolean(split, 71, false);
         mIsRemapSToSpeedToggleEnabled = Helpers.parseBoolean(split, 72, true);
+        mDiscoveryMode = Helpers.parseInt(split, 73, DISCOVERY_UNIFIED);
+        mEnabledPools = Helpers.parseInt(split, 74, 0x3F); // all 6 enabled by default (0b111111)
     }
+
+    public int getDiscoveryMode() { return mDiscoveryMode; }
+    public void setDiscoveryMode(int mode) { mDiscoveryMode = mode; persistState(); }
+
+    public boolean isPoolEnabled(int poolIndex) { return (mEnabledPools & (1 << poolIndex)) != 0; }
+    public void setPoolEnabled(int poolIndex, boolean enabled) {
+        if (enabled) mEnabledPools |= (1 << poolIndex);
+        else mEnabledPools &= ~(1 << poolIndex);
+        persistState();
+    }
+    public int getEnabledPools() { return mEnabledPools; }
 
     public void persistNow() {
         Utils.post(mPersistStateInt);
@@ -685,7 +703,8 @@ public class GeneralData implements ProfileChangeListener {
                 mIsHideWatchedFromNotificationsEnabled, mChangelog, mPlayerExitShortcut, null, mIsFullscreenModeEnabled, null,
                 mIsRememberPinnedPositionEnabled, mSelectedItems, mIsFirstUseTooltipEnabled, mIsDeviceSpecificBackupEnabled, null,
                 null, mSearchExitShortcut, mGDriveBackupFreqDays, mLocalDriveBackupFreqDays, null,
-                mIsRemapSToSpeedToggleEnabled));
+                mIsRemapSToSpeedToggleEnabled,
+                mDiscoveryMode, mEnabledPools));
     }
 
     @Override

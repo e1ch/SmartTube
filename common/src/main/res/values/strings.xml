@@ -788,6 +788,18 @@
     <string name="query_home_e3">manga webtoon comic adaptation</string>
     <!-- Language discovery section title -->
     <string name="query_discovery_title">For You ✦</string>
+    <!-- Discovery settings -->
+    <string name="discovery_settings">Content Discovery</string>
+    <string name="discovery_mode_unified">Unified — all in \"For You ✦\"</string>
+    <string name="discovery_mode_rotating">Rotating — 2 pools per refresh</string>
+    <string name="discovery_mode_all_expanded">All expanded — show all pools</string>
+    <string name="discovery_enabled_pools">Enabled content pools</string>
+    <string name="discovery_pool_a">Pool A — Music</string>
+    <string name="discovery_pool_b">Pool B — Lifestyle</string>
+    <string name="discovery_pool_c">Pool C — Mixed/Trending</string>
+    <string name="discovery_pool_d">Pool D — Movies/Travel/Knowledge</string>
+    <string name="discovery_pool_e">Pool E — Anime/Animation</string>
+    <string name="discovery_pool_lang">Language Discovery</string>
     <!-- Kworb real-time trending section title -->
     <string name="query_kworb_title">Trending Now</string>
     <!-- Trending tab (no "Viral" — returns low quality clickbait) -->

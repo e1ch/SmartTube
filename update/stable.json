@@ -13,6 +13,16 @@
       "https://github.com/e1ch/SmartTube/releases/download/release/SmartTube_stable_universal.apk"
     ]
   },
+  "31.73": {
+    "versionCode": 2363,
+    "changelog": [
+      "Discovery settings: 3 modes (unified/rotating/all), pool toggles",
+      "Search: streaming JsonReader parser (12s -> 1.5s)",
+      "Home: discovery always before TV default",
+      "Deep link debug commands (adb broadcast)",
+      "46 locale translations for settings"
+    ]
+  },
   "31.72": {
     "versionCode": 2362,
     "changelog": [

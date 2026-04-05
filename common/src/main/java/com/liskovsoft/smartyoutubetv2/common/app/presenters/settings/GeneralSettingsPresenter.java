@@ -73,6 +73,7 @@ public class GeneralSettingsPresenter extends BasePresenter<Void> {
 
         appendBootToSection(settingsPresenter);
         appendEnabledSections(settingsPresenter);
+        appendDiscoverySettings(settingsPresenter);
         appendContextMenuItemsCategory(settingsPresenter);
         appendHideContent(settingsPresenter);
         appendAppExitCategory(settingsPresenter);
@@ -105,6 +106,42 @@ public class GeneralSettingsPresenter extends BasePresenter<Void> {
         }
 
         settingsPresenter.appendCheckedCategory(getContext().getString(R.string.side_panel_sections), options);
+    }
+
+    private void appendDiscoverySettings(AppDialogPresenter settingsPresenter) {
+        List<OptionItem> options = new ArrayList<>();
+
+        int currentMode = mGeneralData.getDiscoveryMode();
+
+        options.add(UiOptionItem.from(
+                getContext().getString(R.string.discovery_mode_unified),
+                optionItem -> mGeneralData.setDiscoveryMode(GeneralData.DISCOVERY_UNIFIED),
+                currentMode == GeneralData.DISCOVERY_UNIFIED));
+
+        options.add(UiOptionItem.from(
+                getContext().getString(R.string.discovery_mode_rotating),
+                optionItem -> mGeneralData.setDiscoveryMode(GeneralData.DISCOVERY_ROTATING),
+                currentMode == GeneralData.DISCOVERY_ROTATING));
+
+        options.add(UiOptionItem.from(
+                getContext().getString(R.string.discovery_mode_all_expanded),
+                optionItem -> mGeneralData.setDiscoveryMode(GeneralData.DISCOVERY_ALL_EXPANDED),
+                currentMode == GeneralData.DISCOVERY_ALL_EXPANDED));
+
+        settingsPresenter.appendRadioCategory(getContext().getString(R.string.discovery_settings), options);
+
+        // Pool enable/disable checkboxes
+        List<OptionItem> poolOptions = new ArrayList<>();
+        int[] poolStrings = {R.string.discovery_pool_a, R.string.discovery_pool_b, R.string.discovery_pool_c,
+                R.string.discovery_pool_d, R.string.discovery_pool_e, R.string.discovery_pool_lang};
+        for (int i = 0; i < poolStrings.length; i++) {
+            final int idx = i;
+            poolOptions.add(UiOptionItem.from(
+                    getContext().getString(poolStrings[i]),
+                    optionItem -> mGeneralData.setPoolEnabled(idx, optionItem.isSelected()),
+                    mGeneralData.isPoolEnabled(i)));
+        }
+        settingsPresenter.appendCheckedCategory(getContext().getString(R.string.discovery_enabled_pools), poolOptions);
     }
 
     private void appendHideContent(AppDialogPresenter settingsPresenter) {
