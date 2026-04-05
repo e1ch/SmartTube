@@ -777,8 +777,8 @@
     <string name="query_home_d1">official trailer Netflix Disney Marvel</string>
     <string name="query_home_d2_title">Travel</string>
     <string name="query_home_d2">travel vlog best places to visit</string>
-    <string name="query_home_d3_title">Discover</string>
-    <string name="query_home_d3">documentary TED talk inspiring story</string>
+    <string name="query_home_d3_title">Knowledge</string>
+    <string name="query_home_d3">explained science history knowledge</string>
     <!-- Language discovery section title -->
     <string name="query_discovery_title">Just Uploaded</string>
     <!-- Kworb real-time trending section title -->

@@ -756,8 +756,8 @@
   <string name="query_home_d1">電影預告片 Netflix 迪士尼 漫威</string>
   <string name="query_home_d2_title">旅遊</string>
   <string name="query_home_d2">旅遊推薦 必去景點 vlog</string>
-  <string name="query_home_d3_title">發現</string>
-  <string name="query_home_d3">紀錄片 TED演講 感人故事</string>
+  <string name="query_home_d3_title">知識</string>
+  <string name="query_home_d3">知識 科普 解說</string>
   <string name="query_discovery_title">最新上傳</string>
   <string name="query_kworb_title">即時熱門</string>
   <!-- Trending -->
