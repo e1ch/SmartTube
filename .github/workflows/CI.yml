@@ -1,9 +1,12 @@
-name: Build Debug APK
+name: Build & Release
 
 on:
   push:
     branches: [ "master" ]
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -25,12 +28,14 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
 
-      - name: Update Version Name
+      - name: Get Version Info
         id: get_version
         run: |
-          # Keep the original code to make the nightly and original builds interchangeable
-          sed -i "s/versionName \"\(.*\)\"/versionName \"\1-nightly-${{ github.run_number }}\"/" smarttubetv/build.gradle
-          echo "VERSION_NAME=$(grep "versionName" smarttubetv/build.gradle | head -n 1 | awk -F'"' '{print $2}')" >> $GITHUB_OUTPUT
+          VERSION_NAME=$(grep "versionName" smarttubetv/build.gradle | head -n 1 | awk -F'"' '{print $2}')
+          VERSION_CODE=$(grep "versionCode" smarttubetv/build.gradle | head -n 1 | awk '{print $2}')
+          echo "VERSION_NAME=$VERSION_NAME" >> $GITHUB_OUTPUT
+          echo "VERSION_CODE=$VERSION_CODE" >> $GITHUB_OUTPUT
+          echo "Version: $VERSION_NAME (code: $VERSION_CODE)"
 
       - name: Configure Build Signing
         if: ${{ env.HAS_SIGNING_KEY == 'true' }}
@@ -40,79 +45,57 @@ jobs:
           echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> keystore.properties
           echo "storeFile=${{ github.workspace }}/key.jks" >> keystore.properties
           echo "${{ secrets.SIGNING_KEY }}" | base64 --decode > ${{ github.workspace }}/key.jks
-    
+
       - name: Grant Gradle permissions
         run: chmod +x gradlew
 
-      - name: Lint with Gradle
-        run: ./gradlew lintStbetaRelease
+      - name: Build Beta APKs
+        run: ./gradlew assembleStbetaDebug
 
-      - name: Upload Lint Report
-        uses: actions/upload-artifact@v7
-        if: always()
-        with:
-          name: lint-report
-          path: '**/build/reports/lint-results-*.html'
-          if-no-files-found: warn
+      - name: Build Stable APKs
+        run: ./gradlew assembleStstableDebug
 
-      - name: Build with Gradle
-        run: ./gradlew clean assembleStbetaRelease
-
-      - name: VirusTotal Scan
-        if: ${{ env.HAS_VT_KEY == 'true' }}
-        id: vt
-        uses: crazy-max/ghaction-virustotal@v5
-        with:
-          vt_api_key: ${{ secrets.VIRUS_TOTAL_API_KEY }}
-          files: |
-            ./smarttubetv/build/outputs/apk/stbeta/release/*.apk
-          request_rate: 4
-
-      - name: VirusTotal Summary
-        if: steps.vt.outcome == 'success'
+      - name: Prepare Release Assets
+        id: prepare
         run: |
-          echo "Waiting 150s for VirusTotal engines to report..."
-          sleep 150
-
-          echo "### Security Scan Results" >> $GITHUB_STEP_SUMMARY
-          echo "| Artifact Name | VirusTotal Status | Detailed Report |" >> $GITHUB_STEP_SUMMARY
-          echo "| :--- | :--- | :--- |" >> $GITHUB_STEP_SUMMARY
-
-          for apk in ./smarttubetv/build/outputs/apk/stbeta/release/*.apk; do
-            filename=$(basename "$apk")
-            sha256=$(sha256sum "$apk" | awk '{print $1}')
-
-            # Construct the dynamic badge URL using the hash
-            badge_url="https://badges.cssnr.com/vt/id/$sha256?start=green&end=red&n=8"
-            vt_link="https://www.virustotal.com/gui/file/$sha256"
-
-            echo "| $filename | [![$filename]($badge_url)]($vt_link) | [View Report]($vt_link) |" >> $GITHUB_STEP_SUMMARY
+          mkdir -p release_assets
+          # Beta APKs (rename to remove version for stable download URLs)
+          for abi in armeabi-v7a arm64-v8a x86 universal; do
+            cp smarttubetv/build/outputs/apk/stbeta/debug/*_${abi}.apk release_assets/SmartTube_beta_${abi}.apk
+            cp smarttubetv/build/outputs/apk/ststable/debug/*_${abi}.apk release_assets/SmartTube_stable_${abi}.apk
           done
+          ls -la release_assets/
 
-      - name: Upload ARM64 APK
+      - name: Delete Old Release
+        run: |
+          gh release delete release --yes 2>/dev/null || true
+          git push origin :refs/tags/release 2>/dev/null || true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Release
+        run: |
+          gh release create release \
+            --title "v${{ steps.get_version.outputs.VERSION_NAME }}" \
+            --notes "## v${{ steps.get_version.outputs.VERSION_NAME }} (build ${{ github.run_number }})
+
+          Auto-built from commit ${{ github.sha }}
+
+          ### Download
+          | Variant | ABI | Link |
+          |---------|-----|------|
+          | Beta | armeabi-v7a | [Download](https://github.com/${{ github.repository }}/releases/download/release/SmartTube_beta_armeabi-v7a.apk) |
+          | Beta | arm64-v8a | [Download](https://github.com/${{ github.repository }}/releases/download/release/SmartTube_beta_arm64-v8a.apk) |
+          | Beta | universal | [Download](https://github.com/${{ github.repository }}/releases/download/release/SmartTube_beta_universal.apk) |
+          | Stable | armeabi-v7a | [Download](https://github.com/${{ github.repository }}/releases/download/release/SmartTube_stable_armeabi-v7a.apk) |
+          " \
+            release_assets/*
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Artifacts (backup)
         uses: actions/upload-artifact@v7
         with:
-          name: SmartTube_${{ steps.get_version.outputs.VERSION_NAME }}_arm64
-          path: ./smarttubetv/build/outputs/apk/stbeta/release/*_arm64-v8a.apk
-          if-no-files-found: error
-
-      - name: Upload ARMv7 APK
-        uses: actions/upload-artifact@v7
-        with:
-          name: SmartTube_${{ steps.get_version.outputs.VERSION_NAME }}_armeabi-v7a
-          path: ./smarttubetv/build/outputs/apk/stbeta/release/*_armeabi-v7a.apk
-          if-no-files-found: error
-
-      - name: Upload Universal APK
-        uses: actions/upload-artifact@v7
-        with:
-          name: SmartTube_${{ steps.get_version.outputs.VERSION_NAME }}_universal
-          path: ./smarttubetv/build/outputs/apk/stbeta/release/*_universal.apk
-          if-no-files-found: error
-
-      - name: Upload x86 APK
-        uses: actions/upload-artifact@v7
-        with:
-          name: SmartTube_${{ steps.get_version.outputs.VERSION_NAME }}_x86
-          path: ./smarttubetv/build/outputs/apk/stbeta/release/*_x86.apk
+          name: SmartTube_v${{ steps.get_version.outputs.VERSION_NAME }}
+          path: release_assets/*.apk
           if-no-files-found: error
