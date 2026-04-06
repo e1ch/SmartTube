@@ -471,6 +471,19 @@ public class PlaybackFragment extends SeekModePlaybackFragment implements Playba
     private void createPlayer() {
         // Use default or pass your bandwidthMeter here: bandwidthMeter = new DefaultBandwidthMeter.Builder(getContext()).build()
         DefaultTrackSelector trackSelector = new RestoreTrackSelector(new AdaptiveTrackSelection.Factory());
+
+        // Weak device: constrain codec/quality for smooth playback
+        if (com.liskovsoft.smartyoutubetv2.common.exoplayer.other.DeviceCapabilityHelper.isLowEndDevice(getContext())) {
+            trackSelector.setParameters(
+                    trackSelector.buildUponParameters()
+                            .setMaxVideoSize(1280, 720)       // max 720p
+                            .setMaxVideoFrameRate(30)          // max 30fps
+                            .setMaxVideoBitrate(2_000_000)     // max 2Mbps
+                            .setExceedVideoConstraintsIfNecessary(true) // still play if only higher quality available
+                            .build());
+            android.util.Log.d("PlaybackFragment", "Low-end device detected: max 720p30 2Mbps");
+        }
+
         mExoPlayerController.setTrackSelector(trackSelector);
 
         DefaultRenderersFactory renderersFactory = new CustomOverridesRenderersFactory(getContext());

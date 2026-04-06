@@ -75,12 +75,28 @@ public class SuggestionsController extends BasePlayerController {
         //appendNextSectionVideoIfNeeded(video); // ConcurrentModificationException error
     }
 
+    private android.os.Handler mDeferHandler;
+    private Runnable mDeferredLoad;
+
     /**
-     * Improve video load time by running a fetch after load event
+     * Defer suggestions loading on weak devices to avoid competing for bandwidth
+     * during critical initial buffering phase.
      */
     @Override
     public void onVideoLoaded(Video item) {
-        loadSuggestions(item);
+        if (mDeferHandler != null && mDeferredLoad != null) {
+            mDeferHandler.removeCallbacks(mDeferredLoad);
+        }
+
+        if (com.liskovsoft.smartyoutubetv2.common.exoplayer.other.DeviceCapabilityHelper
+                .isLowEndDevice(getContext())) {
+            // Defer 8 seconds on weak devices
+            if (mDeferHandler == null) mDeferHandler = new android.os.Handler(android.os.Looper.getMainLooper());
+            mDeferredLoad = () -> loadSuggestions(item);
+            mDeferHandler.postDelayed(mDeferredLoad, 8_000);
+        } else {
+            loadSuggestions(item);
+        }
     }
 
     // Could make negative impact on the video load time.

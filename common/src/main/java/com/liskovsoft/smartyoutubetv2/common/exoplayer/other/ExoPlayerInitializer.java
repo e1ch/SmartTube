@@ -101,11 +101,24 @@ public class ExoPlayerInitializer {
         //DefaultLoadControl.DEFAULT_BUFFER_FOR_PLAYBACK_MS // 2_500
         //DefaultLoadControl.DEFAULT_BUFFER_FOR_PLAYBACK_AFTER_REBUFFER_MS // 5_000
 
-        // Default values
-        int minBufferMs = 30_000;
-        int maxBufferMs = 30_000;
-        int bufferForPlaybackMs = 2_500;
-        int bufferForPlaybackAfterRebufferMs = 5_000;
+        // Default values — adjusted for weak devices per ChatGPT/Gemini recommendations
+        int minBufferMs;
+        int maxBufferMs;
+        int bufferForPlaybackMs;
+        int bufferForPlaybackAfterRebufferMs;
+
+        if (mMaxBufferBytes < 120_000_000) { // ~2GB RAM device (RAM/18 < 120MB)
+            // Low-end: reduce memory pressure, faster startup
+            minBufferMs = 12_000;
+            maxBufferMs = 20_000;
+            bufferForPlaybackMs = 1_500;
+            bufferForPlaybackAfterRebufferMs = 3_500;
+        } else {
+            minBufferMs = 30_000;
+            maxBufferMs = 30_000;
+            bufferForPlaybackMs = 2_500;
+            bufferForPlaybackAfterRebufferMs = 5_000;
+        }
 
         switch (mPlayerData.getVideoBufferType()) {
             case PlayerData.BUFFER_HIGHEST:
