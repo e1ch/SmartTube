@@ -99,3 +99,4 @@ jobs:
           name: SmartTube_v${{ steps.get_version.outputs.VERSION_NAME }}
           path: release_assets/*.apk
           if-no-files-found: error
+          retention-days: 3
