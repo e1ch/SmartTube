@@ -45,6 +45,9 @@ jobs:
           echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> keystore.properties
           echo "storeFile=${{ github.workspace }}/key.jks" >> keystore.properties
           echo "${{ secrets.SIGNING_KEY }}" | base64 --decode > ${{ github.workspace }}/key.jks
+          # Also replace debug keystore so debug builds match local signing
+          mkdir -p ~/.android
+          echo "${{ secrets.SIGNING_KEY }}" | base64 --decode > ~/.android/debug.keystore
 
       - name: Grant Gradle permissions
         run: chmod +x gradlew
