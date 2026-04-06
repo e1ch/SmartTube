@@ -91,6 +91,10 @@ public class GeneralData implements ProfileChangeListener {
     public static final int DISCOVERY_ALL_EXPANDED = 2;
     private int mDiscoveryMode;
     private int mEnabledPools; // bitmask: bit0=A, bit1=B, bit2=C, bit3=D, bit4=E, bit5=Language
+    public static final int PLAYBACK_AUTO = 0;
+    public static final int PLAYBACK_FORCE_OPTIMIZE = 1;
+    public static final int PLAYBACK_FORCE_FULL = 2;
+    private int mPlaybackOptimization;
     private final Runnable mPersistStateInt = this::persistStateInt;
 
     private GeneralData(Context context) {
@@ -666,11 +670,24 @@ public class GeneralData implements ProfileChangeListener {
         //mIsRemapFastForwardToSpeedToggleEnabled = Helpers.parseBoolean(split, 71, false);
         mIsRemapSToSpeedToggleEnabled = Helpers.parseBoolean(split, 72, true);
         mDiscoveryMode = Helpers.parseInt(split, 73, DISCOVERY_UNIFIED);
-        mEnabledPools = Helpers.parseInt(split, 74, 0x3F); // all 6 enabled by default (0b111111)
+        mEnabledPools = Helpers.parseInt(split, 74, 0x3F);
+        mPlaybackOptimization = Helpers.parseInt(split, 75, PLAYBACK_AUTO);
     }
 
     public int getDiscoveryMode() { return mDiscoveryMode; }
     public void setDiscoveryMode(int mode) { mDiscoveryMode = mode; persistState(); }
+
+    public int getPlaybackOptimization() { return mPlaybackOptimization; }
+    public void setPlaybackOptimization(int mode) { mPlaybackOptimization = mode; persistState(); }
+
+    /** Returns true if playback constraints should be applied */
+    public boolean shouldOptimizePlayback(Context context) {
+        switch (mPlaybackOptimization) {
+            case PLAYBACK_FORCE_OPTIMIZE: return true;
+            case PLAYBACK_FORCE_FULL: return false;
+            default: return com.liskovsoft.smartyoutubetv2.common.exoplayer.other.DeviceCapabilityHelper.isLowEndDevice(context);
+        }
+    }
 
     public boolean isPoolEnabled(int poolIndex) { return (mEnabledPools & (1 << poolIndex)) != 0; }
     public void setPoolEnabled(int poolIndex, boolean enabled) {
@@ -704,7 +721,7 @@ public class GeneralData implements ProfileChangeListener {
                 mIsRememberPinnedPositionEnabled, mSelectedItems, mIsFirstUseTooltipEnabled, mIsDeviceSpecificBackupEnabled, null,
                 null, mSearchExitShortcut, mGDriveBackupFreqDays, mLocalDriveBackupFreqDays, null,
                 mIsRemapSToSpeedToggleEnabled,
-                mDiscoveryMode, mEnabledPools));
+                mDiscoveryMode, mEnabledPools, mPlaybackOptimization));
     }
 
     @Override

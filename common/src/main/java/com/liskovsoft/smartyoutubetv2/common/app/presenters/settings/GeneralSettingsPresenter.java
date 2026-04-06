@@ -142,6 +142,23 @@ public class GeneralSettingsPresenter extends BasePresenter<Void> {
                     mGeneralData.isPoolEnabled(i)));
         }
         settingsPresenter.appendCheckedCategory(getContext().getString(R.string.discovery_enabled_pools), poolOptions);
+
+        // Playback optimization radio
+        List<OptionItem> playbackOptions = new ArrayList<>();
+        int currentPb = mGeneralData.getPlaybackOptimization();
+        playbackOptions.add(UiOptionItem.from(
+                getContext().getString(R.string.playback_opt_auto),
+                o -> mGeneralData.setPlaybackOptimization(GeneralData.PLAYBACK_AUTO),
+                currentPb == GeneralData.PLAYBACK_AUTO));
+        playbackOptions.add(UiOptionItem.from(
+                getContext().getString(R.string.playback_opt_force),
+                o -> mGeneralData.setPlaybackOptimization(GeneralData.PLAYBACK_FORCE_OPTIMIZE),
+                currentPb == GeneralData.PLAYBACK_FORCE_OPTIMIZE));
+        playbackOptions.add(UiOptionItem.from(
+                getContext().getString(R.string.playback_opt_full),
+                o -> mGeneralData.setPlaybackOptimization(GeneralData.PLAYBACK_FORCE_FULL),
+                currentPb == GeneralData.PLAYBACK_FORCE_FULL));
+        settingsPresenter.appendRadioCategory(getContext().getString(R.string.playback_optimization), playbackOptions);
     }
 
     private void appendHideContent(AppDialogPresenter settingsPresenter) {

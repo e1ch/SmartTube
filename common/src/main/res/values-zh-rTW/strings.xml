@@ -777,6 +777,10 @@
   <string name="discovery_pool_d">Pool D — 電影/旅遊/知識</string>
   <string name="discovery_pool_e">Pool E — 動漫/動畫</string>
   <string name="discovery_pool_lang">語言探索（通用搜尋字）</string>
+  <string name="playback_optimization">播放優化</string>
+  <string name="playback_opt_auto">自動 — 僅在弱裝置上優化</string>
+  <string name="playback_opt_force">強制優化 — 最高 720p30 2Mbps</string>
+  <string name="playback_opt_full">完整畫質 — 無限制</string>
   <string name="query_kworb_title">即時熱門</string>
   <!-- Trending -->
   <string name="query_trending_1_title">現在熱門</string>

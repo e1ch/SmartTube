@@ -800,6 +800,11 @@
     <string name="discovery_pool_d">Pool D — Movies/Travel/Knowledge</string>
     <string name="discovery_pool_e">Pool E — Anime/Animation</string>
     <string name="discovery_pool_lang">Language Discovery</string>
+    <!-- Playback optimization -->
+    <string name="playback_optimization">Playback optimization</string>
+    <string name="playback_opt_auto">Auto — optimize on weak devices only</string>
+    <string name="playback_opt_force">Force optimize — max 720p30 2Mbps</string>
+    <string name="playback_opt_full">Full quality — no restrictions</string>
     <!-- Kworb real-time trending section title -->
     <string name="query_kworb_title">Trending Now</string>
     <!-- Trending tab (no "Viral" — returns low quality clickbait) -->

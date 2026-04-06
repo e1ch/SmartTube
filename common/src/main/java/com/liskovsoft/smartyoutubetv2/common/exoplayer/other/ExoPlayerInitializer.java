@@ -107,7 +107,7 @@ public class ExoPlayerInitializer {
         int bufferForPlaybackMs;
         int bufferForPlaybackAfterRebufferMs;
 
-        if (mMaxBufferBytes < 120_000_000) { // ~2GB RAM device (RAM/18 < 120MB)
+        if (mMaxBufferBytes < 120_000_000) { // ~2GB RAM device (RAM/18 < 120MB) — auto, not user-overridable
             // Low-end: reduce memory pressure, faster startup
             minBufferMs = 12_000;
             maxBufferMs = 20_000;

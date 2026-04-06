@@ -88,8 +88,8 @@ public class SuggestionsController extends BasePlayerController {
             mDeferHandler.removeCallbacks(mDeferredLoad);
         }
 
-        if (com.liskovsoft.smartyoutubetv2.common.exoplayer.other.DeviceCapabilityHelper
-                .isLowEndDevice(getContext())) {
+        if (com.liskovsoft.smartyoutubetv2.common.prefs.GeneralData.instance(getContext())
+                .shouldOptimizePlayback(getContext())) {
             // Defer 8 seconds on weak devices
             if (mDeferHandler == null) mDeferHandler = new android.os.Handler(android.os.Looper.getMainLooper());
             mDeferredLoad = () -> loadSuggestions(item);

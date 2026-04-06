@@ -472,8 +472,8 @@ public class PlaybackFragment extends SeekModePlaybackFragment implements Playba
         // Use default or pass your bandwidthMeter here: bandwidthMeter = new DefaultBandwidthMeter.Builder(getContext()).build()
         DefaultTrackSelector trackSelector = new RestoreTrackSelector(new AdaptiveTrackSelection.Factory());
 
-        // Weak device: constrain codec/quality for smooth playback
-        if (com.liskovsoft.smartyoutubetv2.common.exoplayer.other.DeviceCapabilityHelper.isLowEndDevice(getContext())) {
+        // Playback optimization: constrain codec/quality for smooth playback
+        if (com.liskovsoft.smartyoutubetv2.common.prefs.GeneralData.instance(getContext()).shouldOptimizePlayback(getContext())) {
             trackSelector.setParameters(
                     trackSelector.buildUponParameters()
                             .setMaxVideoSize(1280, 720)       // max 720p
