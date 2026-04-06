@@ -37,9 +37,19 @@ public class SplashActivity extends MotherActivity implements SplashView {
         new Thread(() -> {
             try {
                 long t0 = System.currentTimeMillis();
-                okhttp3.OkHttpClient client = com.liskovsoft.googlecommon.common.helpers.RetrofitOkHttpHelper.getClient();
 
-                // Warm /player endpoint (used by kworb trending)
+                // Step 1: Auth + PoToken + AppInfo (biggest cold start cost ~10-15s on TV)
+                com.liskovsoft.youtubeapi.service.YouTubeSignInService.instance().checkAuth();
+                long t1 = System.currentTimeMillis();
+                android.util.Log.d("Prewarm", "checkAuth: " + (t1 - t0) + "ms");
+
+                // Step 2: AppInfo (visitorData, playerUrl, clientData, PoToken)
+                com.liskovsoft.youtubeapi.app.AppService.instance().refreshCacheIfNeeded();
+                long t2 = System.currentTimeMillis();
+                android.util.Log.d("Prewarm", "AppInfo: " + (t2 - t1) + "ms");
+
+                // Step 3: TLS warmup for API endpoints
+                okhttp3.OkHttpClient client = com.liskovsoft.googlecommon.common.helpers.RetrofitOkHttpHelper.getClient();
                 okhttp3.Request playerReq = new okhttp3.Request.Builder()
                     .url("https://www.youtube.com/youtubei/v1/player?key="
                         + com.liskovsoft.youtubeapi.common.helpers.AppConstants.API_KEY + "&prettyPrint=false")
@@ -49,8 +59,9 @@ public class SplashActivity extends MotherActivity implements SplashView {
                     .build();
                 okhttp3.Response r1 = client.newCall(playerReq).execute();
                 r1.close();
+                long t3 = System.currentTimeMillis();
+                android.util.Log.d("Prewarm", "TLS player: " + (t3 - t2) + "ms");
 
-                // Warm /search endpoint (used by home search fallback)
                 okhttp3.Request searchReq = new okhttp3.Request.Builder()
                     .url("https://www.youtube.com/youtubei/v1/search?key="
                         + com.liskovsoft.youtubeapi.common.helpers.AppConstants.API_KEY + "&prettyPrint=false")
@@ -60,10 +71,11 @@ public class SplashActivity extends MotherActivity implements SplashView {
                     .build();
                 okhttp3.Response r2 = client.newCall(searchReq).execute();
                 r2.close();
+                long t4 = System.currentTimeMillis();
 
-                System.err.println("[PERF] prewarm done: " + (System.currentTimeMillis() - t0) + "ms");
+                android.util.Log.d("Prewarm", "Total: " + (t4 - t0) + "ms (auth=" + (t1-t0) + " appInfo=" + (t2-t1) + " tls=" + (t4-t2) + ")");
             } catch (Exception e) {
-                System.err.println("[PERF] prewarm failed: " + e.getMessage());
+                android.util.Log.d("Prewarm", "failed: " + e.getMessage());
             }
         }, "ConnectionPrewarm").start();
     }
