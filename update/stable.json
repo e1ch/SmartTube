@@ -13,6 +13,16 @@
       "https://github.com/e1ch/SmartTube/releases/download/release/SmartTube_stable_universal.apk"
     ]
   },
+  "31.74": {
+    "versionCode": 2364,
+    "changelog": [
+      "Playback: streaming VideoInfo parser (cold 42s->23s)",
+      "Playback: prewarm auth+AppInfo+PoToken on splash",
+      "Playback: weak device optimization (720p30 2Mbps)",
+      "Search: streaming parser (12s->1.5s)",
+      "Discovery: 3 modes, pool toggles, 46 languages"
+    ]
+  },
   "31.73": {
     "versionCode": 2363,
     "changelog": [
