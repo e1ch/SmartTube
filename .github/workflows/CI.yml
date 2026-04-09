@@ -102,16 +102,18 @@ jobs:
       - name: Delete old moving release tag
         shell: bash
         run: |
+          gh release delete release --yes --cleanup-tag || true
           git push origin :refs/tags/release || true
-          gh release delete release --yes || true
+          git tag -d release || true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Delete existing version tag release if exists
         shell: bash
         run: |
-          gh release delete "${{ steps.version.outputs.version_tag }}" --yes || true
+          gh release delete "${{ steps.version.outputs.version_tag }}" --yes --cleanup-tag || true
           git push origin ":refs/tags/${{ steps.version.outputs.version_tag }}" || true
+          git tag -d "${{ steps.version.outputs.version_tag }}" || true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -120,6 +122,7 @@ jobs:
         run: |
           gh release create "${{ steps.version.outputs.version_tag }}" \
             release_assets/* \
+            --target "${{ github.sha }}" \
             --title "${{ steps.version.outputs.version_tag }}" \
             --notes-file release_notes.txt
         env:
@@ -130,6 +133,7 @@ jobs:
         run: |
           gh release create release \
             release_assets/* \
+            --target "${{ github.sha }}" \
             --title "${{ steps.version.outputs.version_tag }}" \
             --notes-file release_notes.txt
         env:
