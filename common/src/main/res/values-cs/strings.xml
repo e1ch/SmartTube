@@ -783,6 +783,6 @@
     <string name="discovery_pool_d">Pool D — Movies/Travel/Knowledge</string>
     <string name="discovery_pool_e">Pool E — Anime/Animation</string>
     <string name="discovery_pool_lang">Language Discovery</string>
+    <string name="player_unexpected_error">Neočekávaná chyba přehrávání</string>
 </resources>
-
 

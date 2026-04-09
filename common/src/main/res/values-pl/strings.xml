@@ -770,4 +770,11 @@
     <string name="discovery_pool_d">Pool D — Movies/Travel/Knowledge</string>
     <string name="discovery_pool_e">Pool E — Anime/Animation</string>
     <string name="discovery_pool_lang">Language Discovery</string>
+    <string name="fix_empty_subs_and_channels">Napraw puste subskrypcje i kanały</string>
+    <string name="local_backup_not_supported">Automatyczne tworzenie kopii zapasowych na telewizorach z systemem Android TV 11 i nowszym nie jest obsługiwane ze względu na ograniczenia systemowe. Zamiast tego użyj GDrive. </string>
+    <string name="rounded_card_corners">Zaokrąglone rogi kart</string>
+    <string name="install_bridge">Zainstaluj most ATV/Amazon</string>
+    <string name="sidebar_notification">Pokaż powiadomienie na pasku bocznym</string>
+    <string name="player_unexpected_error">Nieoczekiwany błąd odtwarzania</string>
+    <string name="color_scheme_dark_blue_oled">Ciemnoniebieski (OLED)</string>
 </resources>
