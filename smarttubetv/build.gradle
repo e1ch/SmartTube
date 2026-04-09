@@ -29,6 +29,7 @@ def keystoreProperties = new Properties()
 if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 }
+def appVersionName = rootProject.file("VERSION").text.trim()
 
 // The first letter of the flavor name must be in uppercase
 if (new File("${projectDir}/google-services.json").exists() && (getGradle().getStartParameter().getTaskRequests().toString().contains("Stbeta") ||
@@ -58,7 +59,7 @@ android {
         minSdkVersion project.properties.minSdkVersion
         targetSdkVersion project.properties.targetSdkVersion
         versionCode 2364
-        versionName "31.74"
+        versionName appVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
 

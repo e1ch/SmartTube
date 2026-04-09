@@ -1,0 +1,44 @@
+name: Upstream Watch
+
+on:
+  schedule:
+    - cron: "0 1 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          submodules: false
+
+      - name: Ensure Upstream Remote
+        run: |
+          if git remote get-url upstream >/dev/null 2>&1; then
+            git remote set-url upstream https://github.com/yuliskov/SmartTube.git
+          else
+            git remote add upstream https://github.com/yuliskov/SmartTube.git
+          fi
+
+      - name: Generate Upstream Report
+        run: |
+          chmod +x scripts/generate-upstream-report.sh
+          scripts/generate-upstream-report.sh upstream master upstream_report.md
+
+      - name: Publish Summary
+        run: cat upstream_report.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload Report
+        uses: actions/upload-artifact@v7
+        with:
+          name: upstream-watch-report
+          path: upstream_report.md
+          if-no-files-found: error
+          retention-days: 7
