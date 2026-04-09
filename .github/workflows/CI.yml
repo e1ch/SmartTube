@@ -59,11 +59,11 @@ jobs:
       - name: Grant Gradle permissions
         run: chmod +x gradlew
 
-      - name: Build Beta Release APKs
-        run: ./gradlew assembleStbetaRelease
+      - name: Build Ash Release APKs
+        run: ./gradlew assembleStashRelease
 
-      - name: Build Stable Release APKs
-        run: ./gradlew assembleStstableRelease
+      - name: Build Bridge Release APKs
+        run: ./gradlew assembleStbridgeRelease
 
       - name: Prepare Release Assets
         shell: bash
@@ -71,8 +71,8 @@ jobs:
           mkdir -p release_assets
 
           for abi in armeabi-v7a arm64-v8a x86 universal; do
-            cp smarttubetv/build/outputs/apk/stbeta/release/*_"${abi}".apk "release_assets/SmartTube_beta_${abi}.apk"
-            cp smarttubetv/build/outputs/apk/ststable/release/*_"${abi}".apk "release_assets/SmartTube_stable_${abi}.apk"
+            cp smarttubetv/build/outputs/apk/stash/release/*_"${abi}".apk "release_assets/SmartTube_ash_${abi}.apk"
+            cp smarttubetv/build/outputs/apk/stbridge/release/*_"${abi}".apk "release_assets/SmartTube_bridge_${abi}.apk"
           done
 
           ls -lah release_assets
@@ -85,15 +85,20 @@ jobs:
             echo
             echo "Source commit: \`${{ github.sha }}\`"
             echo
+            echo "### 使用說明 / Which APK do I install?"
+            echo
+            echo "**SmartTube Ash (org.smarttube.ash)** — 新的長期版本，全新安裝使用者請裝這個。"
+            echo "**SmartTube Bridge (org.smarttube.beta)** — 一次性過渡版。**僅供** 現有使用舊 fork（package 為 \`org.smarttube.beta\`）的人使用。安裝後打開會顯示遷移提示，引導你下載 Ash 版。Ash 裝好後可以手動解除安裝這個 bridge。"
+            echo
             echo "### Assets"
-            echo "- SmartTube_beta_armeabi-v7a.apk"
-            echo "- SmartTube_beta_arm64-v8a.apk"
-            echo "- SmartTube_beta_x86.apk"
-            echo "- SmartTube_beta_universal.apk"
-            echo "- SmartTube_stable_armeabi-v7a.apk"
-            echo "- SmartTube_stable_arm64-v8a.apk"
-            echo "- SmartTube_stable_x86.apk"
-            echo "- SmartTube_stable_universal.apk"
+            echo "- SmartTube_ash_armeabi-v7a.apk"
+            echo "- SmartTube_ash_arm64-v8a.apk"
+            echo "- SmartTube_ash_x86.apk"
+            echo "- SmartTube_ash_universal.apk"
+            echo "- SmartTube_bridge_armeabi-v7a.apk"
+            echo "- SmartTube_bridge_arm64-v8a.apk"
+            echo "- SmartTube_bridge_x86.apk"
+            echo "- SmartTube_bridge_universal.apk"
             echo
             echo "### Recent commits"
             git log --pretty='- %s' -n 12

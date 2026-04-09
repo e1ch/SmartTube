@@ -31,9 +31,15 @@ if (keystorePropertiesFile.exists()) {
 }
 def appVersionName = rootProject.file("VERSION").text.trim()
 
+// Derive an always-increasing versionCode for the Ash flavor. Format:
+//   9xxxxxxxx  where the lower 8 digits are yyMMddHH at build time.
+// The 9xx range keeps us safely above any legacy/upstream versionCode and
+// safely below Android's 2_100_000_000 ceiling until well past 2099.
+def appVersionCode = 900_000_000 + (new Date().format("yyMMddHH") as Integer)
+
 // The first letter of the flavor name must be in uppercase
-if (new File("${projectDir}/google-services.json").exists() && (getGradle().getStartParameter().getTaskRequests().toString().contains("Stbeta") ||
-        getGradle().getStartParameter().getTaskRequests().toString().contains("Ststable"))) {
+if (new File("${projectDir}/google-services.json").exists() &&
+        getGradle().getStartParameter().getTaskRequests().toString().contains("Stash")) {
     // Google Services Gradle plugin (transforms google-services.json file)
     apply plugin: 'com.google.gms.google-services'
 
@@ -58,7 +64,7 @@ android {
         applicationId "app.smarttube"
         minSdkVersion project.properties.minSdkVersion
         targetSdkVersion project.properties.targetSdkVersion
-        versionCode 2364
+        // versionCode is assigned per-flavor below (stash: date-based, stbridge: fixed high ceiling)
         versionName appVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
@@ -159,19 +165,32 @@ android {
     flavorDimensions "default"
 
     // NOTE: The main goal of prefixing a flavor is to group flavors' folders together
+    // Flavor layout after the Ash migration:
+    //   stash    - the new long-term fork ("SmartTube Ash"), fresh package name
+    //   stbridge - one-shot migration APK that keeps the legacy package name so
+    //              it installs in-place over existing fork users and redirects
+    //              them to the Ash release page via BridgeActivity.
+    // matchingFallbacks lets both new flavors reuse the existing "stbeta" variant
+    // in every library module (including submodules) without editing them.
     productFlavors {
-        stbeta {
+        stash {
+            applicationId "org.smarttube.ash"
+            targetSdkVersion project.properties.compileSdkVersion
+            versionCode appVersionCode
+            matchingFallbacks = ['stbeta']
+            buildConfigField "boolean", "IS_BRIDGE", "false"
+        }
+        stbridge {
             applicationId "org.smarttube.beta"
             targetSdkVersion project.properties.compileSdkVersion
-        }
-        ststable {
-            applicationId "org.smarttube.stable"
-            targetSdkVersion project.properties.compileSdkVersion
-        }
-        stfdroid {
-            applicationId "app.smarttube.fdroid"
-            minSdkVersion 21
-            targetSdkVersion project.properties.compileSdkVersion
+            // Fixed high ceiling: guarantees this bridge APK is treated as
+            // newer than any previously-installed fork build on the legacy
+            // org.smarttube.beta package so the in-place update goes through.
+            // Unrelated to stash's versionCode because they ship as different
+            // applicationIds (org.smarttube.ash vs org.smarttube.beta).
+            versionCode 999_000_000
+            matchingFallbacks = ['stbeta']
+            buildConfigField "boolean", "IS_BRIDGE", "true"
         }
     }
 }
@@ -232,13 +251,9 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:' + rxAndroidVersion
     implementation 'io.reactivex.rxjava2:rxjava:' + rxJavaVersion
 
-    // Add the Firebase Crashlytics SDK.
+    // Add the Firebase Crashlytics SDK (only the long-term Ash flavor).
 
-    stbetaImplementation('com.google.firebase:firebase-crashlytics:' + firebaseCrashlyticsVersion) {
-        transitive = true
-    }
-
-    ststableImplementation('com.google.firebase:firebase-crashlytics:' + firebaseCrashlyticsVersion) {
+    stashImplementation('com.google.firebase:firebase-crashlytics:' + firebaseCrashlyticsVersion) {
         transitive = true
     }
 
