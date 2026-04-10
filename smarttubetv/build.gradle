@@ -37,15 +37,15 @@ def appVersionName = rootProject.file("VERSION").text.trim()
 // safely below Android's 2_100_000_000 ceiling until well past 2099.
 def appVersionCode = 900_000_000 + (new Date().format("yyMMddHH") as Integer)
 
-// The first letter of the flavor name must be in uppercase
-if (new File("${projectDir}/google-services.json").exists() &&
-        getGradle().getStartParameter().getTaskRequests().toString().contains("Stash")) {
-    // Google Services Gradle plugin (transforms google-services.json file)
-    apply plugin: 'com.google.gms.google-services'
-
-    // Apply the Crashlytics Gradle plugin
-    apply plugin: 'com.google.firebase.crashlytics'
-}
+// Google Services / Crashlytics: disabled until org.smarttube.ash is
+// registered in the Firebase console.  To re-enable, change the condition
+// below to contains("Stash") and add the stashImplementation dependency.
+//
+// if (new File("${projectDir}/google-services.json").exists() &&
+//         getGradle().getStartParameter().getTaskRequests().toString().contains("Stash")) {
+//     apply plugin: 'com.google.gms.google-services'
+//     apply plugin: 'com.google.firebase.crashlytics'
+// }
 
 android {
     // FIX: Default interface methods are only supported starting with Android N (--min-api 24)
@@ -251,11 +251,10 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:' + rxAndroidVersion
     implementation 'io.reactivex.rxjava2:rxjava:' + rxJavaVersion
 
-    // Add the Firebase Crashlytics SDK (only the long-term Ash flavor).
-
-    stashImplementation('com.google.firebase:firebase-crashlytics:' + firebaseCrashlyticsVersion) {
-        transitive = true
-    }
+    // Firebase Crashlytics: disabled until org.smarttube.ash is registered.
+    // stashImplementation('com.google.firebase:firebase-crashlytics:' + firebaseCrashlyticsVersion) {
+    //     transitive = true
+    // }
 
     // debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.14'
 
