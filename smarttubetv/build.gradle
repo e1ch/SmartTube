@@ -10,15 +10,6 @@ buildscript {
     dependencies {
         // These docs use an open ended version so that our plugin
         // can be updated quickly in response to Android tooling updates
-
-        // Check that you have the Google Services Gradle plugin v4.3.2 or later
-        // (if not, add it).
-        classpath 'com.google.gms:google-services:4.3.15'
-
-        // Add the Crashlytics Gradle plugin.
-        // https://firebase.google.com/docs/crashlytics/get-started?platform=android
-        // https://firebase.google.com/docs/android/setup
-        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.7.1'
     }
 }
 
@@ -36,16 +27,6 @@ def appVersionName = rootProject.file("VERSION").text.trim()
 // The 9xx range keeps us safely above any legacy/upstream versionCode and
 // safely below Android's 2_100_000_000 ceiling until well past 2099.
 def appVersionCode = 900_000_000 + (new Date().format("yyMMddHH") as Integer)
-
-// Google Services / Crashlytics: disabled until org.smarttube.ash is
-// registered in the Firebase console.  To re-enable, change the condition
-// below to contains("Stash") and add the stashImplementation dependency.
-//
-// if (new File("${projectDir}/google-services.json").exists() &&
-//         getGradle().getStartParameter().getTaskRequests().toString().contains("Stash")) {
-//     apply plugin: 'com.google.gms.google-services'
-//     apply plugin: 'com.google.firebase.crashlytics'
-// }
 
 android {
     // FIX: Default interface methods are only supported starting with Android N (--min-api 24)
@@ -251,10 +232,6 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:' + rxAndroidVersion
     implementation 'io.reactivex.rxjava2:rxjava:' + rxJavaVersion
 
-    // Firebase Crashlytics: disabled until org.smarttube.ash is registered.
-    // stashImplementation('com.google.firebase:firebase-crashlytics:' + firebaseCrashlyticsVersion) {
-    //     transitive = true
-    // }
 
     // debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.14'
 
