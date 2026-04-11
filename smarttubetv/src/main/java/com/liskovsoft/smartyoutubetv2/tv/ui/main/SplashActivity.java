@@ -5,8 +5,6 @@ import android.os.Bundle;
 import com.liskovsoft.smartyoutubetv2.common.app.presenters.SplashPresenter;
 import com.liskovsoft.smartyoutubetv2.common.app.views.SplashView;
 import com.liskovsoft.smartyoutubetv2.common.misc.MotherActivity;
-import com.liskovsoft.smartyoutubetv2.tv.BuildConfig;
-import com.liskovsoft.smartyoutubetv2.tv.ui.bridge.BridgeActivity;
 
 public class SplashActivity extends MotherActivity implements SplashView {
     private static final String TAG = SplashActivity.class.getSimpleName();
@@ -16,14 +14,6 @@ public class SplashActivity extends MotherActivity implements SplashView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (BuildConfig.IS_BRIDGE) {
-            // Bridge APK: the legacy package only exists to migrate users to
-            // SmartTube Ash. Hand off immediately without booting the full app.
-            startActivity(new Intent(this, BridgeActivity.class));
-            finish();
-            return;
-        }
 
         mNewIntent = getIntent();
 

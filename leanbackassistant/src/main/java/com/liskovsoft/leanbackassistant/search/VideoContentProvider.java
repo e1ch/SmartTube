@@ -88,8 +88,15 @@ public class VideoContentProvider extends ContentProvider {
     private String getAuthority() {
         String authority = null;
 
+        // Use the runtime applicationId instead of a flavor-specific string
+        // resource. The resource approach broke for the "stash" flavor because
+        // its variant resolution (matchingFallbacks = ['stbeta']) pulls in the
+        // stbeta flavor's search_authority = "org.smarttube.beta" even though
+        // the actual applicationId is "org.smarttube.ash". getPackageName()
+        // always matches the real applicationId, so the lookup stays correct
+        // regardless of how flavor fallbacks are wired up.
         if (getContext() != null) {
-            authority = getContext().getResources().getString(R.string.search_authority);
+            authority = getContext().getPackageName();
             Log.d(TAG, "Authority found: " + authority);
         }
 
