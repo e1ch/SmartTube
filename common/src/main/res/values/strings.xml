@@ -801,13 +801,11 @@
     <string name="discovery_pool_d">Pool D — Movies/Travel/Knowledge</string>
     <string name="discovery_pool_e">Pool E — Anime/Animation</string>
     <string name="discovery_pool_lang">Language Discovery</string>
-    <!-- Trending sources -->
-    <string name="trending_sources_title">Trending Sources</string>
-    <string name="trending_source_google">Google Trends</string>
-    <string name="trending_source_gdelt">GDELT Global News</string>
-    <string name="trending_source_wikimedia">Wikimedia Popular</string>
-    <string name="trending_source_tiktok">TikTok Trends</string>
-    <string name="trending_source_reddit">Reddit Popular</string>
+    <!-- Trending pools — keywords fetched from external sources, then searched on YouTube -->
+    <string name="trending_pools_title">Trending Pools (keywords → YouTube search)</string>
+    <string name="trending_pool_f_realtime">Pool F — Real-time News (Google Trends + GDELT)</string>
+    <string name="trending_pool_g_social">Pool G — Social Trends (TikTok + Reddit)</string>
+    <string name="trending_pool_h_crosslang">Pool H — Cross-language (Wikimedia)</string>
     <!-- Playback optimization -->
     <string name="playback_optimization">Playback optimization</string>
     <string name="playback_opt_auto">Auto — optimize on weak devices only</string>

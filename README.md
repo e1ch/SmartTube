@@ -122,21 +122,33 @@ MediaServiceCore/youtubeapi/src/main/java/com/liskovsoft/youtubeapi/trending/
 
 ## "For You ✦" — Content Discovery
 
-The unified discovery shelf pulls from **11 independent sources** and shuffles them into a single row of 110+ videos:
+The unified discovery shelf pulls from **8 content pools** across 3 layers:
 
-| Source | Content Type | How It Works |
-|--------|-------------|--------------|
-| **Google Trends** | Real-time search trends | RSS feed, converted to YouTube search queries |
-| **GDELT** | Global breaking news | JSON API, article titles as search queries |
-| **TikTok** | Viral hashtags | Creative Center trending hashtags → YouTube search |
-| **Reddit** | Popular discussion topics | r/popular hot posts → YouTube search |
-| **Wikimedia** | Most-read articles | Yesterday's top articles per language → YouTube search |
-| **YouTube Charts** | Official top views + trending | `charts.youtube.com` API, per-country |
-| **kworb Trending** | Real-time mixed trending | Scrapes kworb.net video IDs, fetches metadata via `/player` |
-| **Language Discovery** | Locale-specific fresh content | Searches high-frequency stop words with THIS_WEEK filter |
-| **Search Pool A-C** | Music, Lifestyle, Mixed | Localized queries across 47 languages |
-| **Search Pool D** | Movies, Travel, Knowledge | Break filter bubble — topics algorithm rarely suggests |
-| **Search Pool E** | Anime, Animation, Manga | Dedicated pool for anime/animation fans |
+### Layer 1: Static Search Pools (localized queries → YouTube search)
+
+| Pool | Content | How It Works |
+|------|---------|--------------|
+| **Pool A** | Music | Localized queries ("official MV", "新歌") → YouTube search THIS_WEEK |
+| **Pool B** | Lifestyle | Food, tech, vlog queries → YouTube search |
+| **Pool C** | Mixed/Trending | Gaming, entertainment → YouTube search |
+| **Pool D** | Movies/Travel/Knowledge | Break filter bubble — topics algorithm rarely suggests |
+| **Pool E** | Anime/Animation | Dedicated pool for anime fans |
+| **Language** | Locale-specific fresh content | High-frequency stop words → YouTube search THIS_WEEK |
+
+### Layer 2: Trending Pools (external keywords → YouTube search for latest videos)
+
+| Pool | Sources | Refresh | How It Works |
+|------|---------|---------|--------------|
+| **Pool F — Real-time News** | Google Trends RSS + GDELT JSON API | Every 15 min | Fetch trending keywords → search YouTube → show latest matching videos |
+| **Pool G — Social Trends** | TikTok Creative Center + Reddit r/popular | Every 2 hours | Fetch viral hashtags/topics → search YouTube → show latest matching videos |
+| **Pool H — Cross-language** | Wikimedia Most Read API | Every 6 hours | Fetch most-read articles per language → search YouTube → show latest matching videos |
+
+### Layer 3: Verification (direct YouTube trending data)
+
+| Source | How It Works |
+|--------|--------------|
+| **YouTube Charts** | `charts.youtube.com` API — official top views, per-country |
+| **kworb Trending** | Scrapes kworb.net video IDs, fetches metadata via `/player` endpoint |
 
 ### How It Breaks Filter Bubbles
 
@@ -195,9 +207,11 @@ Users can control discovery via **Settings > General > Discovery**:
 | Setting | Options | Default |
 |---------|---------|---------|
 | Discovery Mode | Unified / Rotating / All Expanded | Unified |
-| Content Pools | A (Music), B (Lifestyle), C (Mixed), D (Exploration), E (Anime), Language | All enabled |
-| Trending Sources | Google Trends, GDELT, Wikimedia, TikTok, Reddit | All enabled |
+| Static Content Pools | A (Music), B (Lifestyle), C (Mixed), D (Exploration), E (Anime), Language | All enabled |
+| Trending Pools | F (Real-time News: Google Trends + GDELT), G (Social: TikTok + Reddit), H (Cross-lang: Wikimedia) | All enabled |
 | Playback Optimization | Auto / Force Optimize / Full Quality | Auto |
+
+**How Trending Pools work**: External sources provide *keywords only*. Those keywords are then fed to YouTube's search API (anonymously via `plainHttpClient`) to find the **latest videos** matching each keyword. The results appear as shelves on your home screen — the same way static pools A-E work, but with dynamically updated search terms.
 
 ---
 

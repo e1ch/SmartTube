@@ -1199,8 +1199,9 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
         // Load trending keyword cache from SharedPreferences
         loadTrendingCache();
 
-        // Sync trending source preferences to TrendingKeywordManager
-        com.liskovsoft.youtubeapi.trending.TrendingKeywordManager.setEnabledSourcesMask(gd.getEnabledTrendingSources());
+        // Sync trending pool preferences to TrendingKeywordManager
+        // Pool F = realtime (Google Trends + GDELT), Pool G = social (TikTok + Reddit), Pool H = cross-lang (Wikimedia)
+        com.liskovsoft.youtubeapi.trending.TrendingKeywordManager.setEnabledPoolsMask(gd.getEnabledTrendingPools());
     }
 
     /**

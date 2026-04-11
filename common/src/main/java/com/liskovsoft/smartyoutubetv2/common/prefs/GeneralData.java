@@ -95,7 +95,7 @@ public class GeneralData implements ProfileChangeListener {
     public static final int PLAYBACK_FORCE_OPTIMIZE = 1;
     public static final int PLAYBACK_FORCE_FULL = 2;
     private int mPlaybackOptimization;
-    private int mEnabledTrendingSources; // bitmask: bit0=GoogleTrends, bit1=GDELT, bit2=Wikimedia
+    private int mEnabledTrendingPools; // bitmask: bit0=Pool F (Realtime), bit1=Pool G (Social), bit2=Pool H (Cross-lang)
     private final Runnable mPersistStateInt = this::persistStateInt;
 
     private GeneralData(Context context) {
@@ -673,7 +673,7 @@ public class GeneralData implements ProfileChangeListener {
         mDiscoveryMode = Helpers.parseInt(split, 73, DISCOVERY_UNIFIED);
         mEnabledPools = Helpers.parseInt(split, 74, 0x3F);
         mPlaybackOptimization = Helpers.parseInt(split, 75, PLAYBACK_AUTO);
-        mEnabledTrendingSources = Helpers.parseInt(split, 76, 0x1F); // all 5 enabled by default
+        mEnabledTrendingPools = Helpers.parseInt(split, 76, 0x7); // all 3 pools enabled by default
     }
 
     public int getDiscoveryMode() { return mDiscoveryMode; }
@@ -699,12 +699,11 @@ public class GeneralData implements ProfileChangeListener {
     }
     public int getEnabledPools() { return mEnabledPools; }
 
-    public int getEnabledTrendingSources() { return mEnabledTrendingSources; }
-    public void setEnabledTrendingSources(int mask) { mEnabledTrendingSources = mask; persistState(); }
-    public boolean isTrendingSourceEnabled(int index) { return (mEnabledTrendingSources & (1 << index)) != 0; }
-    public void setTrendingSourceEnabled(int index, boolean enabled) {
-        if (enabled) mEnabledTrendingSources |= (1 << index);
-        else mEnabledTrendingSources &= ~(1 << index);
+    public int getEnabledTrendingPools() { return mEnabledTrendingPools; }
+    public boolean isTrendingPoolEnabled(int index) { return (mEnabledTrendingPools & (1 << index)) != 0; }
+    public void setTrendingPoolEnabled(int index, boolean enabled) {
+        if (enabled) mEnabledTrendingPools |= (1 << index);
+        else mEnabledTrendingPools &= ~(1 << index);
         persistState();
     }
 
@@ -732,7 +731,7 @@ public class GeneralData implements ProfileChangeListener {
                 mIsRememberPinnedPositionEnabled, mSelectedItems, mIsFirstUseTooltipEnabled, mIsDeviceSpecificBackupEnabled, null,
                 null, mSearchExitShortcut, mGDriveBackupFreqDays, mLocalDriveBackupFreqDays, null,
                 mIsRemapSToSpeedToggleEnabled,
-                mDiscoveryMode, mEnabledPools, mPlaybackOptimization, mEnabledTrendingSources));
+                mDiscoveryMode, mEnabledPools, mPlaybackOptimization, mEnabledTrendingPools));
     }
 
     @Override

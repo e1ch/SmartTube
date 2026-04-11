@@ -130,7 +130,7 @@ public class GeneralSettingsPresenter extends BasePresenter<Void> {
 
         settingsPresenter.appendRadioCategory(getContext().getString(R.string.discovery_settings), options);
 
-        // Pool enable/disable checkboxes
+        // Content pools — static search queries (A-E) + language discovery
         List<OptionItem> poolOptions = new ArrayList<>();
         int[] poolStrings = {R.string.discovery_pool_a, R.string.discovery_pool_b, R.string.discovery_pool_c,
                 R.string.discovery_pool_d, R.string.discovery_pool_e, R.string.discovery_pool_lang};
@@ -142,6 +142,22 @@ public class GeneralSettingsPresenter extends BasePresenter<Void> {
                     mGeneralData.isPoolEnabled(i)));
         }
         settingsPresenter.appendCheckedCategory(getContext().getString(R.string.discovery_enabled_pools), poolOptions);
+
+        // Trending pools — fetch keywords from external sources → search YouTube for latest videos
+        List<OptionItem> trendingPoolOptions = new ArrayList<>();
+        int[] trendingPoolStrings = {
+                R.string.trending_pool_f_realtime,   // Pool F: Google Trends + GDELT → YouTube search
+                R.string.trending_pool_g_social,     // Pool G: TikTok + Reddit → YouTube search
+                R.string.trending_pool_h_crosslang   // Pool H: Wikimedia → YouTube search
+        };
+        for (int i = 0; i < trendingPoolStrings.length; i++) {
+            final int idx = i;
+            trendingPoolOptions.add(UiOptionItem.from(
+                    getContext().getString(trendingPoolStrings[i]),
+                    optionItem -> mGeneralData.setTrendingPoolEnabled(idx, optionItem.isSelected()),
+                    mGeneralData.isTrendingPoolEnabled(i)));
+        }
+        settingsPresenter.appendCheckedCategory(getContext().getString(R.string.trending_pools_title), trendingPoolOptions);
 
         // Playback optimization radio
         List<OptionItem> playbackOptions = new ArrayList<>();
@@ -159,19 +175,6 @@ public class GeneralSettingsPresenter extends BasePresenter<Void> {
                 o -> mGeneralData.setPlaybackOptimization(GeneralData.PLAYBACK_FORCE_FULL),
                 currentPb == GeneralData.PLAYBACK_FORCE_FULL));
         settingsPresenter.appendRadioCategory(getContext().getString(R.string.playback_optimization), playbackOptions);
-
-        // Trending source enable/disable checkboxes
-        List<OptionItem> trendingOptions = new ArrayList<>();
-        int[] trendingStrings = {R.string.trending_source_google, R.string.trending_source_gdelt,
-                R.string.trending_source_wikimedia, R.string.trending_source_tiktok, R.string.trending_source_reddit};
-        for (int i = 0; i < trendingStrings.length; i++) {
-            final int idx = i;
-            trendingOptions.add(UiOptionItem.from(
-                    getContext().getString(trendingStrings[i]),
-                    optionItem -> mGeneralData.setTrendingSourceEnabled(idx, optionItem.isSelected()),
-                    mGeneralData.isTrendingSourceEnabled(i)));
-        }
-        settingsPresenter.appendCheckedCategory(getContext().getString(R.string.trending_sources_title), trendingOptions);
     }
 
     private void appendHideContent(AppDialogPresenter settingsPresenter) {

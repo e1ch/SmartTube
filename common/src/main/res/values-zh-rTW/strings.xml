@@ -777,12 +777,10 @@
   <string name="discovery_pool_d">Pool D — 電影/旅遊/知識</string>
   <string name="discovery_pool_e">Pool E — 動漫/動畫</string>
   <string name="discovery_pool_lang">語言探索（通用搜尋字）</string>
-  <string name="trending_sources_title">時事來源</string>
-  <string name="trending_source_google">Google 熱門趨勢</string>
-  <string name="trending_source_gdelt">GDELT 全球新聞</string>
-  <string name="trending_source_wikimedia">維基百科熱門</string>
-  <string name="trending_source_tiktok">TikTok 熱門</string>
-  <string name="trending_source_reddit">Reddit 熱門</string>
+  <string name="trending_pools_title">時事搜尋池（關鍵字 → YouTube 搜尋最新影片）</string>
+  <string name="trending_pool_f_realtime">Pool F — 即時新聞（Google Trends + GDELT）</string>
+  <string name="trending_pool_g_social">Pool G — 社群爆點（TikTok + Reddit）</string>
+  <string name="trending_pool_h_crosslang">Pool H — 跨語言熱點（維基百科）</string>
   <string name="playback_optimization">播放優化</string>
   <string name="playback_opt_auto">自動 — 僅在弱裝置上優化</string>
   <string name="playback_opt_force">強制優化 — 最高 720p30 2Mbps</string>
