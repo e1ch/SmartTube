@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="update_urls">
-        <item>https://raw.githubusercontent.com/e1ch/SmartTube/master/update/stable.json</item>
+        <item>https://raw.githubusercontent.com/e1ch/SmartTube/master/update/ash.json</item>
     </string-array>
 </resources>

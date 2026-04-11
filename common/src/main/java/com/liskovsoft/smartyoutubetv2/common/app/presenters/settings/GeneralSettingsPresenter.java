@@ -159,6 +159,18 @@ public class GeneralSettingsPresenter extends BasePresenter<Void> {
                 o -> mGeneralData.setPlaybackOptimization(GeneralData.PLAYBACK_FORCE_FULL),
                 currentPb == GeneralData.PLAYBACK_FORCE_FULL));
         settingsPresenter.appendRadioCategory(getContext().getString(R.string.playback_optimization), playbackOptions);
+
+        // Trending source enable/disable checkboxes
+        List<OptionItem> trendingOptions = new ArrayList<>();
+        int[] trendingStrings = {R.string.trending_source_google, R.string.trending_source_gdelt, R.string.trending_source_wikimedia};
+        for (int i = 0; i < trendingStrings.length; i++) {
+            final int idx = i;
+            trendingOptions.add(UiOptionItem.from(
+                    getContext().getString(trendingStrings[i]),
+                    optionItem -> mGeneralData.setTrendingSourceEnabled(idx, optionItem.isSelected()),
+                    mGeneralData.isTrendingSourceEnabled(i)));
+        }
+        settingsPresenter.appendCheckedCategory(getContext().getString(R.string.trending_sources_title), trendingOptions);
     }
 
     private void appendHideContent(AppDialogPresenter settingsPresenter) {

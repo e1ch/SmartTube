@@ -74,6 +74,19 @@ public class SplashActivity extends MotherActivity implements SplashView {
                 long t4 = System.currentTimeMillis();
 
                 android.util.Log.d("Prewarm", "Total: " + (t4 - t0) + "ms (auth=" + (t1-t0) + " appInfo=" + (t2-t1) + " tls=" + (t4-t2) + ")");
+
+                // Step 4: Refresh trending keywords in background (non-blocking)
+                try {
+                    String country = java.util.Locale.getDefault().getCountry();
+                    String language = java.util.Locale.getDefault().getLanguage();
+                    if (com.liskovsoft.youtubeapi.trending.TrendingKeywordManager.isInitialized()) {
+                        com.liskovsoft.youtubeapi.trending.TrendingKeywordManager.instance().refreshIfStale(country, language);
+                        long t5 = System.currentTimeMillis();
+                        android.util.Log.d("Prewarm", "Trending refresh: " + (t5 - t4) + "ms");
+                    }
+                } catch (Exception te) {
+                    android.util.Log.d("Prewarm", "Trending refresh skipped: " + te.getMessage());
+                }
             } catch (Exception e) {
                 android.util.Log.d("Prewarm", "failed: " + e.getMessage());
             }

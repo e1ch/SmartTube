@@ -13,6 +13,23 @@
       "https://github.com/e1ch/SmartTube/releases/download/release/SmartTube_beta_universal.apk"
     ]
   },
+  "31.8": {
+    "versionCode": 2365,
+    "changelog": [
+      "Bridge to Ash version - automatic update path migration",
+      "Playback: streaming VideoInfo parser (cold 42s->23s, warm -44%)",
+      "Search: streaming parser (12s->1.5s)",
+      "Discovery settings: 3 modes, pool toggles, 46 languages",
+      "Trending: Google Trends, GDELT, Wikimedia sources"
+    ],
+    "changelog_zh": [
+      "橋接至 Ash 版本 - 自動切換更新路徑",
+      "播放: 串流 VideoInfo 解析器 (冷啟動 42s->23s)",
+      "搜尋: 串流解析器 (12s->1.5s)",
+      "探索設定: 3 種模式、Pool 開關、46 種語言",
+      "時事: Google Trends、GDELT、Wikimedia 來源"
+    ]
+  },
   "31.45s+AS.49022c": {
     "versionCode": 2364,
     "changelog": [

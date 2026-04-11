@@ -798,6 +798,7 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
                         }, () -> {
                             handleLoadError(null);
                             savePoolCache(); // persist pool to disk for next launch
+                            saveTrendingCache(); // persist trending keywords
                         });
 
         mActions.add(updateAction);
@@ -1194,6 +1195,12 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
             new kotlin.Pair<>(ctx.getString(R.string.query_trending_2_title), ctx.getString(R.string.query_trending_2)),
             new kotlin.Pair<>(ctx.getString(R.string.query_trending_3_title), ctx.getString(R.string.query_trending_3))
         ));
+
+        // Load trending keyword cache from SharedPreferences
+        loadTrendingCache();
+
+        // Sync trending source preferences to TrendingKeywordManager
+        com.liskovsoft.youtubeapi.trending.TrendingKeywordManager.setEnabledSourcesMask(gd.getEnabledTrendingSources());
     }
 
     /**
@@ -1276,6 +1283,38 @@ public class BrowsePresenter extends BasePresenter<BrowseView> implements Sectio
                 java.io.File tsFile = new java.io.File(getContext().getCacheDir(), "home_pool_ts.txt");
                 java.nio.file.Files.write(cacheFile.toPath(), json.getBytes("UTF-8"));
                 java.nio.file.Files.write(tsFile.toPath(), String.valueOf(ts).getBytes("UTF-8"));
+            }
+        } catch (Exception e) {
+            // Write failed, non-critical
+        }
+    }
+
+    /** Load trending keyword cache from SharedPreferences */
+    private void loadTrendingCache() {
+        try {
+            android.content.SharedPreferences prefs = getContext().getSharedPreferences(
+                    "trending_cache", android.content.Context.MODE_PRIVATE);
+            String json = prefs.getString("trending_json", null);
+            long ts = prefs.getLong("trending_ts", 0);
+            if (json != null) {
+                com.liskovsoft.youtubeapi.trending.TrendingKeywordManager.loadFromJson(json, ts);
+            }
+        } catch (Exception e) {
+            // Cache miss
+        }
+    }
+
+    /** Save trending keyword cache to SharedPreferences */
+    private void saveTrendingCache() {
+        try {
+            String json = com.liskovsoft.youtubeapi.trending.TrendingKeywordManager.getCachedJson();
+            long ts = com.liskovsoft.youtubeapi.trending.TrendingKeywordManager.getCachedTimestamp();
+            if (json != null && !json.isEmpty()) {
+                getContext().getSharedPreferences("trending_cache", android.content.Context.MODE_PRIVATE)
+                        .edit()
+                        .putString("trending_json", json)
+                        .putLong("trending_ts", ts)
+                        .apply();
             }
         } catch (Exception e) {
             // Write failed, non-critical

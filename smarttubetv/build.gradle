@@ -29,7 +29,15 @@ def keystoreProperties = new Properties()
 if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 }
-def appVersionName = rootProject.file("VERSION").text.trim()
+// Ash version: {upstream_version}-AS.{commit_hash}
+def ashProps = new Properties()
+def ashPropsFile = rootProject.file("ash-base-version.properties")
+if (ashPropsFile.exists()) {
+    ashProps.load(new FileInputStream(ashPropsFile))
+}
+def upstreamVersion = ashProps.getProperty("upstream.version", "31.46")
+def commitHash = "git rev-parse --short=7 HEAD".execute(null, rootProject.projectDir).text.trim()
+def appVersionName = commitHash ? "${upstreamVersion}-AS.${commitHash}" : rootProject.file("VERSION").text.trim()
 
 // The first letter of the flavor name must be in uppercase
 if (new File("${projectDir}/google-services.json").exists() && (getGradle().getStartParameter().getTaskRequests().toString().contains("Stbeta") ||
@@ -58,7 +66,7 @@ android {
         applicationId "app.smarttube"
         minSdkVersion project.properties.minSdkVersion
         targetSdkVersion project.properties.targetSdkVersion
-        versionCode 2364
+        versionCode Integer.parseInt(ashProps.getProperty("upstream.versionCode", "2336")) + Integer.parseInt(ashProps.getProperty("fork.versionCodeOffset", "29"))
         versionName appVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
