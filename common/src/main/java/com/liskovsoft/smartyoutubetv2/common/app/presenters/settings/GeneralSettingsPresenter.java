@@ -162,7 +162,8 @@ public class GeneralSettingsPresenter extends BasePresenter<Void> {
 
         // Trending source enable/disable checkboxes
         List<OptionItem> trendingOptions = new ArrayList<>();
-        int[] trendingStrings = {R.string.trending_source_google, R.string.trending_source_gdelt, R.string.trending_source_wikimedia};
+        int[] trendingStrings = {R.string.trending_source_google, R.string.trending_source_gdelt,
+                R.string.trending_source_wikimedia, R.string.trending_source_tiktok, R.string.trending_source_reddit};
         for (int i = 0; i < trendingStrings.length; i++) {
             final int idx = i;
             trendingOptions.add(UiOptionItem.from(

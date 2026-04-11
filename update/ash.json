@@ -20,14 +20,14 @@
       "Playback: streaming VideoInfo parser (cold 42s->23s, warm -44%)",
       "Search: streaming parser (12s->1.5s)",
       "Discovery settings: 3 modes, pool toggles, 46 languages",
-      "Trending: Google Trends, GDELT, Wikimedia sources"
+      "Trending: Google Trends, GDELT, TikTok, Reddit, Wikimedia"
     ],
     "changelog_zh": [
       "Ash v1: 從舊 beta 頻道遷移更新路徑",
       "播放: 串流 VideoInfo 解析器 (冷啟動 42s->23s)",
       "搜尋: 串流解析器 (12s->1.5s)",
       "探索設定: 3 種模式、Pool 開關、46 種語言",
-      "時事: Google Trends、GDELT、Wikimedia 來源"
+      "時事: Google Trends、GDELT、TikTok、Reddit、Wikimedia"
     ]
   }
 }

@@ -806,6 +806,8 @@
     <string name="trending_source_google">Google Trends</string>
     <string name="trending_source_gdelt">GDELT Global News</string>
     <string name="trending_source_wikimedia">Wikimedia Popular</string>
+    <string name="trending_source_tiktok">TikTok Trends</string>
+    <string name="trending_source_reddit">Reddit Popular</string>
     <!-- Playback optimization -->
     <string name="playback_optimization">Playback optimization</string>
     <string name="playback_opt_auto">Auto — optimize on weak devices only</string>

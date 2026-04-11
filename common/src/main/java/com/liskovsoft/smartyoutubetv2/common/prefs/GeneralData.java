@@ -673,7 +673,7 @@ public class GeneralData implements ProfileChangeListener {
         mDiscoveryMode = Helpers.parseInt(split, 73, DISCOVERY_UNIFIED);
         mEnabledPools = Helpers.parseInt(split, 74, 0x3F);
         mPlaybackOptimization = Helpers.parseInt(split, 75, PLAYBACK_AUTO);
-        mEnabledTrendingSources = Helpers.parseInt(split, 76, 0x7); // all 3 enabled by default
+        mEnabledTrendingSources = Helpers.parseInt(split, 76, 0x1F); // all 5 enabled by default
     }
 
     public int getDiscoveryMode() { return mDiscoveryMode; }

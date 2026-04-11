@@ -781,6 +781,8 @@
   <string name="trending_source_google">Google 熱門趨勢</string>
   <string name="trending_source_gdelt">GDELT 全球新聞</string>
   <string name="trending_source_wikimedia">維基百科熱門</string>
+  <string name="trending_source_tiktok">TikTok 熱門</string>
+  <string name="trending_source_reddit">Reddit 熱門</string>
   <string name="playback_optimization">播放優化</string>
   <string name="playback_opt_auto">自動 — 僅在弱裝置上優化</string>
   <string name="playback_opt_force">強制優化 — 最高 720p30 2Mbps</string>
