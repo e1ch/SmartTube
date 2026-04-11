@@ -721,41 +721,5 @@
   <string name="header_blocked_channels">Kênh đã chặn</string>
   <string name="msg_no_blocked_channels">Không có kênh nào bị chặn</string>
   <string name="action_debug_info">Thông tin gỡ lỗi</string>
-    <!-- Search fallback queries -->
-    <string name="query_home_1_title">Thịnh hành</string>
-    <string name="query_home_1">MV nhạc mới</string>
-    <string name="query_home_2_title">Phổ biến</string>
-    <string name="query_home_2">video phổ biến hôm nay</string>
-    <string name="query_home_3_title">Đề xuất</string>
-    <string name="query_home_3">video hay nên xem</string>
-    <string name="query_trending_1_title">Phổ biến hôm nay</string>
-    <string name="query_trending_1">video phổ biến hôm nay nổi bật</string>
-    <string name="query_trending_2_title">Mới ra mắt</string>
-    <string name="query_trending_2">mới ra mắt trailer chính thức phim</string>
-    <string name="query_trending_3_title">Đáng xem</string>
-    <string name="query_trending_3">video hay nhất đề xuất phải xem</string>
-    <string name="query_home_d1_title">Phim</string>
-    <string name="query_home_d1">phim mới trailer tiếng Việt</string>
-    <string name="query_home_d2_title">Du lịch</string>
-    <string name="query_home_d2">du lịch vlog địa điểm đẹp nhất</string>
-    <string name="query_home_d3_title">Phim tài liệu</string>
-    <string name="query_home_d3">phim tài liệu TED câu chuyện truyền cảm hứng</string>
-    <!-- Pool E: Anime / Animation -->
-    <string name="query_home_e1_title">Anime</string>
-    <string name="query_home_e1">anime mùa mới trailer xem trước</string>
-    <string name="query_home_e2_title">Hoạt hình</string>
-    <string name="query_home_e2">phim hoạt hình series mới tập mới</string>
-    <string name="query_home_e3_title">Truyện tranh</string>
-    <string name="query_home_e3">manga anime</string>
-    <string name="discovery_settings">Content Discovery</string>
-    <string name="discovery_mode_unified">Unified — all in "For You ✦"</string>
-    <string name="discovery_mode_rotating">Rotating — 2 pools per refresh</string>
-    <string name="discovery_mode_all_expanded">All expanded — show all pools</string>
-    <string name="discovery_enabled_pools">Enabled content pools</string>
-    <string name="discovery_pool_a">Pool A — Music</string>
-    <string name="discovery_pool_b">Pool B — Lifestyle</string>
-    <string name="discovery_pool_c">Pool C — Mixed/Trending</string>
-    <string name="discovery_pool_d">Pool D — Movies/Travel/Knowledge</string>
-    <string name="discovery_pool_e">Pool E — Anime/Animation</string>
-    <string name="discovery_pool_lang">Language Discovery</string>
+  <string name="color_scheme_dark_blue_oled">Xanh biển tối (OLED)</string>
 </resources>
