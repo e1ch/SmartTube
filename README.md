@@ -246,6 +246,37 @@ Example: 31.46-AS.7216816
 
 Version tracking: [`ash-base-version.properties`](ash-base-version.properties)
 
+### Upstream Patch Build CI/CD
+
+Ash APKs are built from the original SmartTube source plus patches:
+
+- Original source: [`yuliskov/SmartTube`](https://github.com/yuliskov/SmartTube)
+- Patch build script: [`scripts/build-upstream-with-patches.sh`](scripts/build-upstream-with-patches.sh)
+- Patch apply script: [`scripts/apply-ash-patches.sh`](scripts/apply-ash-patches.sh)
+- Patch series manifest: [`patches/series.conf`](patches/series.conf)
+- Operating guide: [`docs/automation/upstream-patch-build.md`](docs/automation/upstream-patch-build.md)
+- Roadmap / confirmed issues: [`docs/roadmap.md`](docs/roadmap.md)
+- Original SmartTube issue triage: [`docs/upstream-issue-triage.md`](docs/upstream-issue-triage.md)
+
+The release workflow clones upstream SmartTube into a temporary build tree, initializes upstream submodules, generates the Ash fork patch series from this repository, applies submodule deltas separately, applies explicit overlay patches listed in `patches/series.conf`, and builds APKs from that patched upstream tree.
+
+---
+
+## Experimental Media Sources
+
+Ash can add third-party video indexes such as `8movie.com`, but they must route through the same SmartTube playback path instead of embedding a separate site player.
+
+Design contracts:
+
+- External adapters return normalized media items with provider id, content id, episode id, playback URL or resolver token, and provider-scoped headers/cookies.
+- Google OAuth tokens and YouTube cookies are never sent to third-party providers.
+- Episode switching happens inside the active player session when possible.
+- Resume/history writes are scoped to the active Google profile when signed in, or to an anonymous local scope otherwise.
+
+The first implementation is stored as [`patches/experimental/8movie-shared-player.patch`](patches/experimental/8movie-shared-player.patch). It adds an experimental 8movie Home row, provider-scoped URL resolution, shared ExoPlayer playback, and provider-driven next-episode playback.
+
+See [`docs/media-source-architecture.md`](docs/media-source-architecture.md), [`docs/account-sync-startup-order.md`](docs/account-sync-startup-order.md), and [`docs/automation/upstream-patch-build.md`](docs/automation/upstream-patch-build.md).
+
 ---
 
 ## Search — Streaming Parser

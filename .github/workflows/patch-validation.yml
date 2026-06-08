@@ -1,0 +1,67 @@
+name: Patch Validation
+
+on:
+  pull_request:
+  push:
+    branches:
+      - "codex/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  patch-check:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: ash-base
+            upstream_ref: ash-base
+            allow_failure: false
+          - name: latest-upstream
+            upstream_ref: master
+            allow_failure: true
+
+    steps:
+      - name: Checkout patch repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: recursive
+
+      - name: Static script checks
+        run: |
+          bash -n scripts/apply-ash-patches.sh scripts/build-upstream-with-patches.sh scripts/generate-upstream-report.sh scripts/generate-upstream-issues-report.sh
+          git diff --check
+
+      - name: Validate explicit overlay patches
+        run: |
+          while IFS= read -r entry || [ -n "$entry" ]; do
+            entry="${entry%%#*}"
+            entry="$(printf '%s' "$entry" | xargs)"
+            [ -z "$entry" ] && continue
+            test -f "patches/$entry"
+          done < patches/series.conf
+
+      - name: Patch original SmartTube without building APK
+        id: patch
+        continue-on-error: ${{ matrix.allow_failure }}
+        env:
+          SKIP_BUILD: "true"
+          UPSTREAM_REF: ${{ matrix.upstream_ref }}
+          BUILD_ROOT: ${{ runner.temp }}/smarttube-${{ matrix.name }}
+        run: |
+          scripts/build-upstream-with-patches.sh
+
+      - name: Report latest upstream conflicts
+        if: ${{ matrix.allow_failure && steps.patch.outcome == 'failure' }}
+        run: |
+          {
+            echo "## Latest upstream patch check"
+            echo
+            echo "Patching latest upstream failed. This lane is informational and does not block Ash patch maintenance."
+            echo
+            echo "Keep release builds on \`ash-base\` until the upstream conflict set is resolved."
+          } >> "$GITHUB_STEP_SUMMARY"
