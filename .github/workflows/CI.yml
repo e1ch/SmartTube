@@ -3,7 +3,14 @@ name: Build & Release
 on:
   push:
     branches: [ "master" ]
+  schedule:
+    - cron: "30 3 * * *"
   workflow_dispatch:
+    inputs:
+      upstream_ref:
+        description: "Original SmartTube branch/tag/ref to patch"
+        required: false
+        default: "ash-base"
 
 permissions:
   contents: write
@@ -17,64 +24,39 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           submodules: recursive
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v5
+        uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
           cache: 'gradle'
 
-      - name: Get Version Info
-        id: get_version
+      - name: Build original SmartTube with Ash patches
+        id: build
+        env:
+          UPSTREAM_REF: ${{ inputs.upstream_ref || 'ash-base' }}
+          SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
+          KEY_STORE_PASSWORD: ${{ secrets.KEY_STORE_PASSWORD }}
+          ALIAS: ${{ secrets.ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
         run: |
-          VERSION_NAME=$(sed -n '1p' VERSION)
-          VERSION_CODE=$(grep "versionCode" smarttubetv/build.gradle | head -n 1 | awk '{print $2}')
-          echo "VERSION_NAME=$VERSION_NAME" >> $GITHUB_OUTPUT
-          echo "VERSION_CODE=$VERSION_CODE" >> $GITHUB_OUTPUT
-          echo "Version: $VERSION_NAME (code: $VERSION_CODE)"
-
-      - name: Configure Build Signing
-        if: ${{ env.HAS_SIGNING_KEY == 'true' }}
-        run: |
-          echo "storePassword=${{ secrets.KEY_STORE_PASSWORD }}" > keystore.properties
-          echo "keyAlias=${{ secrets.ALIAS }}" >> keystore.properties
-          echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> keystore.properties
-          echo "storeFile=${{ github.workspace }}/key.jks" >> keystore.properties
-          echo "${{ secrets.SIGNING_KEY }}" | base64 --decode > ${{ github.workspace }}/key.jks
-          # Also replace debug keystore so debug builds match local signing
-          mkdir -p ~/.android
-          echo "${{ secrets.SIGNING_KEY }}" | base64 --decode > ~/.android/debug.keystore
-
-      - name: Grant Gradle permissions
-        run: chmod +x gradlew
-
-      - name: Build Beta APKs
-        run: ./gradlew assembleStbetaDebug
-
-      - name: Build Stable APKs
-        run: ./gradlew assembleStstableDebug
-
-      - name: Prepare Release Assets
-        id: prepare
-        run: |
-          mkdir -p release_assets
-          # Beta APKs (rename to remove version for stable download URLs)
-          for abi in armeabi-v7a arm64-v8a x86 universal; do
-            cp smarttubetv/build/outputs/apk/stbeta/debug/*_${abi}.apk release_assets/SmartTube_beta_${abi}.apk
-            cp smarttubetv/build/outputs/apk/ststable/debug/*_${abi}.apk release_assets/SmartTube_stable_${abi}.apk
-          done
+          chmod +x scripts/apply-ash-patches.sh scripts/build-upstream-with-patches.sh
+          scripts/build-upstream-with-patches.sh
           ls -la release_assets/
 
       - name: Generate Release Notes
         run: |
           {
-            echo "## v${{ steps.get_version.outputs.VERSION_NAME }} (build ${{ github.run_number }})"
+            echo "## v${{ steps.build.outputs.VERSION_NAME }} (build ${{ github.run_number }})"
             echo
-            echo "Auto-built from commit \`${{ github.sha }}\`"
+            echo "Auto-built from original SmartTube \`${{ steps.build.outputs.UPSTREAM_RESOLVED_REF }}\` + Ash patches at commit \`${{ github.sha }}\`"
+            echo
+            echo "Patch base: \`${{ steps.build.outputs.PATCH_BASE_REF }}\`"
             echo
             if [ -f .github/release-notes.md ]; then
               cat .github/release-notes.md
@@ -102,16 +84,16 @@ jobs:
       - name: Create Release
         run: |
           gh release create release \
-            --title "v${{ steps.get_version.outputs.VERSION_NAME }}" \
+            --title "v${{ steps.build.outputs.VERSION_NAME }}" \
             --notes-file release_notes.txt \
             release_assets/*
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload Artifacts (backup)
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
-          name: SmartTube_v${{ steps.get_version.outputs.VERSION_NAME }}
+          name: SmartTube_v${{ steps.build.outputs.VERSION_NAME }}
           path: release_assets/*.apk
           if-no-files-found: error
           retention-days: 3

@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           submodules: false
@@ -29,16 +29,22 @@ jobs:
 
       - name: Generate Upstream Report
         run: |
-          chmod +x scripts/generate-upstream-report.sh
+          chmod +x scripts/generate-upstream-report.sh scripts/generate-upstream-issues-report.sh
           scripts/generate-upstream-report.sh upstream master upstream_report.md
+          scripts/generate-upstream-issues-report.sh yuliskov/SmartTube upstream_issues_report.md
 
       - name: Publish Summary
-        run: cat upstream_report.md >> "$GITHUB_STEP_SUMMARY"
+        run: |
+          cat upstream_report.md >> "$GITHUB_STEP_SUMMARY"
+          echo >> "$GITHUB_STEP_SUMMARY"
+          cat upstream_issues_report.md >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload Report
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
           name: upstream-watch-report
-          path: upstream_report.md
+          path: |
+            upstream_report.md
+            upstream_issues_report.md
           if-no-files-found: error
           retention-days: 7
